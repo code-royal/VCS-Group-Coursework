@@ -1,0 +1,85 @@
+:root {
+    /* colors */
+    --primary : #3B6D6A;
+    --primary-hover: #4F8F8B;
+    --secondary: #D4AF37;
+    --secondary-hover: #E6C25E;
+    --tertiary: #8A2E2E;
+    --tertiary-hover: #A63A3A;
+
+    --text-primary: #1C1712;
+    --text-secondary: #4A4239;
+    --text-tertiary: #7A7368;
+    --background: #FAF7F2;
+    --surface: #FFFFFF;
+    --surface-hover: #EDE7DD;
+    --border: #E0DBD2;
+    --border-hover: #CFC7BC;
+
+
+    /* fonts */
+    --headings : "Libre Baskerville", serif;
+    --body-text : "Plus Jakarta Sans", sans-serif;
+    
+}
+
+.dark-theme {
+    --text-primary: #F3F1EE;
+    --text-secondary: #C8C2B8;
+    --text-tertiary: #8E867A;
+    --background: #1C1712;
+    --surface: #251F1A;
+    --surface-hover: #3A3129;
+    --border: #4A4239;
+    --border-hover: #6A5D4D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-text);
+    color: var(--text-primary);
+    background-color: var(--background);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--headings);
+    color: var(--text-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    font: inherit;
+    background: none;
+}
