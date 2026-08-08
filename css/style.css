@@ -1,6 +1,6 @@
 :root {
     /* colors */
-    --primary : #3B6D6A;
+    --primary: #3B6D6A;
     --primary-hover: #4F8F8B;
     --secondary: #D4AF37;
     --secondary-hover: #E6C25E;
@@ -18,9 +18,8 @@
 
 
     /* fonts */
-    --headings : "Libre Baskerville", serif;
-    --body-text : "Plus Jakarta Sans", sans-serif;
-    
+    --headings: "Libre Baskerville", serif;
+    --body-text: "Plus Jakarta Sans", sans-serif;
 }
 
 .dark-theme {
@@ -77,9 +76,224 @@ ul {
     list-style: none;
 }
 
-button{
+button {
     cursor: pointer;
     border: none;
     font: inherit;
     background: none;
 }
+
+.container {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+}
+
+/* consistent font styles */
+
+.display-text {
+    font-family: var(--headings);
+    font-size: 56px;
+    line-height: 72px;
+    font-weight: 600;
+}
+
+.heading-1 {
+    font-family: var(--headings);
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 700;
+}
+
+.heading-2 {
+    font-family: var(--headings);
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 400;
+}
+
+.heading-3 {
+    font-family: var(--headings);
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.heading-4 {
+    font-family: var(--headings);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
+.heading-5 {
+    font-family: var(--body-text);
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+.body-large {
+    font-family: var(--body-text);
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.body {
+    font-family: var(--body-text);
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+.body-small {
+    font-family: var(--body-text);
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.caption {
+    font-family: var(--body-text);
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.navigation-text {
+    font-family: var(--body-text);
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    opacity: 0.7;
+    transition:
+        border-color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.navigation-text:hover {
+    border-bottom-color: var(--primary-hover);
+    opacity: 1;
+}
+
+/* button styling */
+.primary-btn {
+    background-color: var(--tertiary);
+    color: white;
+    padding: 8px 32px;
+    border-radius: 24px;
+    font-size: small;
+    font-weight: 600;
+}
+
+.primary-btn:hover {
+    background-color: var(--tertiary-hover);
+    transition: all ease 0.3s;
+}
+
+.outline-btn {
+    color: var(--tertiary);
+    padding: 6px 32px;
+    border: 2px solid var(--tertiary);
+    border-radius: 24px;
+    font-size: small;
+    font-weight: 600;
+}
+
+.outline-btn:hover {
+    background-color: var(--tertiary);
+    color: white;
+    transition: all ease 0.3s;
+}
+
+/* logo styling */
+.logo {
+    color: var(--text-primary);
+}
+
+.logo a span {
+    color: var(--primary);
+}
+
+/* nav bar styling */
+nav {
+    background-color: var(--surface);
+}
+
+.nav-active {
+    opacity: 1;
+    border-bottom: 3px solid var(--primary-hover);
+}
+
+.nav {
+    padding: 8px 0px;
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .nav-menu-container {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+}
+
+.nav .nav-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.nav .config {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.theme-toggle:hover .nav-icon {
+    color: var(--primary-hover);
+    transform: rotate(20deg);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+
+    color: var(--text-primary);
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sun-icon {
+    display: none;
+}
+
+.dark-theme .moon-icon {
+    display: none;
+}
+
+.dark-theme .sun-icon {
+    display: block;
+}    

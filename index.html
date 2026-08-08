@@ -12,9 +12,198 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
+    <style>
+        .hero-section {
+            padding: 84px 0px;
+            background-color: var(--surface-hover);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-description {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .search-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--surface);
+            width: 75%;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .search-box #hero-search-input {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: var(--surface);
+            color: var(--text-primary);
+        }
+
+        .hero-search-btn {
+            background-color: var(--tertiary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: small;
+        }
+
+        .hero-search-btn:hover {
+            background-color: var(--tertiary-hover);
+            transition: all ease 0.3s;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 45%;
+            border-radius: 20px;
+            box-shadow: 0px 2px 24px var(--border-hover);
+        }
+
+        .hero-image {
+            border-radius: 20px;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            left: -36px;
+            bottom: -16px;
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--background);
+            padding: 12px 16px;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="nav">
+                <h1 class="logo">
+                    <a href="./index.html">
+                        Explore <span>Kathmandu</span>
+                    </a>
+                </h1>
+                <div class="nav-menu-container">
+                    <div class="nav-menu">
+                        <a class="navigation-text nav-active" href="./index.html">
+                            Home
+                        </a>
+                        <a class="navigation-text" href="./explore.html">
+                            Explore
+                        </a>
+                        <a class="navigation-text" href="./itinerary.html">
+                            Itinerary
+                        </a>
+                        <a class="navigation-text" href="./guide.html">
+                            Travel Tips
+                        </a>
+                        <a class="navigation-text" href="./about.html">
+                            About
+                        </a>
+                    </div>
+                    <div class="config">
+                        <a href="" class="profile-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="nav-icon">
+                                <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
+                                <circle cx="12" cy="11" r="4" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                        </a>
+                        <button class="theme-toggle" aria-label="Toggle theme">
+
+                            <!-- Moon: shown in light mode -->
+                            <svg class="nav-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+
+                                <path
+                                    d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                            </svg>
+
+                            <!-- Sun: shown in dark mode -->
+                            <svg class="nav-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+
+                                <circle cx="12" cy="12" r="4" />
+
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section">
+            <div class="container hero">
+                <div class="hero-description">
+                    <p class="caption" style="color: var(--tertiary);">KATHMANDU VALLEY TRAVEL GUIDE</p>
+                    <h1 class="display-text">Discover the Heart of <span style="color: var(--primary);">Kathmandu</span>
+                    </h1>
+                    <p class="body-large" style="color: var(--text-secondary);">Explore temples, food, culture, nature,
+                        and hidden<br>gems in Nepal's vibrant capital.</p>
+                    <div class="search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-search-icon lucide-search">
+                            <path d="m21 21-4.34-4.34" />
+                            <circle cx="11" cy="11" r="8" />
+                        </svg>
+                        <input type="text" name="search-bar" id="hero-search-input"
+                            placeholder="Search destinations...">
+                        <button class="hero-search-btn">Search</button>
+                    </div>
+                    <div class="hero-btns">
+                        <button class="primary-btn">Explore Places</button>
+                        <button class="outline-btn">Build Your Itinerary</button>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="./images/Hero-Img.jpg" class="hero-image" alt="Kathmandu Streets">
+                    <div class="hero-image-overlay">
+                        <div class="heading-4" style="color: var(--tertiary); font-weight: 800;">25+</div>
+                        <div class="caption">hand-picked places <br> across the valley</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <script src="js/script.js"></script>
 </body>
 
