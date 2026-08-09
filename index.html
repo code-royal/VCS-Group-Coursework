@@ -94,6 +94,25 @@
             padding: 12px 16px;
             border-radius: 20px;
         }
+
+
+        /* featured destinations section styling */
+        .featured-destinations {
+            padding: 64px 0px;
+        }
+
+        .featured-destinations-content {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        #featured-destinations-container {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
     </style>
 </head>
 
@@ -202,9 +221,25 @@
                 </div>
             </div>
         </section>
+
+        <section class="featured-destinations">
+            <div class="container">
+                <div class="featured-destinations-content">
+                    <div class="title-container">
+                        <p class="title-top caption">FEATURED</p>
+                        <h2 class="title-main heading-4">Featured Destinations</h2>
+                        <p class="title-description body">A first taste of what's waiting for you in the valley - from
+                            ancient stupas to hillside sunrise views.</p>
+                    </div>
+                    <div class="featured-destinations-container" id="featured-destinations-container">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/destinations.js"></script>
 </body>
 
 </html>
