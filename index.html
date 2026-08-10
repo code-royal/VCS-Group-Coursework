@@ -113,6 +113,187 @@
             gap: 16px;
             flex-wrap: wrap;
         }
+
+
+        /* why explore kathmandu section styling */
+        .why-explore-kathmandu {
+            background-color: var(--surface-hover);
+            padding: 64px 0px;
+        }
+
+        .why-explore {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .reasons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .reason-card {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 388px;
+            background-color: var(--surface);
+            border-top: 6px solid var(--tertiary-hover);
+            border-radius: 16px;
+            padding: 16px 24px 24px;
+        }
+
+        .reason-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .reason-title {
+            color: var(--text-primary);
+        }
+
+        .reason-description {
+            color: var(--text-secondary);
+        }
+
+
+        /* traveller stories section styling */
+        .traveller-stories-section {
+            padding: 64px 0px;
+        }
+
+        .traveller-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .traveller-stories-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .story-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 24px;
+            max-width: 388px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .story-card .ratings {
+            color: var(--secondary-hover);
+        }
+
+        .story-card .content {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .story-card .traveller-profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .traveller-profile-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            border-radius: 50%;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .traveller-profile .traveller-profile-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .traveller-profile-details .traveller-name {
+            font-family: var(--body-text);
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .traveller-profile-details .traveller-address {
+            font-family: var(--body-text);
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+
+        /* subscription section styling */
+        .subscription-section {
+            padding: 64px 0px;
+        }
+
+        .subscription {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--tertiary);
+            padding: 36px 64px 36px 0px;
+            border-radius: 24px;
+        }
+
+        .subscription-content {
+            max-width: min(60%, 960px);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .subscription-content-title {
+            color: #ffffff;
+        }
+
+        .subscription-content-body {
+            color: #e9e1d4;
+        }
+
+        .subscription-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .email-input-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 12px 24px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .email-input-box #subscription-email-input {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: #ffffff;
+            color: #4A4239;
+        }
+
+        .subscribe-btn {
+            max-width: fit-content;
+        }
     </style>
 </head>
 
@@ -236,6 +417,144 @@
                 </div>
             </div>
         </section>
+
+        <section class="why-explore-kathmandu">
+            <div class="why-explore container">
+                <div class="title-container">
+                    <p class="title-top caption">WHY EXPLORE KATHMANDU</p>
+                    <h2 class="title-main heading-4">Planning Your Trip, Made Easy</h2>
+                </div>
+                <div class="reasons">
+                    <div class="reason-card">
+                        <p reason-emoji>🧭</p>
+                        <div class="reason-content">
+                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
+                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
+                                not just the tourist-brochure list.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card">
+                        <p reason-emoji>🗓️</p>
+                        <div class="reason-content">
+                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
+                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
+                                not just the tourist-brochure list.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card">
+                        <p reason-emoji>❤️</p>
+                        <div class="reason-content">
+                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
+                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
+                                not just the tourist-brochure list.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="traveller-stories-section">
+            <div class="traveller-stories container">
+                <div class="title-container">
+                    <p class="title-top caption">TRAVELLER STORIES</p>
+                    <h2 class="title-main heading-4">What Visitors Are Saying</h2>
+                </div>
+                <div class="traveller-stories-container">
+                    <div class="story-card">
+                        <div class="ratings">&starf;&starf;&starf;&starf;&starf;</div>
+                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
+                            but relaxed days planned before we even landed.</p>
+                        <div class="traveller-profile">
+                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-details">
+                                <h6 class="traveller-name">Jessica J.</h6>
+                                <p class="traveller-address">Florida, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="ratings">&starf;&starf;&starf;&starf;&starf;</div>
+                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
+                            but relaxed days planned before we even landed.</p>
+                        <div class="traveller-profile">
+                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-details">
+                                <h6 class="traveller-name">Jessica J.</h6>
+                                <p class="traveller-address">Florida, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="ratings">&starf;&starf;&starf;&starf;&star;</div>
+                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
+                            but relaxed days planned before we even landed.</p>
+                        <div class="traveller-profile">
+                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-details">
+                                <h6 class="traveller-name">Jessica J.</h6>
+                                <p class="traveller-address">Florida, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscription-section">
+            <div class="container subscription">
+                <div class="subscription-content">
+                    <h3 class="subscription-content-title heading-3">Get trip ideas in your inbox</h3>
+                    <p class="subscription-content-body body">Occasional tips on new destinations, seasonal events, and
+                        hidden gems. No spam, unsubscribe any time.</p>
+                </div>
+                <form action="" class="subscription-form">
+                    <div class="email-input-box">
+                        <input type="text" name="email-input" id="subscription-email-input"
+                            placeholder="you@example.com">
+                    </div>
+                    <button class="subscribe-btn secondary-btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer container">
+                <div class="footer-main">
+                    <div class="footer-content">
+                        <h3 class="footer-logo">
+                            <a href="./index.html">
+                                Explore <span>Kathmandu</span>
+                            </a>
+                        </h3>
+                        <p class="footer-description body-small">An independent travel guide helping visitors and locals discover the best of the Kathmandu Valley.</p>
+                    </div>
+                    <div class="footer-quick-links">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <a class="footer-navigation-text" href="./index.html">Home</a>
+                        <a class="footer-navigation-text" href="./explore.html">Explore</a>
+                        <a class="footer-navigation-text" href="./itinerary.html">Itinerary</a>
+                    </div>
+                    <div class="footer-guides">
+                        <h4 class="footer-title">Guide</h4>
+                        <a class="footer-navigation-text" href="">Travel Tips</a>
+                        <a class="footer-navigation-text" href="">About Us</a>
+                        <a class="footer-navigation-text" href="">Temples & Heritage</a>
+                        <a class="footer-navigation-text" href="">Food & Cafés</a>
+                    </div>
+                    <div class="footer-contact">
+                        <h4 class="footer-title">Contact</h4>
+                        <p class="footer-contact-details body-small">Thamel, Kathmandu 44600, Nepal</p>
+                        <p class="footer-contact-details body-small">explore.kathmandu@gmail.com</p>
+                        <p class="footer-contact-details body-small">+977 98-01234567</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-bottom-text caption">&copy; 2026 Explore Kathmandu. All rights reserved.</p>
+                    <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government
+                        tourism board. Prices & hours are estimates.</p>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <script src="./js/script.js"></script>
