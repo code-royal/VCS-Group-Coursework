@@ -12,6 +12,112 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
+    <style>
+        .explore-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* filter section styling */
+        .search-section {
+            padding: 16px 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--surface);
+            width: 75%;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .search-box #search-input {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: var(--surface);
+            color: var(--text-primary);
+        }
+
+        .search-btn {
+            background-color: var(--tertiary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: small;
+        }
+
+        .search-btn:hover {
+            background-color: var(--tertiary-hover);
+            transition: all ease 0.3s;
+        }
+
+        .search-and-filter-section {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--surface-hover);
+            padding: 24px 0px;
+        }
+
+        .filter-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #category-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .category-selection-form {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+        }
+
+        .category-options {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-secondary);
+        }
+
+        .category-options:hover,
+        .category-checkbox:hover,
+        label:hover {
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* destinations section styling */
+        .destinations-section {
+            padding: 48px 0px;
+        }
+
+        #destination-not-found {
+            padding: 64px 0px;
+            justify-content: center;
+            display: none;
+        }
+
+        #destinations-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,7 +191,125 @@
             </div>
         </nav>
     </header>
-    <script src="js/script.js"></script>
+
+    <main class="explore-main">
+
+        <!-- filter section -->
+        <section class="search-and-filter-section">
+            <div class="container">
+                <div class="search-section">
+                    <div class="search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-search-icon lucide-search">
+                            <path d="m21 21-4.34-4.34" />
+                            <circle cx="11" cy="11" r="8" />
+                        </svg>
+                        <input type="text" name="search-bar" id="search-input"
+                            placeholder="Search destinations...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div id="category-section">
+                        <h2 class="heading-5" style="color: var(--text-primary);">Category</h2>
+                        <form action="" class="category-selection-form">
+                            <div class="category-options"><input type="checkbox" name="religious" id="religious"
+                                    value="religious" class="category-checkbox">
+                                <label for="religious" class="body-small">Religious</label>
+                            </div>
+                            <div class="category-options"><input type="checkbox" name="heritage" id="heritage"
+                                    value="heritage" class="category-checkbox">
+                                <label for="heritage" class="body-small">Heritage</label>
+                            </div>
+                            <div class="category-options"><input type="checkbox" name="shopping" id="shopping"
+                                    value="shopping" class="category-checkbox">
+                                <label for="shopping" class="body-small">Shopping Centre</label>
+                            </div>
+                            <div class="category-options"><input type="checkbox" name="market" id="market"
+                                    value="market" class="category-checkbox">
+                                <label for="market" class="body-small">Market</label>
+                            </div>
+                            <div class="category-options"><input type="checkbox" name="nature" id="nature"
+                                    value="nature" class="category-checkbox">
+                                <label for="nature" class="body-small">Nature</label>
+                            </div>
+                            <div class="category-options"><input type="checkbox" name="café" id="café" value="café"
+                                    class="category-checkbox">
+                                <label for="café" class="body-small">Café</label>
+                            </div>
+                            <div class="category-options"><input type="checkbox" name="park" id="park" value="park"
+                                    class="category-checkbox">
+                                <label for="park" class="body-small">Park</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="sorting-section">
+                        <h2 class="heading-5" style="color: var(--text-primary);">Sort By</h2>
+                        <form action="" class=" sorting-form">
+                            <select name="sorting-system" id="sorting-system">
+                                <option value="alphabetical-order">A-Z</option>
+                                <option value="ratings">Ratings</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations-section">
+            <div class="container">
+                <p id="destination-not-found">
+                    Destination not found.
+                </p>
+                <div class="destinations-container" id="destinations-container">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer container">
+            <div class="footer-main">
+                <div class="footer-content">
+                    <h3 class="footer-logo">
+                        <a href="./index.html">
+                            Explore <span>Kathmandu</span>
+                        </a>
+                    </h3>
+                    <p class="footer-description body-small">An independent travel guide helping visitors and locals
+                        discover the best of the Kathmandu Valley.</p>
+                </div>
+                <div class="footer-quick-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a class="footer-navigation-text" href="./index.html">Home</a>
+                    <a class="footer-navigation-text" href="./explore.html">Explore</a>
+                    <a class="footer-navigation-text" href="./itinerary.html">Itinerary</a>
+                </div>
+                <div class="footer-guides">
+                    <h4 class="footer-title">Guide</h4>
+                    <a class="footer-navigation-text" href="./guide.html">Travel Tips</a>
+                    <a class="footer-navigation-text" href="./about.html">About Us</a>
+                    <a class="footer-navigation-text" href="">Temples & Heritage</a>
+                    <a class="footer-navigation-text" href="">Food & Cafés</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p class="footer-contact-details body-small">Thamel, Kathmandu 44600, Nepal</p>
+                    <p class="footer-contact-details body-small">explore.kathmandu@gmail.com</p>
+                    <p class="footer-contact-details body-small">+977 98-01234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-bottom-text caption">&copy; 2026 Explore Kathmandu. All rights reserved.</p>
+                <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government
+                    tourism board. Prices & hours are estimates.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+    <script src="./js/destinations.js"></script>
 </body>
 
 </html>

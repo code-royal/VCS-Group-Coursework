@@ -44,7 +44,7 @@
             border-radius: 24px;
         }
 
-        .search-box #hero-search-input {
+        .search-box #search-input {
             outline: none;
             border: none;
             width: 100%;
@@ -52,7 +52,7 @@
             color: var(--text-primary);
         }
 
-        .hero-search-btn {
+        .search-btn {
             background-color: var(--tertiary);
             color: white;
             padding: 4px 10px;
@@ -60,7 +60,7 @@
             font-size: small;
         }
 
-        .hero-search-btn:hover {
+        .search-btn:hover {
             background-color: var(--tertiary-hover);
             transition: all ease 0.3s;
         }
@@ -377,20 +377,13 @@
                     </h1>
                     <p class="body-large" style="color: var(--text-secondary);">Explore temples, food, culture, nature,
                         and hidden<br>gems in Nepal's vibrant capital.</p>
-                    <div class="search-box">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-search-icon lucide-search">
-                            <path d="m21 21-4.34-4.34" />
-                            <circle cx="11" cy="11" r="8" />
-                        </svg>
-                        <input type="text" name="search-bar" id="hero-search-input"
-                            placeholder="Search destinations...">
-                        <button class="hero-search-btn">Search</button>
-                    </div>
                     <div class="hero-btns">
-                        <button class="primary-btn">Explore Places</button>
-                        <button class="outline-btn">Build Your Itinerary</button>
+                        <a href="./explore.html">
+                            <button class="primary-btn">Explore Places</button>
+                        </a>
+                        <a href="./guide.html">
+                            <button class="outline-btn">Build Your Itinerary</button>
+                        </a>
                     </div>
                 </div>
                 <div class="hero-image-container">
@@ -536,8 +529,8 @@
                     </div>
                     <div class="footer-guides">
                         <h4 class="footer-title">Guide</h4>
-                        <a class="footer-navigation-text" href="">Travel Tips</a>
-                        <a class="footer-navigation-text" href="">About Us</a>
+                        <a class="footer-navigation-text" href="./guide.html">Travel Tips</a>
+                        <a class="footer-navigation-text" href="./about.html    ">About Us</a>
                         <a class="footer-navigation-text" href="">Temples & Heritage</a>
                         <a class="footer-navigation-text" href="">Food & Cafés</a>
                     </div>
