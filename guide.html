@@ -12,6 +12,760 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    background-color: #191510;
+    color: #d8d0c9;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   TRAVEL TIPS SECTION
+========================================= */
+
+.travel-section {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 60px 30px 50px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.header h1 {
+    color: #a93232;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 18px;
+}
+
+.header p {
+    color: #aaa19a;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================
+   TRAVEL CARDS
+========================================= */
+
+.tips-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+
+    padding: 0;
+}
+
+.tip-card {
+    background-color: #211d19;
+
+    border: 1px solid #36312b;
+
+    border-radius: 12px;
+
+    min-height: 280px;
+
+    padding: 25px 22px;
+}
+
+
+/* =========================================
+   CARD TITLE
+========================================= */
+
+.tip-card h2 {
+    color: #ddd5ce;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   CARD DESCRIPTION
+========================================= */
+
+.description {
+    color: #a9a099;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   CARD LIST
+========================================= */
+
+.tip-card ul {
+    padding-left: 20px;
+
+    color: #aaa29b;
+}
+
+.tip-card li {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    padding-left: 3px;
+
+    margin-bottom: 6px;
+}
+
+.tip-card li::marker {
+    font-size: 9px;
+
+    color: #b4aca5;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    text-align: center;
+}
+
+.section-heading span {
+    display: block;
+
+    color: #a93232;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    color: #ddd5ce;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   NEPALI PHRASES
+========================================= */
+
+.phrases-section {
+    width: 100%;
+
+    margin-top: 60px;
+}
+
+.phrases-table {
+    width: 600px;
+
+    margin: 25px auto 0;
+
+    padding: 15px 20px;
+
+    background-color: #211d19;
+
+    border: 1px solid #36312b;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================
+   PHRASE ROW
+========================================= */
+
+.phrase-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    border-bottom: 1px solid #39332d;
+}
+
+.phrase-row:last-child {
+    border-bottom: none;
+}
+
+.phrase-row span {
+    color: #d2cbc4;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+.phrase-row span:last-child {
+    color: #a9a19a;
+}
+
+
+/* =========================================
+   FAQ
+========================================= */
+
+.faq-section {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 70px auto 0;
+
+    padding: 0 30px;
+}
+
+.faq-heading {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   FAQ LIST
+========================================= */
+
+.faq-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================================
+   FAQ ITEM
+========================================= */
+
+.faq-item {
+    width: 100%;
+
+    background-color: #211d19;
+
+    border: 1px solid #36312b;
+
+    border-radius: 9px;
+}
+
+
+/* =========================================
+   FAQ QUESTION
+========================================= */
+
+.faq-question {
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 22px;
+}
+
+.faq-question span:first-child {
+    color: #ddd8d3;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   PLUS ICON
+========================================= */
+
+.plus {
+    color: #a93232;
+
+    font-size: 26px;
+
+    font-weight: bold;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 80px auto 0;
+
+    padding: 0 30px 15px;
+}
+
+
+/* =========================================
+   FOOTER CONTENT
+========================================= */
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns: 1.8fr 0.9fr 1.1fr 1.3fr;
+
+    column-gap: 45px;
+
+    padding-bottom: 30px;
+}
+
+
+/* =========================================
+   FOOTER COLUMN
+========================================= */
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================
+   ABOUT HEADING
+========================================= */
+
+.about-column h3 {
+    color: #ddd5ce;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+.about-column h3 span {
+    color: #478b91;
+}
+
+
+/* =========================================
+   FOOTER HEADING
+========================================= */
+
+.footer-column h4 {
+    color: #ddd5ce;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   FOOTER TEXT
+========================================= */
+
+.footer-column p {
+    color: #a49d96;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================
+   FOOTER LINKS
+========================================= */
+
+.footer-column a {
+    color: #a49d96;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #c8c0b9;
+}
+
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
+.social-icons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.social-icons a {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 5px;
+
+    color: white;
+
+    font-size: 14px;
+
+    line-height: 1;
+
+    text-decoration: none;
+}
+
+
+/* =========================================
+   SOCIAL COLORS
+========================================= */
+
+.social-icons a:nth-child(1) {
+    background: #e1306c;
+}
+
+.social-icons a:nth-child(2) {
+    background: #111;
+}
+
+.social-icons a:nth-child(3) {
+    background: #1877f2;
+}
+
+.social-icons a:nth-child(4) {
+    background: #ff0000;
+}
+
+.social-icons a:nth-child(5) {
+    background: #25d366;
+}
+
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom {
+    border-top: 1px solid #302b26;
+
+    padding-top: 12px;
+
+    text-align: center;
+
+    color: #817a74;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .travel-section {
+        padding: 50px 25px;
+    }
+
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .phrases-table {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        row-gap: 35px;
+    }
+
+    .about-column {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* Header */
+
+    .travel-section {
+        padding: 45px 18px;
+    }
+
+    .header {
+        margin-bottom: 35px;
+    }
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+    .header p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    /* Travel cards */
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .tip-card {
+        min-height: auto;
+
+        padding: 22px;
+    }
+
+    .tip-card h2 {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .tip-card li {
+        font-size: 13px;
+    }
+
+
+    /* Phrases */
+
+    .phrases-section {
+        margin-top: 50px;
+
+        padding: 0 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .section-heading span {
+        font-size: 11px;
+    }
+
+    .phrases-table {
+        width: 100%;
+
+        margin-top: 22px;
+
+        padding: 10px 15px;
+    }
+
+    .phrase-row {
+        min-height: 50px;
+    }
+
+    .phrase-row span {
+        font-size: 13px;
+    }
+
+
+    /* FAQ */
+
+    .faq-section {
+        margin-top: 55px;
+
+        padding: 0 15px;
+    }
+
+    .faq-list {
+        gap: 10px;
+    }
+
+    .faq-question {
+        min-height: 58px;
+
+        padding: 0 16px;
+    }
+
+    .faq-question span:first-child {
+        font-size: 14px;
+    }
+
+    .plus {
+        font-size: 23px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        max-width: 100%;
+
+        margin-top: 65px;
+
+        padding: 0 20px 15px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+
+        row-gap: 35px;
+
+        column-gap: 30px;
+    }
+
+    .about-column {
+        grid-column: 1 / -1;
+    }
+
+    .about-column h3 {
+        font-size: 22px;
+    }
+
+    .footer-column h4 {
+        font-size: 15px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+        font-size: 12px;
+    }
+
+    .footer-bottom {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .tip-card h2 {
+        font-size: 22px;
+    }
+
+    .description,
+    .tip-card li {
+        font-size: 13px;
+    }
+
+    .phrase-row {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .phrase-row span {
+        font-size: 12px;
+    }
+
+    .faq-question span:first-child {
+        font-size: 13px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-column {
+        grid-column: auto;
+    }
+}
+    </style>
 </head>
 
 <body>
@@ -85,7 +839,234 @@
             </div>
         </nav>
     </header>
-    <script src="js/script.js"></script>
+      <main class="travel-section">
+
+    <header class="header">
+      <h1>Travel Tips</h1>
+
+      <p>
+        Practical guidance to help you Kathmandu trip go smoothly, from<br>
+        getting around to temple etiquette.
+      </p>
+    </header>
+
+
+    <section class="tips-grid">
+
+      <article class="tip-card">
+        <h2>Title</h2>
+
+        <p class="description">
+          Kathmandu is pleasant most of the year, but conditions shift a lot by season.
+        </p>
+
+        <ul>
+          <li>Oct–Nov: clear skies, best mountain views, peak season</li>
+          <li>Dec–Feb: cool and dry, chilly mornings and evenings</li>
+          <li>Mar–May: warm, hazy at times, spring flowers in bloom</li>
+          <li>Jun–Sep: monsoon rains, lush but slippery trails</li>
+        </ul>
+      </article>
+
+
+      <article class="tip-card">
+        <h2>Title</h2>
+
+        <p class="description">
+          Kathmandu is pleasant most of the year, but conditions shift a lot by season.
+        </p>
+
+        <ul>
+          <li>Oct–Nov: clear skies, best mountain views, peak season</li>
+          <li>Dec–Feb: cool and dry, chilly mornings and evenings</li>
+          <li>Mar–May: warm, hazy at times, spring flowers in bloom</li>
+          <li>Jun–Sep: monsoon rains, lush but slippery trails</li>
+        </ul>
+      </article>
+
+
+      <article class="tip-card">
+        <h2>Title</h2>
+
+        <p class="description">
+          Kathmandu is pleasant most of the year, but conditions shift a lot by season.
+        </p>
+
+        <ul>
+          <li>Oct–Nov: clear skies, best mountain views, peak season</li>
+          <li>Dec–Feb: cool and dry, chilly mornings and evenings</li>
+          <li>Mar–May: warm, hazy at times, spring flowers in bloom</li>
+          <li>Jun–Sep: monsoon rains, lush but slippery trails</li>
+        </ul>
+      </article>
+
+
+      <article class="tip-card">
+        <h2>Title</h2>
+
+        <p class="description">
+          Kathmandu is pleasant most of the year, but conditions shift a lot by season.
+        </p>
+
+        <ul>
+          <li>Oct–Nov: clear skies, best mountain views, peak season</li>
+          <li>Dec–Feb: cool and dry, chilly mornings and evenings</li>
+          <li>Mar–May: warm, hazy at times, spring flowers in bloom</li>
+          <li>Jun–Sep: monsoon rains, lush but slippery trails</li>
+        </ul>
+      </article>
+
+
+      <article class="tip-card">
+        <h2>Title</h2>
+
+        <p class="description">
+          Kathmandu is pleasant most of the year, but conditions shift a lot by season.
+        </p>
+
+        <ul>
+          <li>Oct–Nov: clear skies, best mountain views, peak season</li>
+          <li>Dec–Feb: cool and dry, chilly mornings and evenings</li>
+          <li>Mar–May: warm, hazy at times, spring flowers in bloom</li>
+          <li>Jun–Sep: monsoon rains, lush but slippery trails</li>
+        </ul>
+      </article>
+
+
+      <article class="tip-card">
+        <h2>Title</h2>
+
+        <p class="description">
+          Kathmandu is pleasant most of the year, but conditions shift a lot by season.
+        </p>
+
+        <ul>
+          <li>Oct–Nov: clear skies, best mountain views, peak season</li>
+          <li>Dec–Feb: cool and dry, chilly mornings and evenings</li>
+          <li>Mar–May: warm, hazy at times, spring flowers in bloom</li>
+          <li>Jun–Sep: monsoon rains, lush but slippery trails</li>
+        </ul>
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       NEPALI PHRASES
+  ========================================== -->
+
+  <section class="phrases-section">
+
+    <div class="section-heading">
+      <span>LANGUAGE</span>
+      <h2>Useful Nepali Phrases</h2>
+    </div>
+
+
+    <div class="phrases-table">
+
+      <div class="phrase-row">
+        <span>Namaste</span>
+        <span>Hello / greetings</span>
+      </div>
+
+      <div class="phrase-row">
+        <span>Dhanyabaad</span>
+        <span>Thank you</span>
+      </div>
+
+      <div class="phrase-row">
+        <span>Kati parcha?</span>
+        <span>How much does it cost?</span>
+      </div>
+
+      <div class="phrase-row">
+        <span>Malai ... chaiyo</span>
+        <span>I need ...</span>
+      </div>
+
+      <div class="phrase-row">
+        <span>Bathroom kata cha?</span>
+        <span>Where is the bathroom?</span>
+      </div>
+
+      <div class="phrase-row">
+        <span>Bujhina</span>
+        <span>I didn't understand</span>
+      </div>
+
+      <div class="phrase-row">
+        <span>Phiribhetaúla</span>
+        <span>See you again</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       FAQ
+  ========================================== -->
+
+  <section class="faq-section">
+
+    <div class="section-heading faq-heading">
+      <span>FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Frequently Asked Questions</span>
+          <span class="plus">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Frequently Asked Questions</span>
+          <span class="plus">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Frequently Asked Questions</span>
+          <span class="plus">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Frequently Asked Questions</span>
+          <span class="plus">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Frequently Asked Questions</span>
+          <span class="plus">+</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Frequently Asked Questions</span>
+          <span class="plus">+</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
