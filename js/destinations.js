@@ -9,12 +9,7 @@ const destinations = [
         description: "Peaceful neo-classical garden in central Kathmandu.",
         image: "images/destinations/Garden of Dreams.jpg",
         featured: false,
-        overview: "",
-        entry_fee: "",
-        crowds: "",
-        time_to_visit: "",
-        opening_houts: "",
-        map_location: ""       
+        map_location: "https://maps.app.goo.gl/68qXqZnPWh26QQKs8"
     },
     {
         id: 2,
@@ -25,7 +20,8 @@ const destinations = [
         rating: 5,
         description: "Scenic escape with waterfalls, streams and trails.",
         image: "images/destinations/Sundarijal.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/UV9aBWDmwLiCf5M56"
     },
     {
         id: 3,
@@ -36,7 +32,8 @@ const destinations = [
         rating: 4,
         description: "Relaxed café beside the Garden of Dreams.",
         image: "images/destinations/Kaiser Cafe.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/g1Lb2CnJJ2VyKT3WA"
     },
     {
         id: 4,
@@ -47,7 +44,7 @@ const destinations = [
         rating: 5,
         description: "Ornately carved home of Kathmandu's Living Goddess.",
         image: "images/destinations/Kumari Ghar.webp",
-        featured: false
+        map_location: "https://maps.app.goo.gl/KsQjN7qtt8K9UYg78"
     },
     {
         id: 5,
@@ -58,7 +55,8 @@ const destinations = [
         rating: 4,
         description: "Modern shopping mall with stores, restaurants and a cinema.",
         image: "images/destinations/Labim Mall.webp",
-        featured: true
+        featured: true,
+        map_location: "https://maps.app.goo.gl/DgKBa7vJhCmtUVHz6"
     },
     {
         id: 6,
@@ -69,7 +67,8 @@ const destinations = [
         rating: 4,
         description: "Gallery displaying traditional Nepalese paintings and artworks.",
         image: "images/destinations/Bhaktapur National Art Gallery.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/ZrM4S1Cn9QwwRcwc8"
     },
     {
         id: 7,
@@ -80,7 +79,8 @@ const destinations = [
         rating: 4,
         description: "Popular department store offering a wide range of products.",
         image: "images/destinations/Bhatbhateni.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/eDmhER3vzykQFMse9"
     },
     {
         id: 8,
@@ -91,7 +91,8 @@ const destinations = [
         rating: 4,
         description: "Quiet woodland perfect for walks and cycling.",
         image: "images/destinations/Gokarna.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/aDzNXWGiGph7kaQ57"
     },
     {
         id: 9,
@@ -102,7 +103,8 @@ const destinations = [
         rating: 4,
         description: "Home to a famous reclinign Vishnu statue.",
         image: "images/destinations/Budhanilkantha.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/euAUq9o8ow3X3YSt9"
     },
     {
         id: 10,
@@ -113,7 +115,8 @@ const destinations = [
         rating: 5,
         description: "Historic square surrounded by temples and traditional Newari buildings.",
         image: "images/destinations/Dattatreya.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/EU2EALpVvkgMHHPYA"
     },
     {
         id: 11,
@@ -124,7 +127,8 @@ const destinations = [
         rating: 5,
         description: "Bustling historic market full of local life.",
         image: "images/destinations/Asan.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/Z4hXR6EFtvXf9FCJ8"
     },
     {
         id: 12,
@@ -135,7 +139,8 @@ const destinations = [
         rating: 5,
         description: "Vibrant district filled with stops, food and nightlife.",
         image: "images/destinations/Thamel.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/iAt7xJYcbUgiMnDr7"
     },
     {
         id: 13,
@@ -146,7 +151,8 @@ const destinations = [
         rating: 4,
         description: "Busy shopping center surrounded by Kathmandu's commercial district.",
         image: "images/destinations/",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/14vQX2FY1jaTXhGB6"
     },
     {
         id: 14,
@@ -157,7 +163,8 @@ const destinations = [
         rating: 5,
         description: "Forested park with hiking trails and valley views.",
         image: "images/destinations/Shivapuri Nagarjun NP.webp",
-        featured: true
+        featured: true,
+        map_location: "https://maps.app.goo.gl/ADzLYhAYVFLYVXdN8"
     },
     {
         id: 15,
@@ -168,7 +175,8 @@ const destinations = [
         rating: 5,
         description: "One of the world's largest Buddhist stupas.",
         image: "images/destinations/Boudhanath Stupa.jpg",
-        featured: true
+        featured: true,
+        map_location: "https://maps.app.goo.gl/C3zwFnU5AvGF7TKG7"
     },
     {
         id: 16,
@@ -179,7 +187,8 @@ const destinations = [
         rating: 5,
         description: "Historic royal square filled with Newari architecture and temples.",
         image: "images/destinations/Patan DS.jpg",
-        featured: true
+        featured: true,
+        map_location: "https://maps.app.goo.gl/QkqkG26vELqJdvFk8"
     },
     {
         id: 17,
@@ -190,7 +199,8 @@ const destinations = [
         rating: 5,
         description: "Museum showcasing Nepal's traditional art and religious heritage.",
         image: "images/destinations/Patan Museum.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/yVPJXwxGTwoiwUHx6"
     },
     {
         id: 18,
@@ -201,7 +211,8 @@ const destinations = [
         rating: 4,
         description: "Historic shopping center in the heart of New Road.",
         image: "images/destinations/Bishal Bazaar.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/QasFiUg9ntPLaMYE8"
     },
     {
         id: 19,
@@ -212,7 +223,8 @@ const destinations = [
         rating: 4,
         description: "Unique Buddhist temple inspired by Bodh Gaya's Mahabodhi Temple.",
         image: "images/destinations/Mahaboudha.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/k8JNJ7KTKedM5buH6"
     },
     {
         id: 20,
@@ -223,7 +235,8 @@ const destinations = [
         rating: 4,
         description: "Cultural space celebrating Kathmandu's art and history.",
         image: "images/destinations/Taragaon Next.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/ZV1EwvJseTMNXGEM8"
     },
     {
         id: 21,
@@ -234,7 +247,8 @@ const destinations = [
         rating: 5,
         description: "Beautiful Buddhist monastery known for its golden details.",
         image: "images/destinations/Golden Temple.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/rvihFJS39pBR4jGs7"
     },
     {
         id: 22,
@@ -245,7 +259,8 @@ const destinations = [
         rating: 5,
         description: "Traditional square where local potters shape clay by hand.",
         image: "images/destinations/Pottery Square.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/dLPRJSiwBkcZvfus8"
     },
     {
         id: 23,
@@ -256,7 +271,8 @@ const destinations = [
         rating: 4,
         description: "Historic temple and one of Patan's oldest monuments.",
         image: "images/destinations/Kumbeshwar Temple.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/y7g3fBaxBiE5bFds7"
     },
     {
         id: 24,
@@ -267,7 +283,8 @@ const destinations = [
         rating: 5,
         description: "Historic Newari town with temples and brick streets.",
         image: "images/destinations/Kirtipur.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/ZTXSs3WiTdUCtoL39"
     },
     {
         id: 25,
@@ -278,7 +295,8 @@ const destinations = [
         rating: 5,
         description: "Ancient stupa with panoramic valley views.",
         image: "images/destinations/Swayambhunath.jpg",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/tqd5Vg5tSC1nrWh49"
     },
     {
         id: 26,
@@ -289,7 +307,8 @@ const destinations = [
         rating: 5,
         description: "Former royal palace in historic Kathmandu",
         image: "images/destinations/Hanuman Dhoka Palace.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/ne8uY5ez8yMW7ZFSA"
     },
     {
         id: 27,
@@ -300,7 +319,8 @@ const destinations = [
         rating: 4,
         description: "Forested hillside with peaceful hiking trails.",
         image: "images/destinations/",
-        featured: false
+        featured: false,
+        map_location: "https://www.google.com/maps/search/raniban+kathmandu/@27.7336225,85.2759777,2821m/data=!3m2!1e3!4b1?entry=ttu&g_ep=EgoyMDI2MDgxMC4wIKXMDSoASAFQAw%3D%3D"
     },
     {
         id: 28,
@@ -311,7 +331,8 @@ const destinations = [
         rating: 4,
         description: "Central mall combining shopping, food and entertainment.",
         image: "images/destinations/City Centre.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/QLWVstcstbqh3Kac7"
     },
     {
         id: 29,
@@ -322,7 +343,8 @@ const destinations = [
         rating: 4,
         description: "Large shopping and entertainment complex in central Kathmandu.",
         image: "images/destinations/Civil Mall.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/5663DaykH4SdnM8Z6"
     },
     {
         id: 30,
@@ -333,7 +355,8 @@ const destinations = [
         rating: 5,
         description: "Nepal's tallest pagoda temple rising above Taumadhi Square.",
         image: "images/destinations/Nyatapola Temple.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/ehkGHt9HTuVSe5z56"
     },
     {
         id: 31,
@@ -344,7 +367,8 @@ const destinations = [
         rating: 5,
         description: "Peaceful Buddhist monastery overlooking the valley.",
         image: "images/destinations/Kapan Monastery.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/t2KyKQeDRykPotbJA"
     },
     {
         id: 32,
@@ -355,7 +379,8 @@ const destinations = [
         rating: 5,
         description: "Lively historic square filled with shops and temples.",
         image: "images/destinations/Indra Chowk.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/WNsfKHSfnB8gJU5L8"
     },
     {
         id: 33,
@@ -366,7 +391,8 @@ const destinations = [
         rating: 5,
         description: "Magnificent medieval square filled with palaces and temples.",
         image: "images/destinations/Bhaktapur DS.jpg",
-        featured: true
+        featured: true,
+        map_location: "https://maps.app.goo.gl/354Zk1Mr4TXcPVjJ6"
     },
     {
         id: 34,
@@ -377,7 +403,8 @@ const destinations = [
         rating: 4,
         description: "Sacred Hindu temple surrounded by forested hills.",
         image: "images/destinations/Dakshinkali Temple.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/fh84THvwKPkjXR6b8"
     },
     {
         id: 35,
@@ -388,7 +415,8 @@ const destinations = [
         rating: 4,
         description: "Peaceful lake popular for nature and birdwatching.",
         image: "images/destinations/Taudaha Lake.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/hdTzDznLA2dj8JP8A"
     },
     {
         id: 36,
@@ -399,7 +427,8 @@ const destinations = [
         rating: 4,
         description: "Spacious green park for walks and relaxation.",
         image: "images/destinations/Shankha Park.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/fs74EQngx5TNXrwH7"
     },
     {
         id: 37,
@@ -410,7 +439,8 @@ const destinations = [
         rating: 4,
         description: "Former royal palace turned history museum.",
         image: "images/destinations/Narayanhiti Palace.jpg",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/LVP6Gy4PeRFr1r676"
     },
     {
         id: 38,
@@ -421,7 +451,8 @@ const destinations = [
         rating: 5,
         description: "Historic street known for hippie-era legacy.",
         image: "images/destinations/Freak Street.webp",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/Kmi3ZoYUj7wzKaaB8"
     },
     {
         id: 39,
@@ -432,7 +463,8 @@ const destinations = [
         rating: 5,
         description: "Historic square filled with temples and palaces.",
         image: "images/destinations/Basantapur DS.jpg",
-        featured: true
+        featured: true,
+        map_location: "https://maps.app.goo.gl/6rQVydGZYMpkCFye8"
     },
     {
         id: 40,
@@ -443,7 +475,8 @@ const destinations = [
         rating: 5,
         description: "Nepal's most sacred Hindu temple complex.",
         image: "images/destinations/Pashupatinath.jpg",
-        featured: false
+        featured: false,
+        map_location: "https://maps.app.goo.gl/J6ZAxtoTPEMJdJSr9"
     }
 ];
 
@@ -814,7 +847,7 @@ function createDestinationCard(destination) {
             <div class="destination-ratings">${createStars(destination.rating)}</div>
             <h5 class="destination-name heading-5">${destination.name}</h5>
             <p class="destination-description body-small">${destination.description}</p>
-            <a href="./details.html" class="view-details">
+            <a href="./details.html?id=${destination.id}" class="view-details">
                 <button class="view-details-btn outline-btn">View Details</button>
             </a>
         </div>
@@ -877,14 +910,18 @@ function search_destinations() {
 }
 
 // Search using Enter
-search_input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        search_destinations();
-    }
-});
+if (search_input) {
+    search_input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            search_destinations();
+        }
+    });
+}
 
 // Search using button
-search_btn.addEventListener("click", search_destinations);
+if (search_btn) {
+    search_btn.addEventListener("click", search_destinations);
+}
 
 
 // Category filter
@@ -919,3 +956,100 @@ checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", category_filter);
 });
 
+
+function add_destination_detials(destination) {
+    const main_screen = document.createElement("div");
+    main_screen.classList.add("page-container");
+    main_screen.innerHTML = `
+        <section class="cover-image-section">
+            <div class="container">
+                <div class="cover-image-container">
+                    <img src="${destination.image}" alt="${destination.name}" class="cover-image">
+                    <div class="cover-blur"></div>
+                    <div class="cover-details">
+                        <p class="cover-category body">${destination.category}</p>
+                        <h1 class="cover-name display-text">${destination.name}</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destination-details-section">
+            <div class="destination-details-container container">
+                <div class="destination-details-content">
+                    <div class="overview">
+                        <h3 class="heading-3">Overview</h3>
+                        <p class="overview-content body">${destination.overview}</p>
+                    </div>
+                    <div class="destination-overview-details">
+                        <div class="destination-details-card">
+                            <p class="destination-detials-title caption">ENTRY FEE</p>
+                            <p class="destination-detials-description body-small">${destination.entry_fee}</p> 
+                        </div>
+                        <div class="destination-details-card">
+                            <p class="destination-detials-title caption">CROWDS</p>
+                            <p class="destination-detials-description body-small">${destination.crowds}</p>
+                        </div>
+                        <div class="destination-details-card">
+                            <p class="destination-detials-title caption">BEST TIME TO VISIT</p>
+                            <p class="destination-detials-description body-small">${destination.time_to_visit}</p>
+                        </div>
+                        <div class="destination-details-card">
+                            <p class="destination-detials-title caption">OPENING HOURS</p>
+                            <p class="destination-detials-description body-small">${destination.opening_hours}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-action-card">
+                    <h4 class="destination-entry-details heading-4">${destination.entry_fee}</h4>
+                    <p class="destination-details-location">${destination.location}</p>
+                    <div class="destination-details-ratings">${createStars(destination.rating)}</div>
+                    <a href="${destination.map_location}" target="_blank" class="primary-btn" style="text-align: center;">
+                        📍 Get Directions
+                    </a>
+                    <button class="outline-btn">Save to Favorites</button>
+                </div>
+            </div>
+        </section>
+    `;
+    return main_screen;
+}
+
+const detailsPageContent =
+    document.getElementById("details-page-content");
+
+if (detailsPageContent) {
+
+    // Get the ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const destinationId = Number(urlParams.get("id"));
+
+    // Find the matching destination
+    const destination = destinations.find(
+        destination => destination.id === destinationId
+    );
+
+    if (destination) {
+
+        // Generate and display the destination details
+        const detailsPage =
+            add_destination_detials(destination);
+
+        detailsPageContent.appendChild(detailsPage);
+
+    } else {
+
+        // Destination doesn't exist
+        detailsPageContent.innerHTML = `
+            <div class="container">
+                <h2 class="heading-2">Destination not found</h2>
+                <p class="body">
+                    We couldn't find the destination you're looking for.
+                </p>
+                <a href="./explore.html" class="primary-btn">
+                    Back to Explore
+                </a>
+            </div>
+        `;
+    }
+}
