@@ -12,6 +12,162 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
+    <style>
+.hero {
+  padding: 55px 20px;
+  background-color: var(--surface-hover);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  color: var(--tertiary);
+  font-family: var(--headings);
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  font-weight: 700;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: auto;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+main {
+  width: min(100% - 40px, 970px);
+  margin: auto;
+  padding: 36px 0 70px;
+}
+
+.itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.day-card {
+  padding: 20px 26px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.day-card h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--headings);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.place-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px dashed var(--border-hover);
+  border-radius: 10px;
+}
+
+.place-image {
+  width: 66px;
+  height: 66px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.place-info {
+  flex: 1;
+}
+
+.place-info h3 {
+  margin: 0 0 4px;
+  color: var(--text-primary);
+  font-family: var(--headings);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.place-info p,
+.empty-day {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.empty-day {
+  padding-top: 18px;
+}
+
+.view-button,
+.remove-button {
+  cursor: pointer;
+  font-family: var(--body-text);
+  font-weight: 600;
+}
+
+.view-button {
+  min-width: 86px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--surface);
+  color: var(--text-secondary);
+}
+
+.view-button:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--border-hover);
+  color: var(--primary);
+}
+
+.remove-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface-hover);
+  color: var(--tertiary);
+}
+
+.remove-button:hover {
+  background-color: var(--tertiary);
+  border-color: var(--tertiary);
+  color: var(--surface);
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 42px 18px;
+  }
+
+  main {
+    width: min(100% - 28px, 970px);
+    padding-top: 26px;
+  }
+
+  .day-card {
+    padding: 18px;
+  }
+
+  .place-card {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .place-info {
+    min-width: calc(100% - 80px);
+  }
+
+  .view-button {
+    margin-left: 78px;
+  }
+}
+    </style>
 </head>
 
 <body>
@@ -85,6 +241,46 @@
             </div>
         </nav>
     </header>
+    <body>
+  <header class="hero">
+    <h1>Build Your Itinerary</h1>
+    <p>
+      Add places from any destination page, organized across your travel days.
+      Everything is saved on this device.
+    </p>
+  </header>
+
+  <main>
+    <section class="itinerary">
+      <article class="day-card">
+        <h2>Day 1</h2>
+
+        <div class="place-card">
+          <img
+            class="place-image"
+            src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
+            alt="A traditional vehicle in Kathmandu">
+
+          <div class="place-info">
+            <h3>Patan Durbar Square</h3>
+            <p>Heritage Site • Lalitpur</p>
+          </div>
+
+          <button class="view-button" type="button">View</button>
+          <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <h2>Day 2</h2>
+        <p class="empty-day">No places added to Day 2 yet.</p>
+      </article>
+
+      <article class="day-card">
+        <h2>Day 3</h2>
+        <p class="empty-day">No places added to Day 3 yet.</p>
+      </article>
+    </section>
     <script src="js/script.js"></script>
 </body>
 
