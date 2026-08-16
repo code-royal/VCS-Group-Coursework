@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Explore Kathmandu | Create Account</title>
+    <style>
+        .create-account-btn {
+            background-color: var(--tertiary);
+            color: white;
+            padding: 8px 32px;
+            border-radius: 8px;
+            font-size: small;
+            font-weight: 600;
+        }
+
+        .login-page-switch {
+            color: var(--tertiary);
+            font-weight: bold;
+        }
+
+        .login-page-switch:hover {
+            color: var(--tertiary-hover);
+            text-decoration: underline;
+        }
+
+        .create-account-btn:hover {
+            background-color: var(--tertiary-hover);
+            transition: all ease 0.3s;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container {
+            width: fit-content;
+            margin: 0 auto;
+            padding: 36px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        h5 span {
+            color: var(--primary);
+        }
+
+        h5:hover {
+            cursor: pointer;
+
+            span {
+                color: var(--primary-hover);
+            }
+        }
+
+        .signup-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .signup-title h4 {
+            color: var(--tertiary-hover);
+        }
+
+        .signup-title p {
+            color: var(--text-secondary);
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-field {
+            outline: none;
+            border: 1px solid var(--border);
+            padding: 8px 8px;
+            border-radius: 6px;
+        }
+
+        .input-field:focus {
+            border: 1px solid var(--tertiary);
+            transition: all ease-in-out 0.3s;
+        }
+
+        .terms {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .terms label span {
+            color: var(--primary);
+        }
+
+        .terms label span:hover {
+            cursor: pointer;
+            color: var(--primary-hover);
+            transition: all ease-in-out 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="form-container">
+            <a href="./index.html">
+                <h5 class="heading-5">Explore <span>Kathmandu</span></h5>
+            </a>
+            <div class="signup-title">
+                <h4 class="heading-4">Create Account</h4>
+                <p class="category-text">Begin your journey with Explore Kathmandu.</p>
+            </div>
+            <form action="" class="signup-form">
+                <div class="input">
+                    <label for="fullname" class="caption">FULL NAME</label>
+                    <input type="text" name="fullname" id="fullname" class="input-field" placeholder="e.g. Ram Shrestha" required>
+                </div>
+                <div class="input">
+                    <label for="email" class="caption">EMAIL ADDRESS</label>
+                    <input type="email" name="email" id="email" class="input-field" placeholder="hello@example.com" required>
+                </div>
+                <div class="input">
+                    <label for="password" class="caption">PASSWORD</label>
+                    <input type="password" name="password" id="password" class="input-field" placeholder="************" required>
+                </div>
+                <div class="input">
+                    <label for="password-confirm" class="caption">CONFIRM PASSWORD</label>
+                    <input type="password" name="password-confirm" id="password-confirm" class="input-field" placeholder="************" required>
+                </div>
+                <div class="terms">
+                    <input type="checkbox" name="terms&conditions" id="terms&conditions"> <label for="terms&conditions"
+                        class="body-small">I agree to the <span>Terms & Conditions</span> and Privacy Policy.</label>
+                </div>
+                <div class="input">
+                    <button class="create-account-btn">Create Account</button>
+                </div>
+            </form>
+            <div class="already_have_an_account category-text">
+                Already have an account? <a href="./login.html" class="login-page-switch">Login</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
