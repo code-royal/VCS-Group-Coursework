@@ -12,6 +12,281 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
+    <style>
+.hero {
+      padding: 52px 20px;
+      background: var(--surface-hover);
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: var(--tertiary);
+      font-family: var(--headings);
+      font-size: clamp(2rem, 5vw, 2.7rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 580px;
+      margin: auto;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(100% - 40px, 970px);
+      margin: auto;
+      padding: 36px 0 70px;
+    }
+
+    .day-card,
+    .calculator,
+    .cost-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .day-card {
+      padding: 20px 26px;
+      margin-bottom: 18px;
+    }
+
+    .day-card h2,
+    .calculator h2,
+    .cost-card h2 {
+      color: var(--text-primary);
+      font-family: var(--headings);
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .empty-day {
+      padding: 18px 0 10px;
+      color: var(--text-secondary);
+      font-size: 0.87rem;
+    }
+
+    .place-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px dashed var(--border-hover);
+      border-radius: 10px;
+    }
+
+    .place-image {
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .place-info {
+      flex: 1;
+    }
+
+    .place-info h3 {
+      color: var(--text-primary);
+      font-family: var(--headings);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .place-info p {
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+    }
+
+    .view-button,
+    .remove-button,
+    .secondary-button,
+    .primary-button {
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--body-text);
+      font-weight: 600;
+    }
+
+    .view-button {
+      min-width: 86px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+    }
+
+    .remove-button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      background: var(--surface-hover);
+      color: var(--text-tertiary);
+      font-size: 1rem;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      margin-top: 104px;
+      align-items: start;
+    }
+
+    .calculator,
+    .cost-card {
+      padding: 20px;
+    }
+
+    .calculator h2,
+    .cost-card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+      font-size: 0.62rem;
+      font-weight: 700;
+    }
+
+    .form-group input {
+      width: 100%;
+      height: 35px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: var(--body-text);
+      font-size: 0.72rem;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+    }
+
+    .primary-button,
+    .secondary-button {
+      width: 100%;
+      height: 38px;
+      font-size: 0.76rem;
+    }
+
+    .primary-button {
+      margin-top: 8px;
+      border: none;
+      background: var(--tertiary);
+      color: var(--surface);
+    }
+
+    .primary-button:hover {
+      background: var(--tertiary-hover);
+    }
+
+    .secondary-button {
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+    }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 9px 0;
+      border-bottom: 1px dotted var(--text-tertiary);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 12px;
+      color: var(--tertiary);
+      font-family: var(--headings);
+      font-size: 1.3rem;
+    }
+
+    .cost-note {
+      margin-top: 15px;
+      color: var(--text-tertiary);
+      font-size: 0.61rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        width: min(100% - 28px, 970px);
+        padding-top: 26px;
+      }
+
+      .bottom-grid {
+        grid-template-columns: 1fr;
+        margin-top: 55px;
+        gap: 22px;
+      }
+
+      .day-card {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 40px 16px;
+      }
+
+      .place-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .place-info {
+        min-width: calc(100% - 80px);
+      }
+
+      .view-button {
+        margin-left: 78px;
+      }
+
+      .two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .calculator h2,
+      .cost-card h2 {
+        font-size: 1.65rem;
+      }
+    }
+
+    </style>
 </head>
 
 <body>
@@ -85,6 +360,85 @@
             </div>
         </nav>
     </header>
+    <body>
+  <header class="hero">
+    <h1>Build Your Itinerary</h1>
+    <p>
+      Add places from any destination page, organized across your travel days.
+      Everything is saved on this device.
+    </p>
+  </header>
+
+  <main>
+    <section class="itinerary">
+      <article class="day-card">
+        <h2>Day 1</h2>
+
+        <div class="place-card">
+          <img
+            class="place-image"
+            src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
+            alt="A traditional vehicle in Kathmandu">
+
+          <div class="place-info">
+            <h3>Patan Durbar Square</h3>
+            <p>Heritage Site • Lalitpur</p>
+          </div>
+
+          <button class="view-button" type="button">View</button>
+          <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
+        </div>
+      </article>
+
+      <article class="day-card">
+        <h2>Day 2</h2>
+        <p class="empty-day">No places added to Day 2 yet.</p>
+      </article>
+
+      <article class="day-card">
+        <h2>Day 3</h2>
+        <p class="empty-day">No places added to Day 3 yet.</p>
+      </article>
+    </section>
+    <section class="bottom-grid">
+      <form class="calculator" id="budget-form">
+        <h2>Trip Details</h2>
+
+        <div class="two-columns">
+          <div class="form-group">
+            <label for="days">Number of days</label>
+            <input id="days" type="number" min="1" value="3" placeholder="No. of travel days">
+          </div>
+
+          <div class="form-group">
+            <label for="travellers">Number of travellers</label>
+            <input id="travellers" type="number" min="1" value="2" placeholder="No. of travellers">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="accommodation">Daily accommodation budget (NRs. per room)</label>
+          <input id="accommodation" type="number" min="0" value="2500" placeholder="Accommodation budget">
+        </div>
+
+        <div class="form-group">
+          <label for="food">Daily food budget (NRs. per person)</label>
+          <input id="food" type="number" min="0" value="1000" placeholder="Food budget">
+        </div>
+
+        <div class="form-group">
+          <label for="transport">Daily transport budget (NRs. per person)</label>
+          <input id="transport" type="number" min="0" value="500" placeholder="Transport budget">
+        </div>
+
+        <div class="form-group">
+          <label for="activities">Activity budget (NRs. per person, total trip)</label>
+          <input id="activities" type="number" min="0" value="2500" placeholder="Activity budget">
+        </div>
+
+        <button class="primary-button" type="submit">Calculate Budget</button>
+        <button class="secondary-button" id="reset-button" type="reset">Reset Calculator</button>
+      </form>
     <script src="js/script.js"></script>
 </body>
 
