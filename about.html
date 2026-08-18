@@ -12,6 +12,188 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
+    <style>
+        .hero {
+      padding: 56px 24px;
+      background: var(--surface-hover);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: var(--tertiary);
+      font-family: var(--headings);
+      font-size: clamp(2rem, 5vw, 2.7rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .about-content {
+      width: min(100% - 40px, 570px);
+      margin: 0 auto;
+      padding: 44px 0 78px;
+    }
+
+    .about-block + .about-block {
+      margin-top: 32px;
+    }
+
+    .about-block h2 {
+      color: var(--text-primary);
+      font-family: var(--headings);
+      font-size: clamp(1.65rem, 4vw, 2.15rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .about-block p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.72;
+    }
+
+    .feedback-section {
+      width: min(100% - 40px, 570px);
+      margin: 0 auto;
+      padding-bottom: 70px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--tertiary);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .feedback-section h2 {
+      color: var(--text-primary);
+      font-family: var(--headings);
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .feedback-section > p {
+      max-width: 520px;
+      margin: 0 auto 22px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .feedback-form {
+      padding: 28px 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+      font-size: 0.67rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: var(--body-text);
+      font-size: 0.78rem;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .form-group input {
+      height: 36px;
+      padding: 0 13px;
+    }
+
+    .form-group textarea {
+      min-height: 115px;
+      padding: 12px 13px;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 40px;
+      border: none;
+      border-radius: 999px;
+      background: var(--tertiary);
+      color: var(--surface);
+      cursor: pointer;
+      font-family: var(--body-text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .submit-button:hover {
+      background: var(--tertiary-hover);
+      transform: translateY(-1px);
+    }
+
+    .submit-button:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 46px 20px;
+      }
+
+      .about-content {
+        padding-top: 38px;
+        padding-bottom: 60px;
+      }
+
+      .feedback-section {
+        padding-bottom: 52px;
+      }
+
+      .feedback-form {
+        padding: 22px 16px 18px;
+      }
+    }
+    </style>
 </head>
 
 <body>
@@ -85,6 +267,68 @@
             </div>
         </nav>
     </header>
+    <main>
+    <section class="about-content">
+      <article class="about-block">
+        <h2>Our Mission</h2>
+        <p>
+          Explore Kathmandu started as a simple idea: the Kathmandu Valley has an
+          extraordinary density of temples, viewpoints, markets, and hidden
+          corners, but that richness can be overwhelming to plan around. We built
+          this guide to make it easy to browse what’s worth seeing, save the
+          places that catch your eye, and turn that shortlist into a real
+          day-by-day plan without needing an account, an app download, or a data
+          connection once the page has loaded.
+        </p>
+      </article>
+
+      <article class="about-block">
+        <h2>A Valley of Many Cultures</h2>
+        <p>
+          Kathmandu sits at a crossroads of Hindu, Buddhist, and Newari
+          traditions that have shaped the valley for over a thousand years.
+          Pagoda-roofed temples share courtyards with monasteries, ancient trade
+          routes are still lined with metalworkers and potters, and festivals fill
+          the streets throughout the year. Whether you have three days or three
+          weeks, there’s always another layer to discover.
+        </p>
+      </article>
+    </section>
+
+    <section class="feedback-section">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Send Us Feedback</h2>
+      <p>
+        Spotted an outdated detail, or have a place we should add? We’d love to
+        hear from you.
+      </p>
+
+      <form class="feedback-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input id="name" type="text" placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="Trip planning, Temple visit, ...">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Your message"></textarea>
+        </div>
+
+        <button class="submit-button" type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
     <script src="js/script.js"></script>
 </body>
 
