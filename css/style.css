@@ -185,7 +185,6 @@ button {
 }
 
 .footer-navigation-text {
-    color: #C8C2B8;
     width: fit-content;
     font-family: var(--body-text);
     font-size: 14px;
