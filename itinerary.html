@@ -439,6 +439,76 @@
         <button class="primary-button" type="submit">Calculate Budget</button>
         <button class="secondary-button" id="reset-button" type="reset">Reset Calculator</button>
       </form>
+      <aside class="cost-card">
+        <h2>Estimated Cost</h2>
+
+        <div class="cost-row">
+          <span>Accommodation</span>
+          <span id="accommodation-total">NRs. 7,500</span>
+        </div>
+
+        <div class="cost-row">
+          <span>Food</span>
+          <span id="food-total">NRs. 6,000</span>
+        </div>
+
+        <div class="cost-row">
+          <span>Transport</span>
+          <span id="transport-total">NRs. 3,000</span>
+        </div>
+
+        <div class="cost-row">
+          <span>Activities</span>
+          <span id="activities-total">NRs. 5,000</span>
+        </div>
+
+        <div class="total-row">
+          <span>Grand Total</span>
+          <span id="grand-total">NRs. 21,500</span>
+        </div>
+
+        <p class="cost-note">
+          These figures are estimates and can vary with season, exchange rates,
+          and travel style. Accommodation is calculated per room per night; food,
+          transport, and activities are calculated per traveler.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#budget-form");
+
+    const formatNPR = (amount) =>
+      `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const days = Number(document.querySelector("#days").value) || 0;
+      const travellers = Number(document.querySelector("#travellers").value) || 0;
+      const accommodation = Number(document.querySelector("#accommodation").value) || 0;
+      const food = Number(document.querySelector("#food").value) || 0;
+      const transport = Number(document.querySelector("#transport").value) || 0;
+      const activities = Number(document.querySelector("#activities").value) || 0;
+
+      const accommodationTotal = days * accommodation;
+      const foodTotal = days * travellers * food;
+      const transportTotal = days * travellers * transport;
+      const activitiesTotal = travellers * activities;
+      const grandTotal = accommodationTotal + foodTotal + transportTotal + activitiesTotal;
+
+      document.querySelector("#accommodation-total").textContent = formatNPR(accommodationTotal);
+      document.querySelector("#food-total").textContent = formatNPR(foodTotal);
+      document.querySelector("#transport-total").textContent = formatNPR(transportTotal);
+      document.querySelector("#activities-total").textContent = formatNPR(activitiesTotal);
+      document.querySelector("#grand-total").textContent = formatNPR(grandTotal);
+    });
+
+    document.querySelector("#reset-button").addEventListener("click", () => {
+      setTimeout(() => form.dispatchEvent(new Event("submit")), 0);
+    });
+  </script>
     <script src="js/script.js"></script>
 </body>
 
