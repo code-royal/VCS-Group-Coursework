@@ -4,8 +4,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Explore Kathmandu | Login to Your Account</title>
+    <title>Document</title>
+    <style>
+        .login-btn {
+            background-color: var(--tertiary);
+            color: white;
+            padding: 8px 32px;
+            border-radius: 8px;
+            font-size: small;
+            font-weight: 600;
+        }
+
+        .signup-page-switch {
+            color: var(--tertiary);
+            font-weight: bold;
+        }
+
+        .signup-page-switch:hover {
+            color: var(--tertiary-hover);
+            text-decoration: underline;
+        }
+
+        .login-btn:hover {
+            background-color: var(--tertiary-hover);
+            transition: all ease 0.3s;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 360px;
+            margin: 0 auto;
+            padding: 36px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        h5 span {
+            color: var(--primary);
+        }
+
+        h5:hover {
+            cursor: pointer;
+
+            span {
+                color: var(--primary-hover);
+            }
+        }
+
+        .login-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-title h4 {
+            color: var(--tertiary-hover);
+        }
+
+        .login-title p {
+            color: var(--text-secondary);
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .input {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-field {
+            outline: none;
+            border: 1px solid var(--border);
+            padding: 8px 8px;
+            border-radius: 6px;
+        }
+
+        .input-field:focus {
+            border: 1px solid var(--tertiary);
+            transition: all ease-in-out 0.3s;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper .input-field {
+            width: 100%;
+            box-sizing: border-box;
+            padding-right: 40px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            padding: 0;
+            border: none;
+            background: none;
+
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .show-password:hover {
+            color: var(--tertiary);
+        }
+    </style>
 </head>
+
 <body>
+    <main>
+        <div class="form-container">
+            <a href="./index.html">
+                <h5 class="heading-5">Explore <span>Kathmandu</span></h5>
+            </a>
+            <div class="login-title">
+                <h4 class="heading-4">Welcome back</h4>
+                <p class="category-text">Please enter your details to sign in.</p>
+            </div>
+            <form action="" class="login-form">
+                <div class="input">
+                    <label for="email" class="caption">EMAIL ADDRESS</label>
+                    <input type="email" name="email" id="email" class="input-field" placeholder="hello@example.com"
+                        required>
+                </div>
+                <div class="input">
+                    <label for="password" class="caption">PASSWORD</label>
+
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" class="input-field"
+                            placeholder="************" required>
+
+                        <button type="button" class="show-password" onclick="togglePassword('password', this)"
+                            aria-label="Show password">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye">
+                                <path
+                                    d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="input">
+                    <button class="login-btn">Log In &rarr;</button>
+                </div>
+            </form>
+            <div class="no_account category-text">
+                Don't have an account? <a href="./signup.html" class="signup-page-switch">Sign up</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+
+            const eyeIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                <circle cx="12" cy="12" r="3"/>
+            </svg>
+        `;
+
+            const eyeOffIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/>
+                <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/>
+                <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/>
+                <path d="m2 2 20 20"/>
+            </svg>
+        `;
+
+            if (input.type === "password") {
+                input.type = "text";
+                button.innerHTML = eyeOffIcon;
+                button.setAttribute("aria-label", "Hide password");
+            } else {
+                input.type = "password";
+                button.innerHTML = eyeIcon;
+                button.setAttribute("aria-label", "Show password");
+            }
+        }
+    </script>
 </body>
+
 </html>
