@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title>Explore Kathmandu | My Profile</title>
+    <style>
+        .profile-hero {
+            padding: 52px 20px 36px;
+            background: var(--surface-hover);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .profile-hero .eyebrow {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--tertiary);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .profile-hero h1 {
+            color: var(--text-primary);
+            font-family: var(--headings);
+            font-size: clamp(1.9rem, 4.5vw, 2.4rem);
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .profile-hero p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .profile-main {
+            width: min(100% - 40px, 720px);
+            margin: 0 auto;
+            padding: 40px 0 70px;
+        }
+
+        .profile-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .profile-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--headings);
+            font-size: 1.6rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .profile-info h2 {
+            color: var(--text-primary);
+            font-family: var(--headings);
+            font-size: 1.45rem;
+            font-weight: 400;
+            margin-bottom: 2px;
+        }
+
+        .profile-info p {
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+
+        .profile-section-title {
+            color: var(--text-primary);
+            font-family: var(--headings);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 14px;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .stat-box {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 12px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            display: block;
+            color: var(--tertiary);
+            font-family: var(--headings);
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .stat-box .label {
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .profile-btn {
+            width: 100%;
+            min-height: 40px;
+            border-radius: 999px;
+            font-family: var(--body-text);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .profile-btn-primary {
+            border: none;
+            background: var(--tertiary);
+            color: var(--surface);
+        }
+
+        .profile-btn-primary:hover {
+            background: var(--tertiary-hover);
+            transform: translateY(-1px);
+        }
+
+        .profile-btn-outline {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-secondary);
+        }
+
+        .profile-btn-outline:hover {
+            background: var(--surface-hover);
+            color: var(--text-primary);
+        }
+
+        .profile-btn-danger {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--tertiary);
+        }
+
+        .profile-btn-danger:hover {
+            background: var(--surface-hover);
+            border-color: var(--tertiary);
+        }
+
+        .empty-note {
+            color: var(--text-tertiary);
+            font-size: 0.82rem;
+            line-height: 1.55;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 520px) {
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-main {
+                width: min(100% - 28px, 720px);
+                padding-top: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav">
+                <h1 class="logo">
+                    <a href="./index.html">
+                        Explore <span>Kathmandu</span>
+                    </a>
+                </h1>
+                <div class="nav-menu-container">
+                    <div class="nav-menu">
+                        <a class="navigation-text" href="./index.html">Home</a>
+                        <a class="navigation-text" href="./explore.html">Explore</a>
+                        <a class="navigation-text" href="./itinerary.html">Itinerary</a>
+                        <a class="navigation-text" href="./guide.html">Travel Tips</a>
+                        <a class="navigation-text" href="./about.html">About</a>
+                    </div>
+                    <div class="config">
+                        <a href="./profile.html" class="profile-icon" aria-label="Profile">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="nav-icon">
+                                <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
+                                <circle cx="12" cy="11" r="4" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                        </a>
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <svg class="nav-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                            </svg>
+                            <svg class="nav-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="profile-hero">
+        <span class="eyebrow">Account</span>
+        <h1>My Profile</h1>
+        <p>Your saved places and trip plans live here.</p>
+    </section>
+
+    <main class="profile-main">
+        <!-- Profile summary -->
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar" id="profile-avatar">U</div>
+                <div class="profile-info">
+                    <h2 id="profile-name">User</h2>
+                    <p>Welcome back to Explore Kathmandu</p>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat-box">
+                    <span class="number" id="fav-count">0</span>
+                    <span class="label">Favorites</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number" id="itinerary-count">0</span>
+                    <span class="label">Places in Itinerary</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number">3</span>
+                    <span class="label">Travel Days</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="profile-card">
+            <h3 class="profile-section-title">Quick Actions</h3>
+            <div class="profile-actions">
+                <a href="./explore.html" class="profile-btn profile-btn-primary" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                    Browse Destinations
+                </a>
+                <a href="./itinerary.html" class="profile-btn profile-btn-outline" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                    View My Itinerary
+                </a>
+                <button class="profile-btn profile-btn-danger" type="button" id="logout-btn">
+                    Log Out
+                </button>
+            </div>
+        </div>
+
+        <!-- Placeholder for future lists -->
+        <div class="profile-card">
+            <h3 class="profile-section-title">Saved Favorites</h3>
+            <p class="empty-note">
+                You haven’t saved any places yet. Tap the heart icon on any destination to add it here.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer container">
+            <div class="footer-main">
+                <div class="footer-content">
+                    <h3 class="footer-logo">
+                        <a href="./index.html">Explore <span>Kathmandu</span></a>
+                    </h3>
+                    <p class="footer-description body-small">
+                        An independent travel guide helping visitors and locals discover the best of the Kathmandu Valley.
+                    </p>
+                </div>
+                <div class="footer-quick-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a class="footer-navigation-text" href="./index.html">Home</a>
+                    <a class="footer-navigation-text" href="./explore.html">Explore</a>
+                    <a class="footer-navigation-text" href="./itinerary.html">Itinerary</a>
+                </div>
+                <div class="footer-guides">
+                    <h4 class="footer-title">Guide</h4>
+                    <a class="footer-navigation-text" href="./guide.html">Travel Tips</a>
+                    <a class="footer-navigation-text" href="./about.html">About Us</a>
+                    <a class="footer-navigation-text" href="">Temples & Heritage</a>
+                    <a class="footer-navigation-text" href="">Food & Cafés</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p class="footer-contact-details body-small">Thamel, Kathmandu 44600, Nepal</p>
+                    <p class="footer-contact-details body-small">explore.kathmandu@gmail.com</p>
+                    <p class="footer-contact-details body-small">+977 98-01234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-bottom-text caption">&copy; 2026 Explore Kathmandu. All rights reserved.</p>
+                <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government tourism board. Prices & hours are estimates.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
