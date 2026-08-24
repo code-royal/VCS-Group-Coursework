@@ -295,10 +295,12 @@
         <div class="profile-card">
             <h3 class="profile-section-title">Quick Actions</h3>
             <div class="profile-actions">
-                <a href="./explore.html" class="profile-btn profile-btn-primary" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                <a href="./explore.html" class="profile-btn profile-btn-primary"
+                    style="text-align:center; display:flex; align-items:center; justify-content:center;">
                     Browse Destinations
                 </a>
-                <a href="./itinerary.html" class="profile-btn profile-btn-outline" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                <a href="./itinerary.html" class="profile-btn profile-btn-outline"
+                    style="text-align:center; display:flex; align-items:center; justify-content:center;">
                     View My Itinerary
                 </a>
                 <button class="profile-btn profile-btn-danger" type="button" id="logout-btn">
@@ -324,7 +326,8 @@
                         <a href="./index.html">Explore <span>Kathmandu</span></a>
                     </h3>
                     <p class="footer-description body-small">
-                        An independent travel guide helping visitors and locals discover the best of the Kathmandu Valley.
+                        An independent travel guide helping visitors and locals discover the best of the Kathmandu
+                        Valley.
                     </p>
                 </div>
                 <div class="footer-quick-links">
@@ -349,12 +352,37 @@
             </div>
             <div class="footer-bottom">
                 <p class="footer-bottom-text caption">&copy; 2026 Explore Kathmandu. All rights reserved.</p>
-                <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government tourism board. Prices & hours are estimates.</p>
+                <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government
+                    tourism board. Prices & hours are estimates.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        // Load name from sessionStorage
+        const name = sessionStorage.getItem("userName");
+        const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+
+        if (!isLoggedIn || !name) {
+            // not logged in → send to login
+            window.location.href = "./login.html";
+        } else {
+            document.getElementById("profile-name").textContent = name;
+
+            // avatar letter
+            const firstLetter = name.charAt(0).toUpperCase();
+            document.getElementById("profile-avatar").textContent = firstLetter;
+        }
+
+        // Logout
+        document.getElementById("logout-btn").addEventListener("click", () => {
+            sessionStorage.removeItem("userName");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("isLoggedIn");
+            window.location.href = "./index.html";
+        });
+    </script>
 </body>
 
 </html>
