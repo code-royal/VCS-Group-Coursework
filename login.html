@@ -222,6 +222,29 @@
                 button.setAttribute("aria-label", "Show password");
             }
         }
+
+        const form = document.querySelector(".login-form");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // very simple: just mark as logged in
+            // (you can later make it check against a real account)
+            const existingName = sessionStorage.getItem("userName") || "Traveller";
+            sessionStorage.setItem("userName", existingName);
+            sessionStorage.setItem("userEmail", email);
+            sessionStorage.setItem("isLoggedIn", "true");
+
+            window.location.href = "./profile.html";
+        });
     </script>
 </body>
 

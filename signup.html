@@ -327,29 +327,49 @@
         const form = document.querySelector(".signup-form");
 
         form.addEventListener("submit", function (event) {
+            event.preventDefault();   // stop the page from reloading
 
-            const value = password.value;
+            const name = document.getElementById("fullname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("password-confirm").value;
+            const terms = document.getElementById("terms&conditions").checked;
 
+            // keep your existing password checks
             const validPassword =
-                value.length >= 8 &&
-                /[A-Za-z]/.test(value) &&
-                /[0-9]/.test(value) &&
-                /[^A-Za-z0-9]/.test(value);
+                password.length >= 8 &&
+                /[A-Za-z]/.test(password) &&
+                /[0-9]/.test(password) &&
+                /[^A-Za-z0-9]/.test(password);
 
             if (!validPassword) {
-                event.preventDefault();
-                password.focus();
+                document.getElementById("password").focus();
                 alert("Please create a password that meets all the requirements.");
                 return;
             }
 
-            const confirmPassword = document.getElementById("password-confirm");
-
-            if (value !== confirmPassword.value) {
-                event.preventDefault();
-                confirmPassword.focus();
+            if (password !== confirmPassword) {
+                document.getElementById("password-confirm").focus();
                 alert("Passwords do not match.");
+                return;
             }
+
+            if (!terms) {
+                alert("Please agree to the Terms & Conditions.");
+                return;
+            }
+
+            if (!name) {
+                alert("Please enter your full name.");
+                return;
+            }
+
+            // NEW: save the name temporarily and go to profile
+            sessionStorage.setItem("userName", name);
+            sessionStorage.setItem("userEmail", email);
+            sessionStorage.setItem("isLoggedIn", "true");
+
+            window.location.href = "./profile.html";
         });
     </script>
 </body>
