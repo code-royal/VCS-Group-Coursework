@@ -852,6 +852,20 @@ function createDestinationCard(destination) {
             </a>
         </div>
     `;
+
+    const favBtn = card.querySelector(".add-to-favorites");
+    if (favBtn) {
+        favBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!requireLogin("add to favorites")) return;
+
+            // temporary message (you can improve this later)
+            alert(`${destination.name} added to favorites!`);
+        });
+    }
+
     return card;
 }
 
