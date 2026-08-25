@@ -1026,6 +1026,19 @@ function add_destination_detials(destination) {
             </div>
         </section>
     `;
+
+    const saveFavBtn = main_screen.querySelector(".outline-btn");
+    if (saveFavBtn) {
+        saveFavBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if (!requireLogin("save to favorites")) return;
+
+            alert(`${destination.name} saved to favorites!`);
+            // later you can actually store it in sessionStorage
+        });
+    }
+
     return main_screen;
 }
 
