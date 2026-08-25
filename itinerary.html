@@ -371,7 +371,7 @@
 
   <main>
     <section class="itinerary">
-      <article class="day-card">
+      <article class="day-card" data-day="1">
         <h2>Day 1</h2>
 
         <div class="place-card">
@@ -388,14 +388,16 @@
           <button class="view-button" type="button">View</button>
           <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
         </div>
+
+        <p class="empty-day" hidden>No places added to Day 1 yet.</p>
       </article>
 
-      <article class="day-card">
+      <article class="day-card" data-day="2">
         <h2>Day 2</h2>
         <p class="empty-day">No places added to Day 2 yet.</p>
       </article>
 
-      <article class="day-card">
+      <article class="day-card" data-day="3">
         <h2>Day 3</h2>
         <p class="empty-day">No places added to Day 3 yet.</p>
       </article>
@@ -407,33 +409,33 @@
         <div class="two-columns">
           <div class="form-group">
             <label for="days">Number of days</label>
-            <input id="days" type="number" min="1" value="3" placeholder="No. of travel days">
+            <input id="days" type="number" min="1" placeholder="e.g. 3">
           </div>
 
           <div class="form-group">
             <label for="travellers">Number of travellers</label>
-            <input id="travellers" type="number" min="1" value="2" placeholder="No. of travellers">
+            <input id="travellers" type="number" min="1" placeholder="e.g. 2">
           </div>
         </div>
 
         <div class="form-group">
           <label for="accommodation">Daily accommodation budget (NRs. per room)</label>
-          <input id="accommodation" type="number" min="0" value="2500" placeholder="Accommodation budget">
+          <input id="accommodation" type="number" min="0" placeholder="e.g. 2500">
         </div>
 
         <div class="form-group">
           <label for="food">Daily food budget (NRs. per person)</label>
-          <input id="food" type="number" min="0" value="1000" placeholder="Food budget">
+          <input id="food" type="number" min="0" placeholder="e.g. 1000">
         </div>
 
         <div class="form-group">
           <label for="transport">Daily transport budget (NRs. per person)</label>
-          <input id="transport" type="number" min="0" value="500" placeholder="Transport budget">
+          <input id="transport" type="number" min="0" placeholder="e.g. 500">
         </div>
 
         <div class="form-group">
           <label for="activities">Activity budget (NRs. per person, total trip)</label>
-          <input id="activities" type="number" min="0" value="2500" placeholder="Activity budget">
+          <input id="activities" type="number" min="0" placeholder="e.g. 2500">
         </div>
 
         <button class="primary-button" type="submit">Calculate Budget</button>
@@ -444,27 +446,27 @@
 
         <div class="cost-row">
           <span>Accommodation</span>
-          <span id="accommodation-total">NRs. 7,500</span>
+          <span id="accommodation-total">NRs. 0</span>
         </div>
 
         <div class="cost-row">
           <span>Food</span>
-          <span id="food-total">NRs. 6,000</span>
+          <span id="food-total">NRs. 0</span>
         </div>
 
         <div class="cost-row">
           <span>Transport</span>
-          <span id="transport-total">NRs. 3,000</span>
+          <span id="transport-total">NRs. 0</span>
         </div>
 
         <div class="cost-row">
           <span>Activities</span>
-          <span id="activities-total">NRs. 5,000</span>
+          <span id="activities-total">NRs. 0</span>
         </div>
 
         <div class="total-row">
           <span>Grand Total</span>
-          <span id="grand-total">NRs. 21,500</span>
+          <span id="grand-total">NRs. 0</span>
         </div>
 
         <p class="cost-note">
@@ -507,6 +509,26 @@
 
     document.querySelector("#reset-button").addEventListener("click", () => {
       setTimeout(() => form.dispatchEvent(new Event("submit")), 0);
+    });
+
+    // Make each destination's remove (trash) button actually remove it
+    document.querySelectorAll(".remove-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const placeCard = button.closest(".place-card");
+        const dayCard = button.closest(".day-card");
+        if (!placeCard || !dayCard) return;
+
+        placeCard.remove();
+
+        // If no place-cards remain in this day, show the "empty day" message
+        const remaining = dayCard.querySelectorAll(".place-card").length;
+        if (remaining === 0) {
+          const emptyMessage = dayCard.querySelector(".empty-day");
+          if (emptyMessage) {
+            emptyMessage.hidden = false;
+          }
+        }
+      });
     });
   </script>
     <script src="js/script.js"></script>
