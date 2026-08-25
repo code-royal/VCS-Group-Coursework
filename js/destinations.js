@@ -861,7 +861,28 @@ function createDestinationCard(destination) {
 
             if (!requireLogin("add to favorites")) return;
 
-            // temporary message (you can improve this later)
+            // Get current favorites or start a new array
+            let favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
+
+            // Check if already saved
+            const alreadySaved = favorites.some(fav => fav.id === destination.id);
+
+            if (alreadySaved) {
+                alert(`${destination.name} is already in your favorites.`);
+                return;
+            }
+
+            // Save only the useful data
+            favorites.push({
+                id: destination.id,
+                name: destination.name,
+                location: destination.location,
+                category: destination.category,
+                image: destination.image,
+                rating: destination.rating
+            });
+
+            sessionStorage.setItem("favorites", JSON.stringify(favorites));
             alert(`${destination.name} added to favorites!`);
         });
     }
