@@ -312,7 +312,10 @@
         <!-- Placeholder for future lists -->
         <div class="profile-card">
             <h3 class="profile-section-title">Saved Favorites</h3>
-            <p class="empty-note">
+            <div id="favorites-list">
+                <!-- favorites will appear here -->
+            </div>
+            <p class="empty-note" id="empty-favorites" style="display: none;">
                 You haven’t saved any places yet. Tap the heart icon on any destination to add it here.
             </p>
         </div>
@@ -382,6 +385,53 @@
             sessionStorage.removeItem("isLoggedIn");
             window.location.href = "./index.html";
         });
+
+        // ===== Show saved favorites =====
+        const favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
+        const favoritesList = document.getElementById("favorites-list");
+        const emptyNote = document.getElementById("empty-favorites");
+        const favCount = document.getElementById("fav-count");
+
+        // Update the number in the stats
+        if (favCount) {
+            favCount.textContent = favorites.length;
+        }
+
+        if (favorites.length === 0) {
+            emptyNote.style.display = "block";
+        } else {
+            emptyNote.style.display = "none";
+
+            favorites.forEach(fav => {
+                const item = document.createElement("div");
+                item.style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        `;
+
+                item.innerHTML = `
+            <img src="${fav.image}" alt="${fav.name}"
+                 style="width: 56px; height: 56px; object-fit: cover; border-radius: 8px;">
+            <div style="flex: 1;">
+                <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">
+                    ${fav.name}
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary);">
+                    ${fav.category} • ${fav.location}
+                </div>
+            </div>
+            <a href="./details.html?id=${fav.id}" 
+               style="font-size: 0.75rem; color: var(--tertiary); font-weight: 600;">
+                View
+            </a>
+        `;
+
+                favoritesList.appendChild(item);
+            });
+        }
     </script>
 </body>
 
