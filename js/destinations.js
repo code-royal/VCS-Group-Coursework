@@ -1042,21 +1042,103 @@ function add_destination_detials(destination) {
                     <a href="${destination.map_location}" target="_blank" class="primary-btn" style="text-align: center;">
                         📍 Get Directions
                     </a>
-                    <button class="outline-btn">Save to Favorites</button>
+                    <button class="outline-btn" id="save-favorites-btn">Save to Favorites</button>
+                    <button class="outline-btn" id="add-itinerary-btn" style="margin-top: 8px;">Add to Itinerary</button>
                 </div>
             </div>
         </section>
     `;
 
-    const saveFavBtn = main_screen.querySelector(".outline-btn");
+    // Save to Favorites
+    const saveFavBtn = main_screen.querySelector("#save-favorites-btn");
     if (saveFavBtn) {
         saveFavBtn.addEventListener("click", (e) => {
             e.preventDefault();
 
             if (!requireLogin("save to favorites")) return;
 
+            let favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
+
+            const alreadySaved = favorites.some(fav => fav.id === destination.id);
+            if (alreadySaved) {
+                alert(`${destination.name} is already in your favorites.`);
+                return;
+            }
+
+            favorites.push({
+                id: destination.id,
+                name: destination.name,
+                location: destination.location,
+                category: destination.category,
+                image: destination.image,
+                rating: destination.rating
+            });
+
+            sessionStorage.setItem("favorites", JSON.stringify(favorites));
             alert(`${destination.name} saved to favorites!`);
-            // later you can actually store it in sessionStorage
+        });
+    }
+
+    // Add to Itinerary
+    const addItineraryBtn = main_screen.querySelector("#add-itinerary-btn");
+    if (addItineraryBtn) {
+        addItineraryBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if (!requireLogin("add to itinerary")) return;
+
+            const ITINERARY_KEY = "ek-itinerary-state";
+
+            // Load current itinerary (or create the default 3 empty days)
+            let itineraryState;
+            try {
+                const raw = localStorage.getItem(ITINERARY_KEY);
+                itineraryState = raw ? JSON.parse(raw) : [
+                    { places: [] },
+                    { places: [] },
+                    { places: [] }
+                ];
+            } catch {
+                itineraryState = [
+                    { places: [] },
+                    { places: [] },
+                    { places: [] }
+                ];
+            }
+
+            // Ask which day to add to
+            const dayCount = itineraryState.length;
+            const dayChoice = prompt(
+                `Add "${destination.name}" to which day? (1–${dayCount})`,
+                "1"
+            );
+
+            const dayIndex = Number(dayChoice) - 1;
+
+            if (isNaN(dayIndex) || dayIndex < 0 || dayIndex >= dayCount) {
+                alert("Invalid day number.");
+                return;
+            }
+
+            // Check if already on that day
+            const alreadyOnDay = itineraryState[dayIndex].places.some(
+                p => p.name === destination.name
+            );
+
+            if (alreadyOnDay) {
+                alert(`${destination.name} is already on Day ${dayIndex + 1}.`);
+                return;
+            }
+
+            // Add the place (matching the structure used by itinerary.html)
+            itineraryState[dayIndex].places.push({
+                name: destination.name,
+                meta: `${destination.category} • ${destination.location}`,
+                image: destination.image
+            });
+
+            localStorage.setItem(ITINERARY_KEY, JSON.stringify(itineraryState));
+            alert(`${destination.name} added to Day ${dayIndex + 1}!`);
         });
     }
 
