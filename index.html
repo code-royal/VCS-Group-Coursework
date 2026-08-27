@@ -4,506 +4,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
-
     <style>
-
-        /* =========================
-           HERO
-        ========================= */
+        .hero-section {
+            padding: 84px 0px;
+            background-color: var(--surface-hover);
+        }
 
         .hero {
-            padding: 52px 20px;
-            background: var(--surface-hover);
-            text-align: center;
-        }
-
-        .hero h1 {
-            color: var(--tertiary);
-            font-family: var(--headings);
-            font-size: clamp(2rem, 5vw, 2.7rem);
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            max-width: 580px;
-            margin: auto;
-            color: var(--text-secondary);
-            font-size: 0.94rem;
-            line-height: 1.65;
-        }
-
-
-        /* =========================
-           MAIN
-        ========================= */
-
-        main {
-            width: min(100% - 40px, 970px);
-            margin: auto;
-            padding: 36px 0 70px;
-        }
-
-
-        /* =========================
-           DAY CARDS
-        ========================= */
-
-        .day-card,
-        .calculator,
-        .cost-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-        }
-
-        .day-card {
-            padding: 20px 26px;
-            margin-bottom: 18px;
-        }
-
-        .day-header {
             display: flex;
-            align-items: center;
+            flex-direction: row;
             justify-content: space-between;
-            gap: 15px;
+            align-items: center;
         }
 
-        .day-card h2 {
-            color: var(--text-primary);
-            font-family: var(--headings);
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin: 0;
-        }
-
-        .empty-day {
-            padding: 18px 0 10px;
-            color: var(--text-secondary);
-            font-size: 0.87rem;
-        }
-
-
-        /* =========================
-           DELETE DAY BUTTON
-        ========================= */
-
-        .delete-day-button {
-            padding: 7px 12px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: var(--surface-hover);
-            color: var(--text-tertiary);
-            cursor: pointer;
-            font-family: var(--body-text);
-            font-size: 0.68rem;
-            font-weight: 600;
-        }
-
-        .delete-day-button:hover {
-            background: var(--surface);
-            color: var(--tertiary);
-        }
-
-
-        /* =========================
-           PLACE CARD
-        ========================= */
-
-        .place-card {
+        .hero-description {
+            width: 50%;
             display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .search-box {
+            display: flex;
+            flex-direction: row;
             align-items: center;
             gap: 12px;
-            margin-top: 14px;
-            padding: 12px;
-            border: 1px dashed var(--border-hover);
-            border-radius: 10px;
-        }
-
-        .place-image {
-            width: 66px;
-            height: 66px;
-            flex-shrink: 0;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .place-info {
-            flex: 1;
-        }
-
-        .place-info h3 {
-            color: var(--text-primary);
-            font-family: var(--headings);
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 4px;
-        }
-
-        .place-info p {
-            color: var(--text-secondary);
-            font-size: 0.72rem;
-        }
-
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
-        .view-button,
-        .remove-button,
-        .secondary-button,
-        .primary-button,
-        .add-day-button {
-            border-radius: 999px;
-            cursor: pointer;
-            font-family: var(--body-text);
-            font-weight: 600;
-        }
-
-        .view-button {
-            min-width: 86px;
-            padding: 10px 16px;
+            background-color: var(--surface);
+            width: 75%;
+            padding: 8px 16px;
             border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--text-secondary);
-            font-size: 0.78rem;
+            border-radius: 24px;
         }
 
-        .remove-button {
+        .search-box #search-input {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: var(--surface);
+            color: var(--text-primary);
+        }
+
+        .search-btn {
+            background-color: var(--tertiary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: small;
+        }
+
+        .search-btn:hover {
+            background-color: var(--tertiary-hover);
+            transition: all ease 0.3s;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 45%;
+            border-radius: 20px;
+            box-shadow: 0px 2px 24px var(--border-hover);
+        }
+
+        .hero-image {
+            border-radius: 20px;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            left: -36px;
+            bottom: -16px;
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--background);
+            padding: 12px 16px;
+            border-radius: 20px;
+        }
+
+
+        /* featured destinations section styling */
+        .featured-destinations {
+            padding: 64px 0px;
+        }
+
+        .featured-destinations-content {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        #featured-destinations-container {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+
+        /* why explore kathmandu section styling */
+        .why-explore-kathmandu {
+            background-color: var(--surface-hover);
+            padding: 64px 0px;
+        }
+
+        .why-explore {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .reasons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .reason-card {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 388px;
+            background-color: var(--surface);
+            border-top: 6px solid var(--tertiary-hover);
+            border-radius: 16px;
+            padding: 16px 24px 24px;
+        }
+
+        .reason-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .reason-title {
+            color: var(--text-primary);
+        }
+
+        .reason-description {
+            color: var(--text-secondary);
+        }
+
+
+        /* traveller stories section styling */
+        .traveller-stories-section {
+            padding: 64px 0px;
+        }
+
+        .traveller-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .traveller-stories-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .story-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 24px;
+            max-width: 388px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .story-card .ratings {
+            color: var(--secondary-hover);
+        }
+
+        .story-card .content {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .story-card .traveller-profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .traveller-profile-icon {
             width: 36px;
             height: 36px;
-            border: 1px solid var(--border);
-            background: var(--surface-hover);
-            color: var(--text-tertiary);
-            font-size: 1rem;
-        }
-
-
-        /* =========================
-           ADD DAY BUTTON
-        ========================= */
-
-        .add-day-container {
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin-top: 28px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            font-weight: bold;
+            color: #ffffff;
         }
 
-        .add-day-button {
-            padding: 11px 22px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--tertiary);
-            font-size: 0.78rem;
-            transition: 0.2s ease;
+        .traveller-profile .traveller-profile-details {
+            display: flex;
+            flex-direction: column;
         }
 
-        .add-day-button:hover {
-            background: var(--surface-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-1px);
-        }
-
-
-        /* =========================
-           BOTTOM GRID
-        ========================= */
-
-        .bottom-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 34px;
-            margin-top: 104px;
-            align-items: start;
-        }
-
-        .calculator,
-        .cost-card {
-            padding: 20px;
-        }
-
-        .calculator h2,
-        .cost-card h2 {
-            color: var(--text-primary);
-            font-family: var(--headings);
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-
-
-        /* =========================
-           FORM
-        ========================= */
-
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-        }
-
-        .form-group {
-            margin-bottom: 12px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--text-primary);
-            font-size: 0.62rem;
-            font-weight: 700;
-        }
-
-        .form-group input {
-            width: 100%;
-            height: 35px;
-            padding: 0 12px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            outline: none;
-            background: var(--surface);
-            color: var(--text-primary);
+        .traveller-profile-details .traveller-name {
             font-family: var(--body-text);
-            font-size: 0.72rem;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
         }
 
-        .form-group input:focus {
-            border-color: var(--primary);
-            background: var(--surface-hover);
+        .traveller-profile-details .traveller-address {
+            font-family: var(--body-text);
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-secondary);
         }
 
 
-        /* =========================
-           CALCULATOR BUTTONS
-        ========================= */
-
-        .primary-button,
-        .secondary-button {
-            width: 100%;
-            height: 38px;
-            font-size: 0.76rem;
+        /* subscription section styling */
+        .subscription-section {
+            padding: 64px 0px;
         }
 
-        .primary-button {
-            margin-top: 8px;
-            border: none;
-            background: var(--tertiary);
-            color: var(--surface);
+        .subscription {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--tertiary);
+            padding: 36px 64px 36px 0px;
+            border-radius: 24px;
         }
 
-        .primary-button:hover {
-            background: var(--tertiary-hover);
+        .subscription-content {
+            max-width: min(60%, 960px);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .secondary-button {
-            margin-top: 8px;
+        .subscription-content-title {
+            color: #ffffff;
+        }
+
+        .subscription-content-body {
+            color: #e9e1d4;
+        }
+
+        .subscription-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .email-input-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 12px 24px;
             border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--text-secondary);
+            border-radius: 24px;
         }
 
-
-        /* =========================
-           COST CARD
-        ========================= */
-
-        .cost-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 9px 0;
-            border-bottom: 1px dotted var(--text-tertiary);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
+        .email-input-box #subscription-email-input {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: #ffffff;
+            color: #4A4239;
         }
 
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding-top: 12px;
-            color: var(--tertiary);
-            font-family: var(--headings);
-            font-size: 1.3rem;
+        .subscribe-btn {
+            max-width: fit-content;
         }
-
-        .cost-note {
-            margin-top: 15px;
-            color: var(--text-tertiary);
-            font-size: 0.61rem;
-            font-weight: 600;
-            line-height: 1.45;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            main {
-                width: min(100% - 28px, 970px);
-                padding-top: 26px;
-            }
-
-            .bottom-grid {
-                grid-template-columns: 1fr;
-                margin-top: 55px;
-                gap: 22px;
-            }
-
-            .day-card {
-                padding: 18px;
-            }
-
-        }
-
-
-        @media (max-width: 480px) {
-
-            .hero {
-                padding: 40px 16px;
-            }
-
-            .day-header {
-                align-items: flex-start;
-            }
-
-            .place-card {
-                align-items: flex-start;
-                flex-wrap: wrap;
-            }
-
-            .place-info {
-                min-width: calc(100% - 80px);
-            }
-
-            .view-button {
-                margin-left: 78px;
-            }
-
-            .two-columns {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .calculator h2,
-            .cost-card h2 {
-                font-size: 1.65rem;
-            }
-
-        }
-
     </style>
 </head>
 
-
 <body>
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
-
     <header>
         <nav>
-
             <div class="nav">
-
                 <h1 class="logo">
                     <a href="./index.html">
                         Explore <span>Kathmandu</span>
                     </a>
                 </h1>
-
                 <div class="nav-menu-container">
-
                     <div class="nav-menu">
-
-                        <a class="navigation-text" href="./index.html">
+                        <a class="navigation-text nav-active" href="./index.html">
                             Home
                         </a>
-
                         <a class="navigation-text" href="./explore.html">
                             Explore
                         </a>
-
-                        <a class="navigation-text nav-active" href="./itinerary.html">
+                        <a class="navigation-text" href="./itinerary.html">
                             Itinerary
                         </a>
-
                         <a class="navigation-text" href="./guide.html">
                             Travel Tips
                         </a>
-
                         <a class="navigation-text" href="./about.html">
                             About
                         </a>
-
                     </div>
-
                     <div class="config">
-
                         <a href="./profile.html" class="profile-icon">
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="nav-icon">
-
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="nav-icon">
                                 <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
                                 <circle cx="12" cy="11" r="4" />
                                 <circle cx="12" cy="12" r="10" />
-
                             </svg>
-
                         </a>
-
-
                         <button class="theme-toggle" aria-label="Toggle theme">
 
-                            <!-- Moon -->
-                            <svg class="nav-icon moon-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
+                            <!-- Moon: shown in light mode -->
+                            <svg class="nav-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round">
 
-                                <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
-
+                                <path
+                                    d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
                             </svg>
 
-
-                            <!-- Sun -->
-                            <svg class="nav-icon sun-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
+                            <!-- Sun: shown in dark mode -->
+                            <svg class="nav-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round">
 
                                 <circle cx="12" cy="12" r="4" />
@@ -516,587 +360,199 @@
                                 <path d="M20 12h2" />
                                 <path d="m6.34 17.66-1.41 1.41" />
                                 <path d="m19.07 4.93-1.41 1.41" />
-
                             </svg>
 
                         </button>
-
                     </div>
-
                 </div>
-
             </div>
-
         </nav>
     </header>
-
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <header class="hero">
-
-        <h1>Build Your Itinerary</h1>
-
-        <p>
-            Add places from any destination page, organized across your travel days.
-            Everything is saved on this device.
-        </p>
-
-    </header>
-
-
-    <!-- =========================
-         MAIN
-    ========================= -->
-
     <main>
-
-        <section class="itinerary" id="itinerary">
-
-            <!-- DAY 1 -->
-
-            <article class="day-card" data-day="1">
-
-                <div class="day-header">
-
-                    <h2>Day 1</h2>
-
-                </div>
-
-                <div class="place-card">
-
-                    <img
-                        class="place-image"
-                        src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
-                        alt="A traditional vehicle in Kathmandu">
-
-                    <div class="place-info">
-
-                        <h3>Patan Durbar Square</h3>
-
-                        <p>
-                            Heritage Site • Lalitpur
-                        </p>
-
+        <section class="hero-section">
+            <div class="container hero">
+                <div class="hero-description">
+                    <p class="caption" style="color: var(--tertiary);">KATHMANDU VALLEY TRAVEL GUIDE</p>
+                    <h1 class="display-text">Discover the Heart of <span style="color: var(--primary);">Kathmandu</span>
+                    </h1>
+                    <p class="body-large" style="color: var(--text-secondary);">Explore temples, food, culture, nature,
+                        and hidden<br>gems in Nepal's vibrant capital.</p>
+                    <div class="hero-btns">
+                        <a href="./explore.html" class="primary-btn">
+                            Explore Places
+                        </a>
+                        <a href="./guide.html" class="outline-btn">
+                            Build Your Itinerary
+                        </a>
                     </div>
-
-                    <button class="view-button" type="button">
-                        View
-                    </button>
-
-                    <button class="remove-button"
-                        type="button"
-                        aria-label="Remove destination">
-                        🗑
-                    </button>
-
                 </div>
-
-                <p class="empty-day" hidden>
-                    No places added to Day 1 yet.
-                </p>
-
-            </article>
-
-
-            <!-- DAY 2 -->
-
-            <article class="day-card" data-day="2">
-
-                <div class="day-header">
-
-                    <h2>Day 2</h2>
-
+                <div class="hero-image-container">
+                    <img src="./images/Hero-Img.jpg" class="hero-image" alt="Kathmandu Streets">
+                    <div class="hero-image-overlay">
+                        <div class="heading-4" style="color: var(--tertiary); font-weight: 800;">25+</div>
+                        <div class="caption">hand-picked places <br> across the valley</div>
+                    </div>
                 </div>
-
-                <p class="empty-day">
-                    No places added to Day 2 yet.
-                </p>
-
-            </article>
-
-
-            <!-- DAY 3 -->
-
-            <article class="day-card" data-day="3">
-
-                <div class="day-header">
-
-                    <h2>Day 3</h2>
-
-                </div>
-
-                <p class="empty-day">
-                    No places added to Day 3 yet.
-                </p>
-
-            </article>
-
+            </div>
         </section>
 
-
-        <!-- =========================
-             ADD DAY BUTTON
-        ========================= -->
-
-        <div class="add-day-container">
-
-            <button
-                class="add-day-button"
-                id="add-day-button"
-                type="button">
-
-                + Add Day
-
-            </button>
-
-        </div>
-
-
-        <!-- =========================
-             BUDGET SECTION
-        ========================= -->
-
-        <section class="bottom-grid">
-
-            <form class="calculator" id="budget-form">
-
-                <h2>Trip Details</h2>
-
-
-                <div class="two-columns">
-
-                    <div class="form-group">
-
-                        <label for="days">
-                            Number of days
-                        </label>
-
-                        <input
-                            id="days"
-                            type="number"
-                            min="1"
-                            placeholder="e.g. 3">
-
+        <section class="featured-destinations">
+            <div class="container">
+                <div class="featured-destinations-content">
+                    <div class="title-container">
+                        <p class="title-top caption">FEATURED</p>
+                        <h2 class="title-main heading-4">Featured Destinations</h2>
+                        <p class="title-description body">A first taste of what's waiting for you in the valley - from
+                            ancient stupas to hillside sunrise views.</p>
                     </div>
-
-
-                    <div class="form-group">
-
-                        <label for="travellers">
-                            Number of travellers
-                        </label>
-
-                        <input
-                            id="travellers"
-                            type="number"
-                            min="1"
-                            placeholder="e.g. 2">
-
+                    <div class="featured-destinations-container" id="featured-destinations-container">
                     </div>
-
                 </div>
-
-
-                <div class="form-group">
-
-                    <label for="accommodation">
-                        Daily accommodation budget (NRs. per room)
-                    </label>
-
-                    <input
-                        id="accommodation"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 2500">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="food">
-                        Daily food budget (NRs. per person)
-                    </label>
-
-                    <input
-                        id="food"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 1000">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="transport">
-                        Daily transport budget (NRs. per person)
-                    </label>
-
-                    <input
-                        id="transport"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 500">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="activities">
-                        Activity budget (NRs. per person, total trip)
-                    </label>
-
-                    <input
-                        id="activities"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 2500">
-
-                </div>
-
-
-                <button
-                    class="primary-button"
-                    type="submit">
-
-                    Calculate Budget
-
-                </button>
-
-
-                <button
-                    class="secondary-button"
-                    id="reset-button"
-                    type="reset">
-
-                    Reset Calculator
-
-                </button>
-
-            </form>
-
-
-            <!-- =========================
-                 COST CARD
-            ========================= -->
-
-            <aside class="cost-card">
-
-                <h2>Estimated Cost</h2>
-
-
-                <div class="cost-row">
-
-                    <span>Accommodation</span>
-
-                    <span id="accommodation-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="cost-row">
-
-                    <span>Food</span>
-
-                    <span id="food-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="cost-row">
-
-                    <span>Transport</span>
-
-                    <span id="transport-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="cost-row">
-
-                    <span>Activities</span>
-
-                    <span id="activities-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="total-row">
-
-                    <span>Grand Total</span>
-
-                    <span id="grand-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <p class="cost-note">
-
-                    These figures are estimates and can vary with season,
-                    exchange rates, and travel style. Accommodation is
-                    calculated per room per night; food, transport, and
-                    activities are calculated per traveler.
-
-                </p>
-
-            </aside>
-
+            </div>
         </section>
 
+        <section class="why-explore-kathmandu">
+            <div class="why-explore container">
+                <div class="title-container">
+                    <p class="title-top caption">WHY EXPLORE KATHMANDU</p>
+                    <h2 class="title-main heading-4">Planning Your Trip, Made Easy</h2>
+                </div>
+                <div class="reasons">
+                    <div class="reason-card">
+                        <p reason-emoji>🧭</p>
+                        <div class="reason-content">
+                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
+                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
+                                not just the tourist-brochure list.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card">
+                        <p reason-emoji>🗓️</p>
+                        <div class="reason-content">
+                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
+                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
+                                not just the tourist-brochure list.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card">
+                        <p reason-emoji>❤️</p>
+                        <div class="reason-content">
+                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
+                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
+                                not just the tourist-brochure list.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="traveller-stories-section">
+            <div class="traveller-stories container">
+                <div class="title-container">
+                    <p class="title-top caption">TRAVELLER STORIES</p>
+                    <h2 class="title-main heading-4">What Visitors Are Saying</h2>
+                </div>
+                <div class="traveller-stories-container">
+                    <div class="story-card">
+                        <div class="ratings">&starf;&starf;&starf;&starf;&starf;</div>
+                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
+                            but relaxed days planned before we even landed.</p>
+                        <div class="traveller-profile">
+                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-details">
+                                <h6 class="traveller-name">Jessica J.</h6>
+                                <p class="traveller-address">Florida, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="ratings">&starf;&starf;&starf;&starf;&starf;</div>
+                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
+                            but relaxed days planned before we even landed.</p>
+                        <div class="traveller-profile">
+                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-details">
+                                <h6 class="traveller-name">Jessica J.</h6>
+                                <p class="traveller-address">Florida, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="ratings">&starf;&starf;&starf;&starf;&star;</div>
+                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
+                            but relaxed days planned before we even landed.</p>
+                        <div class="traveller-profile">
+                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-details">
+                                <h6 class="traveller-name">Jessica J.</h6>
+                                <p class="traveller-address">Florida, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscription-section">
+            <div class="container subscription">
+                <div class="subscription-content">
+                    <h3 class="subscription-content-title heading-3">Get trip ideas in your inbox</h3>
+                    <p class="subscription-content-body body">Occasional tips on new destinations, seasonal events, and
+                        hidden gems. No spam, unsubscribe any time.</p>
+                </div>
+                <form action="" class="subscription-form">
+                    <div class="email-input-box">
+                        <input type="text" name="email-input" id="subscription-email-input"
+                            placeholder="you@example.com">
+                    </div>
+                    <button class="subscribe-btn secondary-btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
     </main>
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
-    <script>
-
-        /* =========================
-           BUDGET CALCULATOR
-        ========================= */
-
-        const form = document.querySelector("#budget-form");
-
-        const formatNPR = (amount) =>
-            `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
-
-
-        form.addEventListener("submit", (event) => {
-
-            event.preventDefault();
-
-            const days =
-                Number(document.querySelector("#days").value) || 0;
-
-            const travellers =
-                Number(document.querySelector("#travellers").value) || 0;
-
-            const accommodation =
-                Number(document.querySelector("#accommodation").value) || 0;
-
-            const food =
-                Number(document.querySelector("#food").value) || 0;
-
-            const transport =
-                Number(document.querySelector("#transport").value) || 0;
-
-            const activities =
-                Number(document.querySelector("#activities").value) || 0;
-
-
-            const accommodationTotal =
-                days * accommodation;
-
-            const foodTotal =
-                days * travellers * food;
-
-            const transportTotal =
-                days * travellers * transport;
-
-            const activitiesTotal =
-                travellers * activities;
-
-            const grandTotal =
-                accommodationTotal +
-                foodTotal +
-                transportTotal +
-                activitiesTotal;
-
-
-            document.querySelector("#accommodation-total").textContent =
-                formatNPR(accommodationTotal);
-
-            document.querySelector("#food-total").textContent =
-                formatNPR(foodTotal);
-
-            document.querySelector("#transport-total").textContent =
-                formatNPR(transportTotal);
-
-            document.querySelector("#activities-total").textContent =
-                formatNPR(activitiesTotal);
-
-            document.querySelector("#grand-total").textContent =
-                formatNPR(grandTotal);
-
-        });
-
-
-        /* =========================
-           RESET CALCULATOR
-        ========================= */
-
-        document.querySelector("#reset-button")
-            .addEventListener("click", () => {
-
-                setTimeout(() => {
-
-                    document.querySelector("#accommodation-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#food-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#transport-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#activities-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#grand-total")
-                        .textContent = "NRs. 0";
-
-                }, 0);
-
-            });
-
-
-        /* =========================
-           REMOVE DESTINATION
-        ========================= */
-
-        function setupRemoveButton(button) {
-
-            button.addEventListener("click", () => {
-
-                const placeCard =
-                    button.closest(".place-card");
-
-                const dayCard =
-                    button.closest(".day-card");
-
-                if (!placeCard || !dayCard) return;
-
-                placeCard.remove();
-
-
-                const remaining =
-                    dayCard.querySelectorAll(".place-card").length;
-
-
-                if (remaining === 0) {
-
-                    const emptyMessage =
-                        dayCard.querySelector(".empty-day");
-
-                    if (emptyMessage) {
-
-                        emptyMessage.hidden = false;
-
-                    }
-
-                }
-
-            });
-
-        }
-
-
-        document
-            .querySelectorAll(".remove-button")
-            .forEach(setupRemoveButton);
-
-
-        /* =========================
-           ADD NEW DAY
-        ========================= */
-
-        const itinerary =
-            document.querySelector("#itinerary");
-
-        const addDayButton =
-            document.querySelector("#add-day-button");
-
-
-        function getNextDayNumber() {
-
-            const days =
-                itinerary.querySelectorAll(".day-card");
-
-            return days.length + 1;
-
-        }
-
-
-        addDayButton.addEventListener("click", () => {
-
-            const dayNumber =
-                getNextDayNumber();
-
-
-            const newDay =
-                document.createElement("article");
-
-            newDay.className = "day-card";
-
-            newDay.dataset.day =
-                dayNumber;
-
-
-            newDay.innerHTML = `
-
-                <div class="day-header">
-
-                    <h2>Day ${dayNumber}</h2>
-
-                    <button
-                        class="delete-day-button"
-                        type="button">
-
-                        Delete Day
-
-                    </button>
-
+    <footer>
+        <div class="footer container">
+            <div class="footer-main">
+                <div class="footer-content">
+                    <h3 class="footer-logo">
+                        <a href="./index.html">
+                            Explore <span>Kathmandu</span>
+                        </a>
+                    </h3>
+                    <p class="footer-description body-small">An independent travel guide helping visitors and locals
+                        discover the best of the Kathmandu Valley.</p>
                 </div>
+                <div class="footer-quick-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a class="footer-navigation-text" href="./index.html">Home</a>
+                    <a class="footer-navigation-text" href="./explore.html">Explore</a>
+                    <a class="footer-navigation-text" href="./itinerary.html">Itinerary</a>
+                </div>
+                <div class="footer-guides">
+                    <h4 class="footer-title">Guide</h4>
+                    <a class="footer-navigation-text" href="./guide.html">Travel Tips</a>
+                    <a class="footer-navigation-text" href="./about.html    ">About Us</a>
+                    <a class="footer-navigation-text" href="">Temples & Heritage</a>
+                    <a class="footer-navigation-text" href="">Food & Cafés</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p class="footer-contact-details body-small">Thamel, Kathmandu 44600, Nepal</p>
+                    <p class="footer-contact-details body-small">explore.kathmandu@gmail.com</p>
+                    <p class="footer-contact-details body-small">+977 98-01234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-bottom-text caption">&copy; 2026 Explore Kathmandu. All rights reserved.</p>
+                <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government
+                    tourism board. Prices & hours are estimates.</p>
+            </div>
+        </div>
+    </footer>
 
-                <p class="empty-day">
-
-                    No places added to Day ${dayNumber} yet.
-
-                </p>
-
-            `;
-
-
-            itinerary.appendChild(newDay);
-
-
-            /* Delete the newly created day */
-
-            const deleteButton =
-                newDay.querySelector(".delete-day-button");
-
-
-            deleteButton.addEventListener("click", () => {
-
-                newDay.remove();
-
-            });
-
-        });
-
-    </script>
-
-
-    <!-- Existing global JavaScript -->
-
-    <script src="js/script.js"></script>
-
+    <script src="./js/script.js"></script>
+    <script src="./js/destinations.js"></script>
 </body>
 
 </html>
