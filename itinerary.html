@@ -19,9 +19,7 @@
 
     <style>
 
-        /* =========================
-           HERO
-        ========================= */
+        /* hero section */
 
         .hero {
             padding: 52px 20px;
@@ -46,20 +44,13 @@
         }
 
 
-        /* =========================
-           MAIN
-        ========================= */
+        /* itinerary section */
 
         main {
             width: min(100% - 40px, 970px);
             margin: auto;
             padding: 36px 0 70px;
         }
-
-
-        /* =========================
-           DAY CARDS
-        ========================= */
 
         .day-card,
         .calculator,
@@ -96,9 +87,7 @@
         }
 
 
-        /* =========================
-           DELETE DAY BUTTON
-        ========================= */
+        /* delete day button */
 
         .delete-day-button {
             padding: 7px 12px;
@@ -118,9 +107,7 @@
         }
 
 
-        /* =========================
-           PLACE CARD
-        ========================= */
+        /* place card */
 
         .place-card {
             display: flex;
@@ -138,7 +125,6 @@
             flex-shrink: 0;
             border-radius: 8px;
             object-fit: cover;
-            background: var(--surface-hover);
         }
 
         .place-info {
@@ -159,9 +145,7 @@
         }
 
 
-        /* =========================
-           BUTTONS
-        ========================= */
+        /* buttons */
 
         .view-button,
         .remove-button,
@@ -181,6 +165,12 @@
             background: var(--surface);
             color: var(--text-secondary);
             font-size: 0.78rem;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .view-button:hover {
+            background: var(--surface-hover);
         }
 
         .remove-button {
@@ -193,9 +183,7 @@
         }
 
 
-        /* =========================
-           ADD DAY BUTTON
-        ========================= */
+        /* add day */
 
         .add-day-container {
             display: flex;
@@ -219,44 +207,13 @@
         }
 
 
-        /* =========================
-           SAVE INDICATOR
-        ========================= */
-
-        .save-indicator {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            margin-top: 14px;
-            color: var(--text-tertiary);
-            font-size: 0.68rem;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .save-indicator.show {
-            opacity: 1;
-        }
-
-        .save-indicator .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary);
-        }
-
-
-        /* =========================
-           BOTTOM GRID
-        ========================= */
+        /* calculator section */
 
         .bottom-grid {
             display: grid;
             grid-template-columns: 1.05fr 0.95fr;
             gap: 34px;
-            margin-top: 60px;
+            margin-top: 104px;
             align-items: start;
         }
 
@@ -275,9 +232,7 @@
         }
 
 
-        /* =========================
-           FORM
-        ========================= */
+        /* form */
 
         .two-columns {
             display: grid;
@@ -308,7 +263,6 @@
             color: var(--text-primary);
             font-family: var(--body-text);
             font-size: 0.72rem;
-            box-sizing: border-box;
         }
 
         .form-group input:focus {
@@ -317,9 +271,7 @@
         }
 
 
-        /* =========================
-           CALCULATOR BUTTONS
-        ========================= */
+        /* calculator buttons */
 
         .primary-button,
         .secondary-button {
@@ -347,9 +299,7 @@
         }
 
 
-        /* =========================
-           COST CARD
-        ========================= */
+        /* cost section */
 
         .cost-row {
             display: flex;
@@ -379,75 +329,11 @@
             line-height: 1.45;
         }
 
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            main {
-                width: min(100% - 28px, 970px);
-                padding-top: 26px;
-            }
-
-            .bottom-grid {
-                grid-template-columns: 1fr;
-                margin-top: 40px;
-                gap: 22px;
-            }
-
-            .day-card {
-                padding: 18px;
-            }
-
-        }
-
-
-        @media (max-width: 480px) {
-
-            .hero {
-                padding: 40px 16px;
-            }
-
-            .day-header {
-                align-items: flex-start;
-            }
-
-            .place-card {
-                align-items: flex-start;
-                flex-wrap: wrap;
-            }
-
-            .place-info {
-                min-width: calc(100% - 80px);
-            }
-
-            .view-button {
-                margin-left: 78px;
-            }
-
-            .two-columns {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .calculator h2,
-            .cost-card h2 {
-                font-size: 1.65rem;
-            }
-
-        }
-
     </style>
 </head>
 
 
 <body>
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
 
     <header>
         <nav>
@@ -512,7 +398,6 @@
 
                         <button class="theme-toggle" aria-label="Toggle theme">
 
-                            <!-- Moon -->
                             <svg class="nav-icon moon-icon"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -522,12 +407,12 @@
                                 stroke-linecap="round"
                                 stroke-linejoin="round">
 
-                                <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                                <path
+                                    d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
 
                             </svg>
 
 
-                            <!-- Sun -->
                             <svg class="nav-icon sun-icon"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -562,10 +447,6 @@
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
-
     <header class="hero">
 
         <h1>Build Your Itinerary</h1>
@@ -578,23 +459,166 @@
     </header>
 
 
-    <!-- =========================
-         MAIN
-    ========================= -->
-
     <main>
 
-        <!--
-            The day cards below are now rendered entirely by JS from
-            itineraryState (see script). The markup here is intentionally
-            left empty — renderItinerary() fills it on load.
-        -->
-        <section class="itinerary" id="itinerary"></section>
+        <section class="itinerary" id="itinerary">
+
+            <!-- Day 1 -->
+
+            <article class="day-card" data-day="1">
+
+                <div class="day-header">
+                    <h2>Day 1</h2>
+                </div>
+
+                <div class="place-card">
+
+                    <img
+                        class="place-image"
+                        src="images/destinations/Patan DS.jpg"
+                        alt="Patan Durbar Square">
+
+                    <div class="place-info">
+
+                        <h3>Patan Durbar Square</h3>
+
+                        <p>
+                            Heritage Site • Lalitpur
+                        </p>
+
+                    </div>
+
+                    <a
+                        class="view-button"
+                        href="./index.html">
+
+                        View
+
+                    </a>
+
+                    <button
+                        class="remove-button"
+                        type="button"
+                        aria-label="Remove destination">
+
+                        🗑
+
+                    </button>
+
+                </div>
+
+                <p class="empty-day" hidden>
+                    No places added to Day 1 yet.
+                </p>
+
+            </article>
 
 
-        <!-- =========================
-             ADD DAY BUTTON
-        ========================= -->
+            <!-- Day 2 -->
+
+            <article class="day-card" data-day="2">
+
+                <div class="day-header">
+                    <h2>Day 2</h2>
+                </div>
+
+                <div class="place-card">
+
+                    <img
+                        class="place-image"
+                        src="images/destinations/Boudhanath Stupa.jpg"
+                        alt="Boudhanath Stupa">
+
+                    <div class="place-info">
+
+                        <h3>Boudhanath Stupa</h3>
+
+                        <p>
+                            Heritage Site • Kathmandu
+                        </p>
+
+                    </div>
+
+                    <a
+                        class="view-button"
+                        href="./index.html">
+
+                        View
+
+                    </a>
+
+                    <button
+                        class="remove-button"
+                        type="button"
+                        aria-label="Remove destination">
+
+                        🗑
+
+                    </button>
+
+                </div>
+
+                <p class="empty-day" hidden>
+                    No places added to Day 2 yet.
+                </p>
+
+            </article>
+
+
+            <!-- Day 3 -->
+
+            <article class="day-card" data-day="3">
+
+                <div class="day-header">
+                    <h2>Day 3</h2>
+                </div>
+
+                <div class="place-card">
+
+                    <img
+                        class="place-image"
+                        src="images/destinations/Swayambhunath.jpg"
+                        alt="Swayambhunath Temple">
+
+                    <div class="place-info">
+
+                        <h3>Swayambhunath Temple</h3>
+
+                        <p>
+                            Heritage Site • Kathmandu
+                        </p>
+
+                    </div>
+
+                    <a
+                        class="view-button"
+                        href="./index.html">
+
+                        View
+
+                    </a>
+
+                    <button
+                        class="remove-button"
+                        type="button"
+                        aria-label="Remove destination">
+
+                        🗑
+
+                    </button>
+
+                </div>
+
+                <p class="empty-day" hidden>
+                    No places added to Day 3 yet.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- Add Day -->
 
         <div class="add-day-container">
 
@@ -609,19 +633,14 @@
 
         </div>
 
-        <p class="save-indicator" id="save-indicator"><span class="dot"></span> Saved to this device</p>
 
-
-        <!-- =========================
-             BUDGET SECTION
-        ========================= -->
+        <!-- Budget section -->
 
         <section class="bottom-grid">
 
             <form class="calculator" id="budget-form">
 
                 <h2>Trip Details</h2>
-
 
                 <div class="two-columns">
 
@@ -738,14 +757,11 @@
             </form>
 
 
-            <!-- =========================
-                 COST CARD
-            ========================= -->
+            <!-- Cost card -->
 
             <aside class="cost-card">
 
                 <h2>Estimated Cost</h2>
-
 
                 <div class="cost-row">
 
@@ -818,204 +834,20 @@
     </main>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
     <script>
 
-        /* =========================
-           STORAGE KEYS
-        ========================= */
+        // budget calculator
 
-        const ITINERARY_KEY = "ek-itinerary-state";
-        const BUDGET_KEY = "ek-budget-form";
-
-        // The first 3 days ship with the page and can't be deleted.
-        // Any day beyond that (index >= BASE_DAY_COUNT) is user-added
-        // and gets a "Delete Day" button.
-        const BASE_DAY_COUNT = 3;
-
-        // itineraryState is an ARRAY. Day number = array position + 1.
-        // This is what makes delete-from-the-middle renumber correctly —
-        // there's no stored "day 4" anywhere, it's just index 3.
-        const DEFAULT_STATE = [
-            {
-                places: [
-                    {
-                        name: "Patan Durbar Square",
-                        meta: "Heritage Site • Lalitpur",
-                        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
-                    }
-                ]
-            },
-            { places: [] },
-            { places: [] }
-        ];
-
-
-        /* =========================
-           PERSISTENCE HELPERS
-        ========================= */
-
-        function loadItineraryState() {
-            try {
-                const raw = localStorage.getItem(ITINERARY_KEY);
-                if (raw) return JSON.parse(raw);
-            } catch (e) {
-                console.warn("Could not read saved itinerary, using defaults.", e);
-            }
-            // Deep clone so DEFAULT_STATE itself is never mutated
-            return JSON.parse(JSON.stringify(DEFAULT_STATE));
-        }
-
-        function saveItineraryState() {
-            try {
-                localStorage.setItem(ITINERARY_KEY, JSON.stringify(itineraryState));
-                flashSaveIndicator();
-            } catch (e) {
-                console.warn("Could not save itinerary.", e);
-            }
-        }
-
-        function loadBudget() {
-            try {
-                const raw = localStorage.getItem(BUDGET_KEY);
-                if (raw) return JSON.parse(raw);
-            } catch (e) {
-                console.warn("Could not read saved budget.", e);
-            }
-            return null;
-        }
-
-        function saveBudget(values) {
-            try {
-                localStorage.setItem(BUDGET_KEY, JSON.stringify(values));
-                flashSaveIndicator();
-            } catch (e) {
-                console.warn("Could not save budget.", e);
-            }
-        }
-
-        let saveIndicatorTimeout;
-        function flashSaveIndicator() {
-            const indicator = document.querySelector("#save-indicator");
-            if (!indicator) return;
-            indicator.classList.add("show");
-            clearTimeout(saveIndicatorTimeout);
-            saveIndicatorTimeout = setTimeout(() => indicator.classList.remove("show"), 1600);
-        }
-
-
-        /* =========================
-           ITINERARY STATE + RENDER
-        ========================= */
-
-        let itineraryState = loadItineraryState();
-
-        const itinerary = document.querySelector("#itinerary");
-        const addDayButton = document.querySelector("#add-day-button");
-
-        function renderItinerary() {
-            itinerary.innerHTML = "";
-
-            itineraryState.forEach((day, dayIndex) => {
-                const dayNumber = dayIndex + 1;
-                const removable = dayIndex >= BASE_DAY_COUNT;
-
-                const card = document.createElement("article");
-                card.className = "day-card";
-                card.dataset.day = dayNumber;
-
-                const header = document.createElement("div");
-                header.className = "day-header";
-                header.innerHTML = `
-                    <h2>Day ${dayNumber}</h2>
-                    ${removable ? `<button class="delete-day-button" type="button">Delete Day</button>` : ""}
-                `;
-                card.appendChild(header);
-
-                if (removable) {
-                    header.querySelector(".delete-day-button").addEventListener("click", () => {
-                        itineraryState.splice(dayIndex, 1);
-                        saveItineraryState();
-                        renderItinerary();
-                    });
-                }
-
-                if (day.places.length === 0) {
-                    const empty = document.createElement("p");
-                    empty.className = "empty-day";
-                    empty.textContent = `No places added to Day ${dayNumber} yet.`;
-                    card.appendChild(empty);
-                } else {
-                    day.places.forEach((place, placeIndex) => {
-                        card.appendChild(buildPlaceCard(dayIndex, placeIndex, place));
-                    });
-                }
-
-                itinerary.appendChild(card);
-            });
-        }
-
-        function buildPlaceCard(dayIndex, placeIndex, place) {
-            const el = document.createElement("div");
-            el.className = "place-card";
-            el.innerHTML = `
-                <img class="place-image" src="${escapeAttr(place.image || "")}" alt="${escapeAttr(place.name)}"
-                     onerror="this.style.visibility='hidden'">
-                <div class="place-info">
-                    <h3>${escapeHtml(place.name)}</h3>
-                    <p>${escapeHtml(place.meta || "")}</p>
-                </div>
-                <button class="view-button" type="button">View</button>
-                <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
-            `;
-
-            el.querySelector(".remove-button").addEventListener("click", () => {
-                itineraryState[dayIndex].places.splice(placeIndex, 1);
-                saveItineraryState();
-                renderItinerary();
-            });
-
-            return el;
-        }
-
-        function escapeHtml(str) {
-            const div = document.createElement("div");
-            div.textContent = str || "";
-            return div.innerHTML;
-        }
-
-        function escapeAttr(str) {
-            return escapeHtml(str).replace(/"/g, "&quot;");
-        }
-
-        renderItinerary();
-
-
-        /* =========================
-           ADD NEW DAY
-        ========================= */
-
-        addDayButton.addEventListener("click", () => {
-            itineraryState.push({ places: [] });
-            saveItineraryState();
-            renderItinerary();
-        });
-
-
-        /* =========================
-           BUDGET CALCULATOR
-        ========================= */
-
-        const form = document.querySelector("#budget-form");
-        const fieldIds = ["days", "travellers", "accommodation", "food", "transport", "activities"];
+        const form =
+            document.querySelector("#budget-form");
 
         const formatNPR = (amount) =>
             `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
 
-        function computeAndDisplay() {
+
+        form.addEventListener("submit", (event) => {
+
+            event.preventDefault();
 
             const days =
                 Number(document.querySelector("#days").value) || 0;
@@ -1070,28 +902,15 @@
             document.querySelector("#grand-total").textContent =
                 formatNPR(grandTotal);
 
-            return { days, travellers, accommodation, food, transport, activities };
-        }
-
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const values = computeAndDisplay();
-            saveBudget(values);
         });
 
 
-        /* =========================
-           RESET CALCULATOR
-        ========================= */
+        // reset calculator
 
         document.querySelector("#reset-button")
             .addEventListener("click", () => {
 
-                localStorage.removeItem(BUDGET_KEY);
-
                 setTimeout(() => {
-
-                    fieldIds.forEach((id) => (document.querySelector(`#${id}`).value = ""));
 
                     document.querySelector("#accommodation-total")
                         .textContent = "NRs. 0";
@@ -1113,25 +932,152 @@
             });
 
 
-        /* =========================
-           RESTORE SAVED BUDGET
-        ========================= */
+        // remove destination
 
-        (function restoreBudget() {
-            const saved = loadBudget();
-            if (!saved) return;
-            fieldIds.forEach((id) => {
-                if (saved[id] !== undefined && saved[id] !== 0) {
-                    document.querySelector(`#${id}`).value = saved[id];
+        function setupRemoveButton(button) {
+
+            button.addEventListener("click", () => {
+
+                const placeCard =
+                    button.closest(".place-card");
+
+                const dayCard =
+                    button.closest(".day-card");
+
+                if (!placeCard || !dayCard) return;
+
+                placeCard.remove();
+
+
+                const remaining =
+                    dayCard.querySelectorAll(".place-card").length;
+
+
+                if (remaining === 0) {
+
+                    const emptyMessage =
+                        dayCard.querySelector(".empty-day");
+
+                    if (emptyMessage) {
+                        emptyMessage.hidden = false;
+                    }
+
                 }
+
             });
-            computeAndDisplay();
-        })();
+
+        }
+
+
+        document
+            .querySelectorAll(".remove-button")
+            .forEach(setupRemoveButton);
+
+
+        // add day
+
+        const itinerary =
+            document.querySelector("#itinerary");
+
+        const addDayButton =
+            document.querySelector("#add-day-button");
+
+
+        function getNextDayNumber() {
+
+            const days =
+                itinerary.querySelectorAll(".day-card");
+
+            let highestDay = 0;
+
+            days.forEach((day) => {
+
+                const dayNumber =
+                    Number(day.dataset.day);
+
+                if (dayNumber > highestDay) {
+                    highestDay = dayNumber;
+                }
+
+            });
+
+            return highestDay + 1;
+
+        }
+
+
+        function setupDeleteDayButton(button, dayCard) {
+
+            button.addEventListener("click", () => {
+
+                dayCard.remove();
+
+            });
+
+        }
+
+
+        addDayButton.addEventListener("click", () => {
+
+            const dayNumber =
+                getNextDayNumber();
+
+
+            const newDay =
+                document.createElement("article");
+
+
+            newDay.className =
+                "day-card";
+
+
+            newDay.dataset.day =
+                dayNumber;
+
+
+            newDay.innerHTML = `
+
+                <div class="day-header">
+
+                    <h2>
+                        Day ${dayNumber}
+                    </h2>
+
+                    <button
+                        class="delete-day-button"
+                        type="button">
+
+                        Delete Day
+
+                    </button>
+
+                </div>
+
+                <p class="empty-day">
+
+                    No places added to Day ${dayNumber} yet.
+
+                </p>
+
+            `;
+
+
+            itinerary.appendChild(newDay);
+
+
+            const deleteButton =
+                newDay.querySelector(".delete-day-button");
+
+
+            setupDeleteDayButton(
+                deleteButton,
+                newDay
+            );
+
+        });
 
     </script>
 
-
-    <!-- Existing global JavaScript -->
 
     <script src="js/script.js"></script>
 
