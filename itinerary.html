@@ -4,24 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
-
     <style>
-        /* =========================
-           HERO
-        ========================= */
-
         .hero {
             padding: 52px 20px;
             background: var(--surface-hover);
@@ -44,21 +35,11 @@
             line-height: 1.65;
         }
 
-
-        /* =========================
-           MAIN
-        ========================= */
-
         main {
             width: min(100% - 40px, 970px);
             margin: auto;
             padding: 36px 0 70px;
         }
-
-
-        /* =========================
-           DAY CARDS
-        ========================= */
 
         .day-card,
         .calculator,
@@ -94,11 +75,6 @@
             font-size: 0.87rem;
         }
 
-
-        /* =========================
-           DELETE DAY BUTTON
-        ========================= */
-
         .delete-day-button {
             padding: 7px 12px;
             border: 1px solid var(--border);
@@ -115,11 +91,6 @@
             background: var(--surface);
             color: var(--tertiary);
         }
-
-
-        /* =========================
-           PLACE CARD
-        ========================= */
 
         .place-card {
             display: flex;
@@ -157,11 +128,6 @@
             font-size: 0.72rem;
         }
 
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
         .view-button,
         .remove-button,
         .secondary-button,
@@ -191,11 +157,6 @@
             font-size: 1rem;
         }
 
-
-        /* =========================
-           ADD DAY BUTTON
-        ========================= */
-
         .add-day-container {
             display: flex;
             justify-content: center;
@@ -216,11 +177,6 @@
             border-color: var(--border-hover);
             transform: translateY(-1px);
         }
-
-
-        /* =========================
-           SAVE INDICATOR
-        ========================= */
 
         .save-indicator {
             display: flex;
@@ -246,11 +202,6 @@
             background: var(--primary);
         }
 
-
-        /* =========================
-           BOTTOM GRID
-        ========================= */
-
         .bottom-grid {
             display: grid;
             grid-template-columns: 1.05fr 0.95fr;
@@ -272,11 +223,6 @@
             font-weight: 400;
             margin-bottom: 20px;
         }
-
-
-        /* =========================
-           FORM
-        ========================= */
 
         .two-columns {
             display: grid;
@@ -315,11 +261,6 @@
             background: var(--surface-hover);
         }
 
-
-        /* =========================
-           CALCULATOR BUTTONS
-        ========================= */
-
         .primary-button,
         .secondary-button {
             width: 100%;
@@ -344,11 +285,6 @@
             background: var(--surface);
             color: var(--text-secondary);
         }
-
-
-        /* =========================
-           COST CARD
-        ========================= */
 
         .cost-row {
             display: flex;
@@ -378,13 +314,7 @@
             line-height: 1.45;
         }
 
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
         @media (max-width: 700px) {
-
             main {
                 width: min(100% - 28px, 970px);
                 padding-top: 26px;
@@ -399,12 +329,9 @@
             .day-card {
                 padding: 18px;
             }
-
         }
 
-
         @media (max-width: 480px) {
-
             .hero {
                 padding: 40px 16px;
             }
@@ -435,92 +362,46 @@
             .cost-card h2 {
                 font-size: 1.65rem;
             }
-
         }
     </style>
 </head>
 
-
 <body>
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
-
     <header>
         <nav>
-
             <div class="nav">
-
                 <h1 class="logo">
-                    <a href="./index.html">
-                        Explore <span>Kathmandu</span>
-                    </a>
+                    <a href="./index.html">Explore <span>Kathmandu</span></a>
                 </h1>
-
                 <div class="nav-menu-container">
-
                     <div class="nav-menu">
-
-                        <a class="navigation-text" href="./index.html">
-                            Home
-                        </a>
-
-                        <a class="navigation-text" href="./explore.html">
-                            Explore
-                        </a>
-
-                        <a class="navigation-text nav-active" href="./itinerary.html">
-                            Itinerary
-                        </a>
-
-                        <a class="navigation-text" href="./guide.html">
-                            Travel Tips
-                        </a>
-
-                        <a class="navigation-text" href="./about.html">
-                            About
-                        </a>
-
+                        <a class="navigation-text" href="./index.html">Home</a>
+                        <a class="navigation-text" href="./explore.html">Explore</a>
+                        <a class="navigation-text nav-active" href="./itinerary.html">Itinerary</a>
+                        <a class="navigation-text" href="./guide.html">Travel Tips</a>
+                        <a class="navigation-text" href="./about.html">About</a>
                     </div>
-
                     <div class="config">
-
                         <a href="./profile.html" class="profile-icon">
-
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="nav-icon">
-
                                 <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
                                 <circle cx="12" cy="11" r="4" />
                                 <circle cx="12" cy="12" r="10" />
-
                             </svg>
-
                         </a>
-
-
                         <button class="theme-toggle" aria-label="Toggle theme">
-
-                            <!-- Moon -->
                             <svg class="nav-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round">
-
                                 <path
                                     d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
-
                             </svg>
-
-
-                            <!-- Sun -->
                             <svg class="nav-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round">
-
                                 <circle cx="12" cy="12" r="4" />
-
                                 <path d="M12 2v2" />
                                 <path d="M12 20v2" />
                                 <path d="m4.93 4.93 1.41 1.41" />
@@ -529,262 +410,108 @@
                                 <path d="M20 12h2" />
                                 <path d="m6.34 17.66-1.41 1.41" />
                                 <path d="m19.07 4.93-1.41 1.41" />
-
                             </svg>
-
                         </button>
-
                     </div>
-
                 </div>
-
             </div>
-
         </nav>
     </header>
 
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
     <header class="hero">
-
         <h1>Build Your Itinerary</h1>
-
         <p>
             Add places from any destination page, organized across your travel days.
             Everything is saved on this device.
         </p>
-
     </header>
 
-
-    <!-- =========================
-         MAIN
-    ========================= -->
-
     <main>
-
-        <!--
-            The day cards below are now rendered entirely by JS from
-            itineraryState (see script). The markup here is intentionally
-            left empty — renderItinerary() fills it on load.
-        -->
+        <!-- Days are rendered by JavaScript -->
         <section class="itinerary" id="itinerary"></section>
 
-
-        <!-- =========================
-             ADD DAY BUTTON
-        ========================= -->
-
         <div class="add-day-container">
-
-            <button class="add-day-button" id="add-day-button" type="button">
-
-                + Add Day
-
-            </button>
-
+            <button class="add-day-button" id="add-day-button" type="button">+ Add Day</button>
         </div>
 
-        <p class="save-indicator" id="save-indicator"><span class="dot"></span> Saved to this device</p>
-
-
-        <!-- =========================
-             BUDGET SECTION
-        ========================= -->
+        <p class="save-indicator" id="save-indicator">
+            <span class="dot"></span> Saved to this device
+        </p>
 
         <section class="bottom-grid">
-
             <form class="calculator" id="budget-form">
-
                 <h2>Trip Details</h2>
 
-
                 <div class="two-columns">
-
                     <div class="form-group">
-
-                        <label for="days">
-                            Number of days
-                        </label>
-
+                        <label for="days">Number of days</label>
                         <input id="days" type="number" min="1" placeholder="e.g. 3">
-
                     </div>
-
-
                     <div class="form-group">
-
-                        <label for="travellers">
-                            Number of travellers
-                        </label>
-
+                        <label for="travellers">Number of travellers</label>
                         <input id="travellers" type="number" min="1" placeholder="e.g. 2">
-
                     </div>
-
                 </div>
 
-
                 <div class="form-group">
-
-                    <label for="accommodation">
-                        Daily accommodation budget (NRs. per room)
-                    </label>
-
+                    <label for="accommodation">Daily accommodation budget (NRs. per room)</label>
                     <input id="accommodation" type="number" min="0" placeholder="e.g. 2500">
-
                 </div>
 
-
                 <div class="form-group">
-
-                    <label for="food">
-                        Daily food budget (NRs. per person)
-                    </label>
-
+                    <label for="food">Daily food budget (NRs. per person)</label>
                     <input id="food" type="number" min="0" placeholder="e.g. 1000">
-
                 </div>
 
-
                 <div class="form-group">
-
-                    <label for="transport">
-                        Daily transport budget (NRs. per person)
-                    </label>
-
+                    <label for="transport">Daily transport budget (NRs. per person)</label>
                     <input id="transport" type="number" min="0" placeholder="e.g. 500">
-
                 </div>
-
 
                 <div class="form-group">
-
-                    <label for="activities">
-                        Activity budget (NRs. per person, total trip)
-                    </label>
-
+                    <label for="activities">Activity budget (NRs. per person, total trip)</label>
                     <input id="activities" type="number" min="0" placeholder="e.g. 2500">
-
                 </div>
 
-
-                <button class="primary-button" type="submit">
-
-                    Calculate Budget
-
-                </button>
-
-
-                <button class="secondary-button" id="reset-button" type="reset">
-
-                    Reset Calculator
-
-                </button>
-
+                <button class="primary-button" type="submit">Calculate Budget</button>
+                <button class="secondary-button" id="reset-button" type="reset">Reset Calculator</button>
             </form>
 
-
-            <!-- =========================
-                 COST CARD
-            ========================= -->
-
             <aside class="cost-card">
-
                 <h2>Estimated Cost</h2>
-
-
                 <div class="cost-row">
-
                     <span>Accommodation</span>
-
-                    <span id="accommodation-total">
-                        NRs. 0
-                    </span>
-
+                    <span id="accommodation-total">NRs. 0</span>
                 </div>
-
-
                 <div class="cost-row">
-
                     <span>Food</span>
-
-                    <span id="food-total">
-                        NRs. 0
-                    </span>
-
+                    <span id="food-total">NRs. 0</span>
                 </div>
-
-
                 <div class="cost-row">
-
                     <span>Transport</span>
-
-                    <span id="transport-total">
-                        NRs. 0
-                    </span>
-
+                    <span id="transport-total">NRs. 0</span>
                 </div>
-
-
                 <div class="cost-row">
-
                     <span>Activities</span>
-
-                    <span id="activities-total">
-                        NRs. 0
-                    </span>
-
+                    <span id="activities-total">NRs. 0</span>
                 </div>
-
-
                 <div class="total-row">
-
                     <span>Grand Total</span>
-
-                    <span id="grand-total">
-                        NRs. 0
-                    </span>
-
+                    <span id="grand-total">NRs. 0</span>
                 </div>
-
-
                 <p class="cost-note">
-
-                    These figures are estimates and can vary with season,
-                    exchange rates, and travel style. Accommodation is
-                    calculated per room per night; food, transport, and
-                    activities are calculated per traveler.
-
+                    These figures are estimates and can vary with season, exchange rates,
+                    and travel style. Accommodation is calculated per room per night; food,
+                    transport, and activities are calculated per traveler.
                 </p>
-
             </aside>
-
         </section>
-
     </main>
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
     <script>
-
         /* =========================
-           STORAGE KEYS
+           LOGIN CHECK
         ========================= */
-
-        const ITINERARY_KEY = "ek-itinerary-state";
-        const BUDGET_KEY = "ek-budget-form";
-
-        /* =========================
-   LOGIN CHECK
-========================= */
-
         const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
 
         if (!isLoggedIn) {
@@ -792,7 +519,6 @@
                 "You need to be logged in to view your itinerary.\n\n" +
                 "Click OK to Log In, or Cancel to Sign Up."
             );
-
             if (go) {
                 window.location.href = "./login.html";
             } else {
@@ -800,33 +526,22 @@
             }
         }
 
-        // The first 3 days ship with the page and can't be deleted.
-        // Any day beyond that (index >= BASE_DAY_COUNT) is user-added
-        // and gets a "Delete Day" button.
+        /* =========================
+           STORAGE KEYS
+        ========================= */
+        const ITINERARY_KEY = "ek-itinerary-state";
+        const BUDGET_KEY = "ek-budget-form";
         const BASE_DAY_COUNT = 3;
 
-        // itineraryState is an ARRAY. Day number = array position + 1.
-        // This is what makes delete-from-the-middle renumber correctly —
-        // there's no stored "day 4" anywhere, it's just index 3.
         const DEFAULT_STATE = [
-            {
-                places: [
-                    {
-                        name: "Patan Durbar Square",
-                        meta: "Heritage Site • Lalitpur",
-                        image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
-                    }
-                ]
-            },
+            { places: [] },
             { places: [] },
             { places: [] }
         ];
 
-
         /* =========================
            PERSISTENCE HELPERS
         ========================= */
-
         function loadItineraryState() {
             try {
                 const raw = localStorage.getItem(ITINERARY_KEY);
@@ -834,7 +549,6 @@
             } catch (e) {
                 console.warn("Could not read saved itinerary, using defaults.", e);
             }
-            // Deep clone so DEFAULT_STATE itself is never mutated
             return JSON.parse(JSON.stringify(DEFAULT_STATE));
         }
 
@@ -875,11 +589,9 @@
             saveIndicatorTimeout = setTimeout(() => indicator.classList.remove("show"), 1600);
         }
 
-
         /* =========================
            ITINERARY STATE + RENDER
         ========================= */
-
         let itineraryState = loadItineraryState();
 
         const itinerary = document.querySelector("#itinerary");
@@ -962,22 +674,18 @@
 
         renderItinerary();
 
-
         /* =========================
            ADD NEW DAY
         ========================= */
-
         addDayButton.addEventListener("click", () => {
             itineraryState.push({ places: [] });
             saveItineraryState();
             renderItinerary();
         });
 
-
         /* =========================
            BUDGET CALCULATOR
         ========================= */
-
         const form = document.querySelector("#budget-form");
         const fieldIds = ["days", "travellers", "accommodation", "food", "transport", "activities"];
 
@@ -985,59 +693,24 @@
             `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
 
         function computeAndDisplay() {
+            const days = Number(document.querySelector("#days").value) || 0;
+            const travellers = Number(document.querySelector("#travellers").value) || 0;
+            const accommodation = Number(document.querySelector("#accommodation").value) || 0;
+            const food = Number(document.querySelector("#food").value) || 0;
+            const transport = Number(document.querySelector("#transport").value) || 0;
+            const activities = Number(document.querySelector("#activities").value) || 0;
 
-            const days =
-                Number(document.querySelector("#days").value) || 0;
+            const accommodationTotal = days * accommodation;
+            const foodTotal = days * travellers * food;
+            const transportTotal = days * travellers * transport;
+            const activitiesTotal = travellers * activities;
+            const grandTotal = accommodationTotal + foodTotal + transportTotal + activitiesTotal;
 
-            const travellers =
-                Number(document.querySelector("#travellers").value) || 0;
-
-            const accommodation =
-                Number(document.querySelector("#accommodation").value) || 0;
-
-            const food =
-                Number(document.querySelector("#food").value) || 0;
-
-            const transport =
-                Number(document.querySelector("#transport").value) || 0;
-
-            const activities =
-                Number(document.querySelector("#activities").value) || 0;
-
-
-            const accommodationTotal =
-                days * accommodation;
-
-            const foodTotal =
-                days * travellers * food;
-
-            const transportTotal =
-                days * travellers * transport;
-
-            const activitiesTotal =
-                travellers * activities;
-
-            const grandTotal =
-                accommodationTotal +
-                foodTotal +
-                transportTotal +
-                activitiesTotal;
-
-
-            document.querySelector("#accommodation-total").textContent =
-                formatNPR(accommodationTotal);
-
-            document.querySelector("#food-total").textContent =
-                formatNPR(foodTotal);
-
-            document.querySelector("#transport-total").textContent =
-                formatNPR(transportTotal);
-
-            document.querySelector("#activities-total").textContent =
-                formatNPR(activitiesTotal);
-
-            document.querySelector("#grand-total").textContent =
-                formatNPR(grandTotal);
+            document.querySelector("#accommodation-total").textContent = formatNPR(accommodationTotal);
+            document.querySelector("#food-total").textContent = formatNPR(foodTotal);
+            document.querySelector("#transport-total").textContent = formatNPR(transportTotal);
+            document.querySelector("#activities-total").textContent = formatNPR(activitiesTotal);
+            document.querySelector("#grand-total").textContent = formatNPR(grandTotal);
 
             return { days, travellers, accommodation, food, transport, activities };
         }
@@ -1048,44 +721,19 @@
             saveBudget(values);
         });
 
+        document.querySelector("#reset-button").addEventListener("click", () => {
+            localStorage.removeItem(BUDGET_KEY);
+            setTimeout(() => {
+                fieldIds.forEach((id) => (document.querySelector(`#${id}`).value = ""));
+                document.querySelector("#accommodation-total").textContent = "NRs. 0";
+                document.querySelector("#food-total").textContent = "NRs. 0";
+                document.querySelector("#transport-total").textContent = "NRs. 0";
+                document.querySelector("#activities-total").textContent = "NRs. 0";
+                document.querySelector("#grand-total").textContent = "NRs. 0";
+            }, 0);
+        });
 
-        /* =========================
-           RESET CALCULATOR
-        ========================= */
-
-        document.querySelector("#reset-button")
-            .addEventListener("click", () => {
-
-                localStorage.removeItem(BUDGET_KEY);
-
-                setTimeout(() => {
-
-                    fieldIds.forEach((id) => (document.querySelector(`#${id}`).value = ""));
-
-                    document.querySelector("#accommodation-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#food-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#transport-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#activities-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#grand-total")
-                        .textContent = "NRs. 0";
-
-                }, 0);
-
-            });
-
-
-        /* =========================
-           RESTORE SAVED BUDGET
-        ========================= */
-
+        // Restore saved budget
         (function restoreBudget() {
             const saved = loadBudget();
             if (!saved) return;
@@ -1096,14 +744,9 @@
             });
             computeAndDisplay();
         })();
-
     </script>
 
-
-    <!-- Existing global JavaScript -->
-
     <script src="js/script.js"></script>
-
 </body>
 
 </html>
