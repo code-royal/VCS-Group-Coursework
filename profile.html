@@ -285,7 +285,7 @@
                     <span class="label">Places in Itinerary</span>
                 </div>
                 <div class="stat-box">
-                    <span class="number">3</span>
+                    <span class="number" id="travel-days-count">0</span>
                     <span class="label">Travel Days</span>
                 </div>
             </div>
@@ -431,6 +431,41 @@
 
                 favoritesList.appendChild(item);
             });
+        }
+
+        // ===== Show real itinerary counts =====
+        const ITINERARY_KEY = "ek-itinerary-state";
+
+        let itineraryState = [];
+        try {
+            const raw = localStorage.getItem(ITINERARY_KEY);
+            if (raw) {
+                itineraryState = JSON.parse(raw);
+            }
+        } catch (e) {
+            console.warn("Could not read itinerary for profile counts.", e);
+        }
+
+        // Count total places across all days
+        let totalPlaces = 0;
+        itineraryState.forEach(day => {
+            if (day.places && Array.isArray(day.places)) {
+                totalPlaces += day.places.length;
+            }
+        });
+
+        // Number of travel days
+        const totalDays = itineraryState.length || 0;
+
+        // Update the numbers on the page
+        const itineraryCountEl = document.getElementById("itinerary-count");
+        if (itineraryCountEl) {
+            itineraryCountEl.textContent = totalPlaces;
+        }
+
+        const travelDaysEl = document.getElementById("travel-days-count");
+        if (travelDaysEl) {
+            travelDaysEl.textContent = totalDays;
         }
     </script>
 </body>
