@@ -146,6 +146,13 @@
             background: var(--surface);
             color: var(--text-secondary);
             font-size: 0.78rem;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .view-button:hover {
+            background: var(--surface-hover);
         }
 
         .remove-button {
@@ -531,7 +538,9 @@
         ========================= */
         const ITINERARY_KEY = "ek-itinerary-state";
         const BUDGET_KEY = "ek-budget-form";
-        const BASE_DAY_COUNT = 3;
+
+        // Minimum number of days that must remain
+        const MIN_DAY_COUNT = 1;
 
         const DEFAULT_STATE = [
             { places: [] },
@@ -602,7 +611,9 @@
 
             itineraryState.forEach((day, dayIndex) => {
                 const dayNumber = dayIndex + 1;
-                const removable = dayIndex >= BASE_DAY_COUNT;
+
+                // Allow deleting any day as long as at least 1 day remains
+                const removable = itineraryState.length > MIN_DAY_COUNT;
 
                 const card = document.createElement("article");
                 card.className = "day-card";
@@ -642,6 +653,12 @@
         function buildPlaceCard(dayIndex, placeIndex, place) {
             const el = document.createElement("div");
             el.className = "place-card";
+
+            // Link to details page if we have an id
+            const viewHtml = place.id
+                ? `<a href="./details.html?id=${place.id}" class="view-button">View</a>`
+                : `<button class="view-button" type="button" disabled style="opacity:0.5;cursor:not-allowed;">View</button>`;
+
             el.innerHTML = `
                 <img class="place-image" src="${escapeAttr(place.image || "")}" alt="${escapeAttr(place.name)}"
                      onerror="this.style.visibility='hidden'">
@@ -649,7 +666,7 @@
                     <h3>${escapeHtml(place.name)}</h3>
                     <p>${escapeHtml(place.meta || "")}</p>
                 </div>
-                <button class="view-button" type="button">View</button>
+                ${viewHtml}
                 <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
             `;
 

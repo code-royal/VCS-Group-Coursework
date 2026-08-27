@@ -1130,8 +1130,8 @@ function add_destination_detials(destination) {
                 return;
             }
 
-            // Add the place (matching the structure used by itinerary.html)
             itineraryState[dayIndex].places.push({
+                id: destination.id,          // ← this line is the important one
                 name: destination.name,
                 meta: `${destination.category} • ${destination.location}`,
                 image: destination.image
