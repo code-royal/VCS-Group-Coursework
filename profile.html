@@ -386,23 +386,37 @@
             window.location.href = "./index.html";
         });
 
-        // ===== Show saved favorites =====
-        const favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
-        const favoritesList = document.getElementById("favorites-list");
-        const emptyNote = document.getElementById("empty-favorites");
-        const favCount = document.getElementById("fav-count");
-
-        // Update the number in the stats
-        if (favCount) {
-            favCount.textContent = favorites.length;
+        // ===== Favorites (show + delete) =====
+        function loadFavorites() {
+            return JSON.parse(sessionStorage.getItem("favorites") || "[]");
         }
 
-        if (favorites.length === 0) {
-            emptyNote.style.display = "block";
-        } else {
+        function saveFavorites(favorites) {
+            sessionStorage.setItem("favorites", JSON.stringify(favorites));
+        }
+
+        function renderFavorites() {
+            const favorites = loadFavorites();
+            const favoritesList = document.getElementById("favorites-list");
+            const emptyNote = document.getElementById("empty-favorites");
+            const favCount = document.getElementById("fav-count");
+
+            // Clear current list
+            favoritesList.innerHTML = "";
+
+            // Update count
+            if (favCount) {
+                favCount.textContent = favorites.length;
+            }
+
+            if (favorites.length === 0) {
+                emptyNote.style.display = "block";
+                return;
+            }
+
             emptyNote.style.display = "none";
 
-            favorites.forEach(fav => {
+            favorites.forEach((fav, index) => {
                 const item = document.createElement("div");
                 item.style.cssText = `
             display: flex;
@@ -423,15 +437,38 @@
                     ${fav.category} • ${fav.location}
                 </div>
             </div>
-            <a href="./details.html?id=${fav.id}" 
-               style="font-size: 0.75rem; color: var(--tertiary); font-weight: 600;">
+            <a href="./details.html?id=${fav.id}"
+               style="font-size: 0.75rem; color: var(--tertiary); font-weight: 600; margin-right: 8px;">
                 View
             </a>
+            <button type="button" class="remove-fav-btn"
+                style="
+                    border: 1px solid var(--border);
+                    background: var(--surface-hover);
+                    color: var(--tertiary);
+                    border-radius: 999px;
+                    padding: 6px 12px;
+                    font-size: 0.72rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                ">
+                Remove
+            </button>
         `;
+
+                // Delete button
+                item.querySelector(".remove-fav-btn").addEventListener("click", () => {
+                    const updated = loadFavorites().filter((_, i) => i !== index);
+                    saveFavorites(updated);
+                    renderFavorites(); // re-render the list + update count
+                });
 
                 favoritesList.appendChild(item);
             });
         }
+
+        // Run on page load
+        renderFavorites();
 
         // ===== Show real itinerary counts =====
         const ITINERARY_KEY = "ek-itinerary-state";
