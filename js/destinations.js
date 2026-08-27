@@ -1183,3 +1183,50 @@ if (detailsPageContent) {
         `;
     }
 }
+
+// =========================
+// SORTING
+// =========================
+const sortingSelect = document.getElementById("sorting-system");
+
+function sortDestinations() {
+    if (!destinationsContainer || !sortingSelect) return;
+
+    const sortValue = sortingSelect.value;
+
+    // Get all current cards
+    const cards = Array.from(destinationsContainer.querySelectorAll(".destination-card"));
+
+    cards.sort((a, b) => {
+        const nameA = a.querySelector(".destination-name")?.textContent.trim().toLowerCase() || "";
+        const nameB = b.querySelector(".destination-name")?.textContent.trim().toLowerCase() || "";
+
+        // Rating is stored as star characters — count filled stars
+        const ratingA = (a.querySelector(".destination-ratings")?.textContent.match(/★/g) || []).length;
+        const ratingB = (b.querySelector(".destination-ratings")?.textContent.match(/★/g) || []).length;
+
+        switch (sortValue) {
+            case "alphabetical-asc":
+                return nameA.localeCompare(nameB);
+
+            case "alphabetical-desc":
+                return nameB.localeCompare(nameA);
+
+            case "ratings-desc":
+                return ratingB - ratingA;   // high → low
+
+            case "ratings-asc":
+                return ratingA - ratingB;   // low → high
+
+            default:
+                return 0;
+        }
+    });
+
+    // Re-append cards in the new order
+    cards.forEach(card => destinationsContainer.appendChild(card));
+}
+
+if (sortingSelect) {
+    sortingSelect.addEventListener("change", sortDestinations);
+}
