@@ -513,7 +513,47 @@
                 </p>
             </aside>
         </section>
+
     </main>
+    <footer>
+        <div class="footer container">
+            <div class="footer-main">
+                <div class="footer-content">
+                    <h3 class="footer-logo">
+                        <a href="./index.html">
+                            Explore <span>Kathmandu</span>
+                        </a>
+                    </h3>
+                    <p class="footer-description body-small">An independent travel guide helping visitors and locals
+                        discover the best of the Kathmandu Valley.</p>
+                </div>
+                <div class="footer-quick-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a class="footer-navigation-text" href="./index.html">Home</a>
+                    <a class="footer-navigation-text" href="./explore.html">Explore</a>
+                    <a class="footer-navigation-text" href="./itinerary.html">Itinerary</a>
+                </div>
+                <div class="footer-guides">
+                    <h4 class="footer-title">Guide</h4>
+                    <a class="footer-navigation-text" href="./guide.html">Travel Tips</a>
+                    <a class="footer-navigation-text" href="./about.html    ">About Us</a>
+                    <a class="footer-navigation-text" href="">Temples & Heritage</a>
+                    <a class="footer-navigation-text" href="">Food & Cafés</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p class="footer-contact-details body-small">Thamel, Kathmandu 44600, Nepal</p>
+                    <p class="footer-contact-details body-small">explore.kathmandu@gmail.com</p>
+                    <p class="footer-contact-details body-small">+977 98-01234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-bottom-text caption">&copy; 2026 Explore Kathmandu. All rights reserved.</p>
+                <p class="footer-bottom-text caption">Independent travel guide — not affiliated with any government
+                    tourism board. Prices & hours are estimates.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         /* =========================
@@ -623,7 +663,7 @@
                 header.className = "day-header";
                 header.innerHTML = `
                     <h2>Day ${dayNumber}</h2>
-                    ${removable ? <button class="delete-day-button" type="button">Delete Day</button> : ""}
+                    ${removable ? `<button class="delete-day-button" type="button">Delete Day</button>` : ""}
                 `;
                 card.appendChild(header);
 
@@ -638,7 +678,7 @@
                 if (day.places.length === 0) {
                     const empty = document.createElement("p");
                     empty.className = "empty-day";
-                    empty.textContent = No places added to Day ${dayNumber} yet.;
+                    empty.textContent = `No places added to Day ${dayNumber} yet.`;
                     card.appendChild(empty);
                 } else {
                     day.places.forEach((place, placeIndex) => {
@@ -656,8 +696,8 @@
 
             // Link to details page if we have an id
             const viewHtml = place.id
-                ? <a href="./details.html?id=${place.id}" class="view-button">View</a>
-                : <button class="view-button" type="button" disabled style="opacity:0.5;cursor:not-allowed;">View</button>;
+                ? `<a href="./details.html?id=${place.id}" class="view-button">View</a>`
+                : `<button class="view-button" type="button" disabled style="opacity:0.5;cursor:not-allowed;">View</button>`;
 
             el.innerHTML = `
                 <img class="place-image" src="${escapeAttr(place.image || "")}" alt="${escapeAttr(place.name)}"
@@ -667,7 +707,7 @@
                     <p>${escapeHtml(place.meta || "")}</p>
                 </div>
                 ${viewHtml}
-                <button class="remove-button" type="button" aria-label="Remove destination">🗑️</button>
+                <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
             `;
 
             el.querySelector(".remove-button").addEventListener("click", () => {
@@ -707,7 +747,7 @@
         const fieldIds = ["days", "travellers", "accommodation", "food", "transport", "activities"];
 
         const formatNPR = (amount) =>
-            NRs. ${Math.round(amount).toLocaleString("en-US")};
+            `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
 
         function computeAndDisplay() {
             const days = Number(document.querySelector("#days").value) || 0;
@@ -741,7 +781,7 @@
         document.querySelector("#reset-button").addEventListener("click", () => {
             localStorage.removeItem(BUDGET_KEY);
             setTimeout(() => {
-                fieldIds.forEach((id) => (document.querySelector(#${id}).value = ""));
+                fieldIds.forEach((id) => (document.querySelector(`#${id}`).value = ""));
                 document.querySelector("#accommodation-total").textContent = "NRs. 0";
                 document.querySelector("#food-total").textContent = "NRs. 0";
                 document.querySelector("#transport-total").textContent = "NRs. 0";
@@ -756,7 +796,7 @@
             if (!saved) return;
             fieldIds.forEach((id) => {
                 if (saved[id] !== undefined && saved[id] !== 0) {
-                    document.querySelector(#${id}).value = saved[id];
+                    document.querySelector(`#${id}`).value = saved[id];
                 }
             });
             computeAndDisplay();
