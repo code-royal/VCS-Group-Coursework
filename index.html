@@ -419,27 +419,33 @@
                 </div>
                 <div class="reasons">
                     <div class="reason-card">
-                        <p reason-emoji>🧭</p>
+                        <p>🧭</p>
                         <div class="reason-content">
-                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
-                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
-                                not just the tourist-brochure list.</p>
+                            <h5 class="reason-title heading-5">Discover authentic places</h5>
+                            <p class="reason-description body-small">
+                                Hand-picked temples, markets, cafés and viewpoints that locals actually recommend — not
+                                just the tourist brochure list.
+                            </p>
                         </div>
                     </div>
                     <div class="reason-card">
-                        <p reason-emoji>🗓️</p>
+                        <p>🗓️</p>
                         <div class="reason-content">
-                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
-                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
-                                not just the tourist-brochure list.</p>
+                            <h5 class="reason-title heading-5">Plan day by day</h5>
+                            <p class="reason-description body-small">
+                                Save places to your itinerary, organise them across travel days, and keep everything on
+                                this device — no app needed.
+                            </p>
                         </div>
                     </div>
                     <div class="reason-card">
-                        <p reason-emoji>❤️</p>
+                        <p>❤️</p>
                         <div class="reason-content">
-                            <h5 class="reason-title heading-5">Discover authentic experiences</h5>
-                            <p class="reason-description body-small">Real places loved by locals and travellers alike -
-                                not just the tourist-brochure list.</p>
+                            <h5 class="reason-title heading-5">Save what you love</h5>
+                            <p class="reason-description body-small">
+                                Favourite destinations with one tap and come back to them later when you’re ready to
+                                build your trip.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -455,8 +461,10 @@
                 <div class="traveller-stories-container">
                     <div class="story-card">
                         <div class="ratings">&starf;&starf;&starf;&starf;&starf;</div>
-                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
-                            but relaxed days planned before we even landed.</p>
+                        <p class="content body-small">
+                            The itinerary builder saved us so much time — we had three packed but relaxed days planned
+                            before we even landed.
+                        </p>
                         <div class="traveller-profile">
                             <div class="traveller-profile-icon">J</div>
                             <div class="traveller-profile-details">
@@ -467,25 +475,29 @@
                     </div>
                     <div class="story-card">
                         <div class="ratings">&starf;&starf;&starf;&starf;&starf;</div>
-                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
-                            but relaxed days planned before we even landed.</p>
+                        <p class="content body-small">
+                            I found quiet courtyards and local cafés I would have walked past. The filters made it easy
+                            to explore beyond the main squares.
+                        </p>
                         <div class="traveller-profile">
-                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-icon">R</div>
                             <div class="traveller-profile-details">
-                                <h6 class="traveller-name">Jessica J.</h6>
-                                <p class="traveller-address">Florida, USA</p>
+                                <h6 class="traveller-name">Rajesh T.</h6>
+                                <p class="traveller-address">Mumbai, India</p>
                             </div>
                         </div>
                     </div>
                     <div class="story-card">
                         <div class="ratings">&starf;&starf;&starf;&starf;&star;</div>
-                        <p class="content body-small">The itinerary builder saved us so much time — we had three packed
-                            but relaxed days planned before we even landed.</p>
+                        <p class="content body-small">
+                            As a local, I still use it to plan weekends with friends. The entry fees and opening hours
+                            are surprisingly accurate.
+                        </p>
                         <div class="traveller-profile">
-                            <div class="traveller-profile-icon">J</div>
+                            <div class="traveller-profile-icon">S</div>
                             <div class="traveller-profile-details">
-                                <h6 class="traveller-name">Jessica J.</h6>
-                                <p class="traveller-address">Florida, USA</p>
+                                <h6 class="traveller-name">Sita M.</h6>
+                                <p class="traveller-address">Lalitpur, Nepal</p>
                             </div>
                         </div>
                     </div>
@@ -500,12 +512,12 @@
                     <p class="subscription-content-body body">Occasional tips on new destinations, seasonal events, and
                         hidden gems. No spam, unsubscribe any time.</p>
                 </div>
-                <form action="" class="subscription-form">
+                <form action="" class="subscription-form" id="subscription-form">
                     <div class="email-input-box">
-                        <input type="text" name="email-input" id="subscription-email-input"
-                            placeholder="you@example.com">
+                        <input type="email" name="email-input" id="subscription-email-input"
+                            placeholder="you@example.com" required>
                     </div>
-                    <button class="subscribe-btn secondary-btn">Subscribe</button>
+                    <button class="subscribe-btn secondary-btn" type="submit">Subscribe</button>
                 </form>
             </div>
         </section>
@@ -551,6 +563,39 @@
         </div>
     </footer>
 
+    <script>
+        const subscriptionForm = document.getElementById("subscription-form");
+
+        if (subscriptionForm) {
+            subscriptionForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Require login
+                if (!requireLogin("subscribe")) return;
+
+                const emailInput = document.getElementById("subscription-email-input");
+                const email = emailInput.value.trim();
+
+                if (!email) {
+                    alert("Please enter your email address.");
+                    return;
+                }
+
+                // Simple email check
+                if (!email.includes("@") || !email.includes(".")) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+
+                // Save subscription (temporary, like the rest of the app)
+                sessionStorage.setItem("subscribedEmail", email);
+                sessionStorage.setItem("isSubscribed", "true");
+
+                alert("Thanks! You’re subscribed. We’ll send trip ideas to " + email);
+                emailInput.value = "";
+            });
+        }
+    </script>
     <script src="./js/script.js"></script>
     <script src="./js/destinations.js"></script>
 </body>
