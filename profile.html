@@ -285,7 +285,7 @@
                     <span class="label">Places in Itinerary</span>
                 </div>
                 <div class="stat-box">
-                    <span class="number">3</span>
+                    <span class="number" id="travel-days-count">0</span>
                     <span class="label">Travel Days</span>
                 </div>
             </div>
@@ -386,23 +386,37 @@
             window.location.href = "./index.html";
         });
 
-        // ===== Show saved favorites =====
-        const favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
-        const favoritesList = document.getElementById("favorites-list");
-        const emptyNote = document.getElementById("empty-favorites");
-        const favCount = document.getElementById("fav-count");
-
-        // Update the number in the stats
-        if (favCount) {
-            favCount.textContent = favorites.length;
+        // ===== Favorites (show + delete) =====
+        function loadFavorites() {
+            return JSON.parse(sessionStorage.getItem("favorites") || "[]");
         }
 
-        if (favorites.length === 0) {
-            emptyNote.style.display = "block";
-        } else {
+        function saveFavorites(favorites) {
+            sessionStorage.setItem("favorites", JSON.stringify(favorites));
+        }
+
+        function renderFavorites() {
+            const favorites = loadFavorites();
+            const favoritesList = document.getElementById("favorites-list");
+            const emptyNote = document.getElementById("empty-favorites");
+            const favCount = document.getElementById("fav-count");
+
+            // Clear current list
+            favoritesList.innerHTML = "";
+
+            // Update count
+            if (favCount) {
+                favCount.textContent = favorites.length;
+            }
+
+            if (favorites.length === 0) {
+                emptyNote.style.display = "block";
+                return;
+            }
+
             emptyNote.style.display = "none";
 
-            favorites.forEach(fav => {
+            favorites.forEach((fav, index) => {
                 const item = document.createElement("div");
                 item.style.cssText = `
             display: flex;
@@ -423,14 +437,72 @@
                     ${fav.category} • ${fav.location}
                 </div>
             </div>
-            <a href="./details.html?id=${fav.id}" 
-               style="font-size: 0.75rem; color: var(--tertiary); font-weight: 600;">
+            <a href="./details.html?id=${fav.id}"
+               style="font-size: 0.75rem; color: var(--tertiary); font-weight: 600; margin-right: 8px;">
                 View
             </a>
+            <button type="button" class="remove-fav-btn"
+                style="
+                    border: 1px solid var(--border);
+                    background: var(--surface-hover);
+                    color: var(--tertiary);
+                    border-radius: 999px;
+                    padding: 6px 12px;
+                    font-size: 0.72rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                ">
+                Remove
+            </button>
         `;
+
+                // Delete button
+                item.querySelector(".remove-fav-btn").addEventListener("click", () => {
+                    const updated = loadFavorites().filter((_, i) => i !== index);
+                    saveFavorites(updated);
+                    renderFavorites(); // re-render the list + update count
+                });
 
                 favoritesList.appendChild(item);
             });
+        }
+
+        // Run on page load
+        renderFavorites();
+
+        // ===== Show real itinerary counts =====
+        const ITINERARY_KEY = "ek-itinerary-state";
+
+        let itineraryState = [];
+        try {
+            const raw = localStorage.getItem(ITINERARY_KEY);
+            if (raw) {
+                itineraryState = JSON.parse(raw);
+            }
+        } catch (e) {
+            console.warn("Could not read itinerary for profile counts.", e);
+        }
+
+        // Count total places across all days
+        let totalPlaces = 0;
+        itineraryState.forEach(day => {
+            if (day.places && Array.isArray(day.places)) {
+                totalPlaces += day.places.length;
+            }
+        });
+
+        // Number of travel days
+        const totalDays = itineraryState.length || 0;
+
+        // Update the numbers on the page
+        const itineraryCountEl = document.getElementById("itinerary-count");
+        if (itineraryCountEl) {
+            itineraryCountEl.textContent = totalPlaces;
+        }
+
+        const travelDaysEl = document.getElementById("travel-days-count");
+        if (travelDaysEl) {
+            travelDaysEl.textContent = totalDays;
         }
     </script>
 </body>

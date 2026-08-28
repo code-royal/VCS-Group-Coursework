@@ -4,422 +4,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-
     <title>Explore Kathmandu | Plan, Explore & Experience</title>
-
     <style>
+.hero {
+      padding: 52px 20px;
+      background: var(--surface-hover);
+      text-align: center;
+    }
 
-        /* hero section */
+    .hero h1 {
+      color: var(--tertiary);
+      font-family: var(--headings);
+      font-size: clamp(2rem, 5vw, 2.7rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
 
-        .hero {
-            padding: 52px 20px;
-            background: var(--surface-hover);
-            text-align: center;
-        }
+    .hero p {
+      max-width: 580px;
+      margin: auto;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
 
-        .hero h1 {
-            color: var(--tertiary);
-            font-family: var(--headings);
-            font-size: clamp(2rem, 5vw, 2.7rem);
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
+    main {
+      width: min(100% - 40px, 970px);
+      margin: auto;
+      padding: 36px 0 70px;
+    }
 
-        .hero p {
-            max-width: 580px;
-            margin: auto;
-            color: var(--text-secondary);
-            font-size: 0.94rem;
-            line-height: 1.65;
-        }
+    .day-card,
+    .calculator,
+    .cost-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
 
+    .day-card {
+      padding: 20px 26px;
+      margin-bottom: 18px;
+    }
 
-        /* itinerary section */
+    .day-card h2,
+    .calculator h2,
+    .cost-card h2 {
+      color: var(--text-primary);
+      font-family: var(--headings);
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
 
-        main {
-            width: min(100% - 40px, 970px);
-            margin: auto;
-            padding: 36px 0 70px;
-        }
+    .empty-day {
+      padding: 18px 0 10px;
+      color: var(--text-secondary);
+      font-size: 0.87rem;
+    }
 
-        .day-card,
-        .calculator,
-        .cost-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-        }
+    .place-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px dashed var(--border-hover);
+      border-radius: 10px;
+    }
 
-        .day-card {
-            padding: 20px 26px;
-            margin-bottom: 18px;
-        }
+    .place-image {
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      object-fit: cover;
+    }
 
-        .day-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-        }
+    .place-info {
+      flex: 1;
+    }
 
-        .day-card h2 {
-            color: var(--text-primary);
-            font-family: var(--headings);
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin: 0;
-        }
+    .place-info h3 {
+      color: var(--text-primary);
+      font-family: var(--headings);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
 
-        .empty-day {
-            padding: 18px 0 10px;
-            color: var(--text-secondary);
-            font-size: 0.87rem;
-        }
+    .place-info p {
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+    }
 
+    .view-button,
+    .remove-button,
+    .secondary-button,
+    .primary-button {
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--body-text);
+      font-weight: 600;
+    }
 
-        /* delete day button */
+    .view-button {
+      min-width: 86px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+    }
 
-        .delete-day-button {
-            padding: 7px 12px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: var(--surface-hover);
-            color: var(--text-tertiary);
-            cursor: pointer;
-            font-family: var(--body-text);
-            font-size: 0.68rem;
-            font-weight: 600;
-        }
+    .remove-button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      background: var(--surface-hover);
+      color: var(--text-tertiary);
+      font-size: 1rem;
+    }
 
-        .delete-day-button:hover {
-            background: var(--surface);
-            color: var(--tertiary);
-        }
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      margin-top: 104px;
+      align-items: start;
+    }
 
+    .calculator,
+    .cost-card {
+      padding: 20px;
+    }
 
-        /* place card */
+    .calculator h2,
+    .cost-card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
 
-        .place-card {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 14px;
-            padding: 12px;
-            border: 1px dashed var(--border-hover);
-            border-radius: 10px;
-        }
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
 
-        .place-image {
-            width: 66px;
-            height: 66px;
-            flex-shrink: 0;
-            border-radius: 8px;
-            object-fit: cover;
-        }
+    .form-group {
+      margin-bottom: 12px;
+    }
 
-        .place-info {
-            flex: 1;
-        }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+      font-size: 0.62rem;
+      font-weight: 700;
+    }
 
-        .place-info h3 {
-            color: var(--text-primary);
-            font-family: var(--headings);
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 4px;
-        }
+    .form-group input {
+      width: 100%;
+      height: 35px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: var(--body-text);
+      font-size: 0.72rem;
+    }
 
-        .place-info p {
-            color: var(--text-secondary);
-            font-size: 0.72rem;
-        }
+    .form-group input:focus {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+    }
 
+    .primary-button,
+    .secondary-button {
+      width: 100%;
+      height: 38px;
+      font-size: 0.76rem;
+    }
 
-        /* buttons */
+    .primary-button {
+      margin-top: 8px;
+      border: none;
+      background: var(--tertiary);
+      color: var(--surface);
+    }
 
-        .view-button,
-        .remove-button,
-        .secondary-button,
-        .primary-button,
-        .add-day-button {
-            border-radius: 999px;
-            cursor: pointer;
-            font-family: var(--body-text);
-            font-weight: 600;
-        }
+    .primary-button:hover {
+      background: var(--tertiary-hover);
+    }
 
-        .view-button {
-            min-width: 86px;
-            padding: 10px 16px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--text-secondary);
-            font-size: 0.78rem;
-            text-decoration: none;
-            text-align: center;
-        }
+    .secondary-button {
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+    }
 
-        .view-button:hover {
-            background: var(--surface-hover);
-        }
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 9px 0;
+      border-bottom: 1px dotted var(--text-tertiary);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
 
-        .remove-button {
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--border);
-            background: var(--surface-hover);
-            color: var(--text-tertiary);
-            font-size: 1rem;
-        }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 12px;
+      color: var(--tertiary);
+      font-family: var(--headings);
+      font-size: 1.3rem;
+    }
 
+    .cost-note {
+      margin-top: 15px;
+      color: var(--text-tertiary);
+      font-size: 0.61rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
 
-        /* add day */
+    @media (max-width: 700px) {
+      main {
+        width: min(100% - 28px, 970px);
+        padding-top: 26px;
+      }
 
-        .add-day-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 28px;
-        }
+      .bottom-grid {
+        grid-template-columns: 1fr;
+        margin-top: 55px;
+        gap: 22px;
+      }
 
-        .add-day-button {
-            padding: 11px 22px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--tertiary);
-            font-size: 0.78rem;
-            transition: 0.2s ease;
-        }
+      .day-card {
+        padding: 18px;
+      }
+    }
 
-        .add-day-button:hover {
-            background: var(--surface-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-1px);
-        }
+    @media (max-width: 480px) {
+      .hero {
+        padding: 40px 16px;
+      }
 
+      .place-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
 
-        /* calculator section */
+      .place-info {
+        min-width: calc(100% - 80px);
+      }
 
-        .bottom-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 34px;
-            margin-top: 104px;
-            align-items: start;
-        }
+      .view-button {
+        margin-left: 78px;
+      }
 
-        .calculator,
-        .cost-card {
-            padding: 20px;
-        }
+      .two-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
 
-        .calculator h2,
-        .cost-card h2 {
-            color: var(--text-primary);
-            font-family: var(--headings);
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-
-
-        /* form */
-
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-        }
-
-        .form-group {
-            margin-bottom: 12px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--text-primary);
-            font-size: 0.62rem;
-            font-weight: 700;
-        }
-
-        .form-group input {
-            width: 100%;
-            height: 35px;
-            padding: 0 12px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            outline: none;
-            background: var(--surface);
-            color: var(--text-primary);
-            font-family: var(--body-text);
-            font-size: 0.72rem;
-        }
-
-        .form-group input:focus {
-            border-color: var(--primary);
-            background: var(--surface-hover);
-        }
-
-
-        /* calculator buttons */
-
-        .primary-button,
-        .secondary-button {
-            width: 100%;
-            height: 38px;
-            font-size: 0.76rem;
-        }
-
-        .primary-button {
-            margin-top: 8px;
-            border: none;
-            background: var(--tertiary);
-            color: var(--surface);
-        }
-
-        .primary-button:hover {
-            background: var(--tertiary-hover);
-        }
-
-        .secondary-button {
-            margin-top: 8px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            color: var(--text-secondary);
-        }
-
-
-        /* cost section */
-
-        .cost-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 9px 0;
-            border-bottom: 1px dotted var(--text-tertiary);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-        }
-
-        .total-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding-top: 12px;
-            color: var(--tertiary);
-            font-family: var(--headings);
-            font-size: 1.3rem;
-        }
-
-        .cost-note {
-            margin-top: 15px;
-            color: var(--text-tertiary);
-            font-size: 0.61rem;
-            font-weight: 600;
-            line-height: 1.45;
-        }
+      .calculator h2,
+      .cost-card h2 {
+        font-size: 1.65rem;
+      }
+    }
 
     </style>
 </head>
 
-
 <body>
-
     <header>
         <nav>
-
             <div class="nav">
-
                 <h1 class="logo">
                     <a href="./index.html">
                         Explore <span>Kathmandu</span>
                     </a>
                 </h1>
-
                 <div class="nav-menu-container">
-
                     <div class="nav-menu">
-
                         <a class="navigation-text" href="./index.html">
                             Home
                         </a>
-
                         <a class="navigation-text" href="./explore.html">
                             Explore
                         </a>
-
                         <a class="navigation-text nav-active" href="./itinerary.html">
                             Itinerary
                         </a>
-
                         <a class="navigation-text" href="./guide.html">
                             Travel Tips
                         </a>
-
                         <a class="navigation-text" href="./about.html">
                             About
                         </a>
-
                     </div>
-
                     <div class="config">
-
-                        <a href="./profile.html" class="profile-icon">
-
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="nav-icon">
-
+                        <a href="" class="profile-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="nav-icon">
                                 <path d="M17.925 20.056a6 6 0 0 0-11.851.001" />
                                 <circle cx="12" cy="11" r="4" />
                                 <circle cx="12" cy="12" r="10" />
-
                             </svg>
-
                         </a>
-
-
                         <button class="theme-toggle" aria-label="Toggle theme">
 
-                            <svg class="nav-icon moon-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
+                            <!-- Moon: shown in light mode -->
+                            <svg class="nav-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round">
 
                                 <path
                                     d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
-
                             </svg>
 
-
-                            <svg class="nav-icon sun-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
+                            <!-- Sun: shown in dark mode -->
+                            <svg class="nav-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round">
 
                                 <circle cx="12" cy="12" r="4" />
@@ -432,655 +352,218 @@
                                 <path d="M20 12h2" />
                                 <path d="m6.34 17.66-1.41 1.41" />
                                 <path d="m19.07 4.93-1.41 1.41" />
-
                             </svg>
 
                         </button>
-
                     </div>
-
                 </div>
-
             </div>
-
         </nav>
     </header>
-
-
-    <header class="hero">
-
-        <h1>Build Your Itinerary</h1>
-
-        <p>
-            Add places from any destination page, organized across your travel days.
-            Everything is saved on this device.
-        </p>
-
-    </header>
-
-
-    <main>
-
-        <section class="itinerary" id="itinerary">
-
-            <!-- Day 1 -->
-
-            <article class="day-card" data-day="1">
-
-                <div class="day-header">
-                    <h2>Day 1</h2>
-                </div>
-
-                <div class="place-card">
-
-                    <img
-                        class="place-image"
-                        src="images/destinations/Patan DS.jpg"
-                        alt="Patan Durbar Square">
-
-                    <div class="place-info">
-
-                        <h3>Patan Durbar Square</h3>
-
-                        <p>
-                            Heritage Site • Lalitpur
-                        </p>
-
-                    </div>
-
-                    <a
-                        class="view-button"
-                        href="./index.html">
-
-                        View
-
-                    </a>
-
-                    <button
-                        class="remove-button"
-                        type="button"
-                        aria-label="Remove destination">
-
-                        🗑
-
-                    </button>
-
-                </div>
-
-                <p class="empty-day" hidden>
-                    No places added to Day 1 yet.
-                </p>
-
-            </article>
-
-
-            <!-- Day 2 -->
-
-            <article class="day-card" data-day="2">
-
-                <div class="day-header">
-                    <h2>Day 2</h2>
-                </div>
-
-                <div class="place-card">
-
-                    <img
-                        class="place-image"
-                        src="images/destinations/Boudhanath Stupa.jpg"
-                        alt="Boudhanath Stupa">
-
-                    <div class="place-info">
-
-                        <h3>Boudhanath Stupa</h3>
-
-                        <p>
-                            Heritage Site • Kathmandu
-                        </p>
-
-                    </div>
-
-                    <a
-                        class="view-button"
-                        href="./index.html">
-
-                        View
-
-                    </a>
-
-                    <button
-                        class="remove-button"
-                        type="button"
-                        aria-label="Remove destination">
-
-                        🗑
-
-                    </button>
-
-                </div>
-
-                <p class="empty-day" hidden>
-                    No places added to Day 2 yet.
-                </p>
-
-            </article>
-
-
-            <!-- Day 3 -->
-
-            <article class="day-card" data-day="3">
-
-                <div class="day-header">
-                    <h2>Day 3</h2>
-                </div>
-
-                <div class="place-card">
-
-                    <img
-                        class="place-image"
-                        src="images/destinations/Swayambhunath.jpg"
-                        alt="Swayambhunath Temple">
-
-                    <div class="place-info">
-
-                        <h3>Swayambhunath Temple</h3>
-
-                        <p>
-                            Heritage Site • Kathmandu
-                        </p>
-
-                    </div>
-
-                    <a
-                        class="view-button"
-                        href="./index.html">
-
-                        View
-
-                    </a>
-
-                    <button
-                        class="remove-button"
-                        type="button"
-                        aria-label="Remove destination">
-
-                        🗑
-
-                    </button>
-
-                </div>
-
-                <p class="empty-day" hidden>
-                    No places added to Day 3 yet.
-                </p>
-
-            </article>
-
-        </section>
-
-
-        <!-- Add Day -->
-
-        <div class="add-day-container">
-
-            <button
-                class="add-day-button"
-                id="add-day-button"
-                type="button">
-
-                + Add Day
-
-            </button>
-
+    <body>
+  <header class="hero">
+    <h1>Build Your Itinerary</h1>
+    <p>
+      Add places from any destination page, organized across your travel days.
+      Everything is saved on this device.
+    </p>
+  </header>
+
+  <main>
+    <section class="itinerary">
+      <article class="day-card" data-day="1">
+        <h2>Day 1</h2>
+
+        <div class="place-card">
+          <img
+            class="place-image"
+            src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
+            alt="A traditional vehicle in Kathmandu">
+
+          <div class="place-info">
+            <h3>Patan Durbar Square</h3>
+            <p>Heritage Site • Lalitpur</p>
+          </div>
+
+          <button class="view-button" type="button">View</button>
+          <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
         </div>
 
-
-        <!-- Budget section -->
-
-        <section class="bottom-grid">
-
-            <form class="calculator" id="budget-form">
-
-                <h2>Trip Details</h2>
-
-                <div class="two-columns">
-
-                    <div class="form-group">
-
-                        <label for="days">
-                            Number of days
-                        </label>
-
-                        <input
-                            id="days"
-                            type="number"
-                            min="1"
-                            placeholder="e.g. 3">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="travellers">
-                            Number of travellers
-                        </label>
-
-                        <input
-                            id="travellers"
-                            type="number"
-                            min="1"
-                            placeholder="e.g. 2">
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="accommodation">
-                        Daily accommodation budget (NRs. per room)
-                    </label>
-
-                    <input
-                        id="accommodation"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 2500">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="food">
-                        Daily food budget (NRs. per person)
-                    </label>
-
-                    <input
-                        id="food"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 1000">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="transport">
-                        Daily transport budget (NRs. per person)
-                    </label>
-
-                    <input
-                        id="transport"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 500">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="activities">
-                        Activity budget (NRs. per person, total trip)
-                    </label>
-
-                    <input
-                        id="activities"
-                        type="number"
-                        min="0"
-                        placeholder="e.g. 2500">
-
-                </div>
-
-
-                <button
-                    class="primary-button"
-                    type="submit">
-
-                    Calculate Budget
-
-                </button>
-
-
-                <button
-                    class="secondary-button"
-                    id="reset-button"
-                    type="reset">
-
-                    Reset Calculator
-
-                </button>
-
-            </form>
-
-
-            <!-- Cost card -->
-
-            <aside class="cost-card">
-
-                <h2>Estimated Cost</h2>
-
-                <div class="cost-row">
-
-                    <span>Accommodation</span>
-
-                    <span id="accommodation-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="cost-row">
-
-                    <span>Food</span>
-
-                    <span id="food-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="cost-row">
-
-                    <span>Transport</span>
-
-                    <span id="transport-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="cost-row">
-
-                    <span>Activities</span>
-
-                    <span id="activities-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <div class="total-row">
-
-                    <span>Grand Total</span>
-
-                    <span id="grand-total">
-                        NRs. 0
-                    </span>
-
-                </div>
-
-
-                <p class="cost-note">
-
-                    These figures are estimates and can vary with season,
-                    exchange rates, and travel style. Accommodation is
-                    calculated per room per night; food, transport, and
-                    activities are calculated per traveler.
-
-                </p>
-
-            </aside>
-
-        </section>
-
-    </main>
-
-
-    <script>
-
-        // budget calculator
-
-        const form =
-            document.querySelector("#budget-form");
-
-        const formatNPR = (amount) =>
-            `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
-
-
-        form.addEventListener("submit", (event) => {
-
-            event.preventDefault();
-
-            const days =
-                Number(document.querySelector("#days").value) || 0;
-
-            const travellers =
-                Number(document.querySelector("#travellers").value) || 0;
-
-            const accommodation =
-                Number(document.querySelector("#accommodation").value) || 0;
-
-            const food =
-                Number(document.querySelector("#food").value) || 0;
-
-            const transport =
-                Number(document.querySelector("#transport").value) || 0;
-
-            const activities =
-                Number(document.querySelector("#activities").value) || 0;
-
-
-            const accommodationTotal =
-                days * accommodation;
-
-            const foodTotal =
-                days * travellers * food;
-
-            const transportTotal =
-                days * travellers * transport;
-
-            const activitiesTotal =
-                travellers * activities;
-
-            const grandTotal =
-                accommodationTotal +
-                foodTotal +
-                transportTotal +
-                activitiesTotal;
-
-
-            document.querySelector("#accommodation-total").textContent =
-                formatNPR(accommodationTotal);
-
-            document.querySelector("#food-total").textContent =
-                formatNPR(foodTotal);
-
-            document.querySelector("#transport-total").textContent =
-                formatNPR(transportTotal);
-
-            document.querySelector("#activities-total").textContent =
-                formatNPR(activitiesTotal);
-
-            document.querySelector("#grand-total").textContent =
-                formatNPR(grandTotal);
-
-        });
-
-
-        // reset calculator
-
-        document.querySelector("#reset-button")
-            .addEventListener("click", () => {
-
-                setTimeout(() => {
-
-                    document.querySelector("#accommodation-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#food-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#transport-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#activities-total")
-                        .textContent = "NRs. 0";
-
-                    document.querySelector("#grand-total")
-                        .textContent = "NRs. 0";
-
-                }, 0);
-
-            });
-
-
-        // remove destination
-
-        function setupRemoveButton(button) {
-
-            button.addEventListener("click", () => {
-
-                const placeCard =
-                    button.closest(".place-card");
-
-                const dayCard =
-                    button.closest(".day-card");
-
-                if (!placeCard || !dayCard) return;
-
-                placeCard.remove();
-
-
-                const remaining =
-                    dayCard.querySelectorAll(".place-card").length;
-
-
-                if (remaining === 0) {
-
-                    const emptyMessage =
-                        dayCard.querySelector(".empty-day");
-
-                    if (emptyMessage) {
-                        emptyMessage.hidden = false;
-                    }
-
-                }
-
-            });
-
+        <p class="empty-day" hidden>No places added to Day 1 yet.</p>
+      </article>
+
+      <article class="day-card" data-day="2">
+        <h2>Day 2</h2>
+
+        <div class="place-card">
+          <img
+            class="place-image"
+            src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
+            alt="Boudhanath Stupa in Kathmandu">
+
+          <div class="place-info">
+            <h3>Boudhanath Stupa</h3>
+            <p>Heritage Site • Kathmandu</p>
+          </div>
+
+          <button class="view-button" type="button">View</button>
+          <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
+        </div>
+
+        <p class="empty-day" hidden>No places added to Day 2 yet.</p>
+      </article>
+
+      <article class="day-card" data-day="3">
+        <h2>Day 3</h2>
+
+        <div class="place-card">
+          <img
+            class="place-image"
+            src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=160&q=80"
+            alt="Swayambhunath Temple in Kathmandu">
+
+          <div class="place-info">
+            <h3>Swayambhunath Temple</h3>
+            <p>Heritage Site • Kathmandu</p>
+          </div>
+
+          <button class="view-button" type="button">View</button>
+          <button class="remove-button" type="button" aria-label="Remove destination">🗑</button>
+        </div>
+
+        <p class="empty-day" hidden>No places added to Day 3 yet.</p>
+      </article>
+    </section>
+    <section class="bottom-grid">
+      <form class="calculator" id="budget-form">
+        <h2>Trip Details</h2>
+
+        <div class="two-columns">
+          <div class="form-group">
+            <label for="days">Number of days</label>
+            <input id="days" type="number" min="1" placeholder="e.g. 3">
+          </div>
+
+          <div class="form-group">
+            <label for="travellers">Number of travellers</label>
+            <input id="travellers" type="number" min="1" placeholder="e.g. 2">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="accommodation">Daily accommodation budget (NRs. per room)</label>
+          <input id="accommodation" type="number" min="0" placeholder="e.g. 2500">
+        </div>
+
+        <div class="form-group">
+          <label for="food">Daily food budget (NRs. per person)</label>
+          <input id="food" type="number" min="0" placeholder="e.g. 1000">
+        </div>
+
+        <div class="form-group">
+          <label for="transport">Daily transport budget (NRs. per person)</label>
+          <input id="transport" type="number" min="0" placeholder="e.g. 500">
+        </div>
+
+        <div class="form-group">
+          <label for="activities">Activity budget (NRs. per person, total trip)</label>
+          <input id="activities" type="number" min="0" placeholder="e.g. 2500">
+        </div>
+
+        <button class="primary-button" type="submit">Calculate Budget</button>
+        <button class="secondary-button" id="reset-button" type="reset">Reset Calculator</button>
+      </form>
+      <aside class="cost-card">
+        <h2>Estimated Cost</h2>
+
+        <div class="cost-row">
+          <span>Accommodation</span>
+          <span id="accommodation-total">NRs. 0</span>
+        </div>
+
+        <div class="cost-row">
+          <span>Food</span>
+          <span id="food-total">NRs. 0</span>
+        </div>
+
+        <div class="cost-row">
+          <span>Transport</span>
+          <span id="transport-total">NRs. 0</span>
+        </div>
+
+        <div class="cost-row">
+          <span>Activities</span>
+          <span id="activities-total">NRs. 0</span>
+        </div>
+
+        <div class="total-row">
+          <span>Grand Total</span>
+          <span id="grand-total">NRs. 0</span>
+        </div>
+
+        <p class="cost-note">
+          These figures are estimates and can vary with season, exchange rates,
+          and travel style. Accommodation is calculated per room per night; food,
+          transport, and activities are calculated per traveler.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#budget-form");
+
+    const formatNPR = (amount) =>
+      `NRs. ${Math.round(amount).toLocaleString("en-US")}`;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const days = Number(document.querySelector("#days").value) || 0;
+      const travellers = Number(document.querySelector("#travellers").value) || 0;
+      const accommodation = Number(document.querySelector("#accommodation").value) || 0;
+      const food = Number(document.querySelector("#food").value) || 0;
+      const transport = Number(document.querySelector("#transport").value) || 0;
+      const activities = Number(document.querySelector("#activities").value) || 0;
+
+      const accommodationTotal = days * accommodation;
+      const foodTotal = days * travellers * food;
+      const transportTotal = days * travellers * transport;
+      const activitiesTotal = travellers * activities;
+      const grandTotal = accommodationTotal + foodTotal + transportTotal + activitiesTotal;
+
+      document.querySelector("#accommodation-total").textContent = formatNPR(accommodationTotal);
+      document.querySelector("#food-total").textContent = formatNPR(foodTotal);
+      document.querySelector("#transport-total").textContent = formatNPR(transportTotal);
+      document.querySelector("#activities-total").textContent = formatNPR(activitiesTotal);
+      document.querySelector("#grand-total").textContent = formatNPR(grandTotal);
+    });
+
+    document.querySelector("#reset-button").addEventListener("click", () => {
+      setTimeout(() => form.dispatchEvent(new Event("submit")), 0);
+    });
+
+    // Make each destination's remove (trash) button actually remove it
+    document.querySelectorAll(".remove-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const placeCard = button.closest(".place-card");
+        const dayCard = button.closest(".day-card");
+        if (!placeCard || !dayCard) return;
+
+        placeCard.remove();
+
+        // If no place-cards remain in this day, show the "empty day" message
+        const remaining = dayCard.querySelectorAll(".place-card").length;
+        if (remaining === 0) {
+          const emptyMessage = dayCard.querySelector(".empty-day");
+          if (emptyMessage) {
+            emptyMessage.hidden = false;
+          }
         }
-
-
-        document
-            .querySelectorAll(".remove-button")
-            .forEach(setupRemoveButton);
-
-
-        // add day
-
-        const itinerary =
-            document.querySelector("#itinerary");
-
-        const addDayButton =
-            document.querySelector("#add-day-button");
-
-
-        function getNextDayNumber() {
-
-            const days =
-                itinerary.querySelectorAll(".day-card");
-
-            let highestDay = 0;
-
-            days.forEach((day) => {
-
-                const dayNumber =
-                    Number(day.dataset.day);
-
-                if (dayNumber > highestDay) {
-                    highestDay = dayNumber;
-                }
-
-            });
-
-            return highestDay + 1;
-
-        }
-
-
-        function setupDeleteDayButton(button, dayCard) {
-
-            button.addEventListener("click", () => {
-
-                dayCard.remove();
-
-            });
-
-        }
-
-
-        addDayButton.addEventListener("click", () => {
-
-            const dayNumber =
-                getNextDayNumber();
-
-
-            const newDay =
-                document.createElement("article");
-
-
-            newDay.className =
-                "day-card";
-
-
-            newDay.dataset.day =
-                dayNumber;
-
-
-            newDay.innerHTML = `
-
-                <div class="day-header">
-
-                    <h2>
-                        Day ${dayNumber}
-                    </h2>
-
-                    <button
-                        class="delete-day-button"
-                        type="button">
-
-                        Delete Day
-
-                    </button>
-
-                </div>
-
-                <p class="empty-day">
-
-                    No places added to Day ${dayNumber} yet.
-
-                </p>
-
-            `;
-
-
-            itinerary.appendChild(newDay);
-
-
-            const deleteButton =
-                newDay.querySelector(".delete-day-button");
-
-
-            setupDeleteDayButton(
-                deleteButton,
-                newDay
-            );
-
-        });
-
-    </script>
-
-
+      });
+    });
+  </script>
     <script src="js/script.js"></script>
-
 </body>
 
 </html>
