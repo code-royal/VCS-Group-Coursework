@@ -662,3 +662,8 @@ footer {
 .destination-details-ratings {
     color: var(--secondary-hover);
 }
+
+.add-to-favorites.is-favourited {
+    background-color: var(--tertiary);
+    color: #ffffff;
+}

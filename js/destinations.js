@@ -150,7 +150,7 @@ const destinations = [
         location: "New Road, Kathmandu",
         rating: 4,
         description: "Busy shopping center surrounded by Kathmandu's commercial district.",
-        image: "images/destinations/",
+        image: "images/destinations/Ranjana Trade Center.webp",
         featured: false,
         map_location: "https://maps.app.goo.gl/14vQX2FY1jaTXhGB6"
     },
@@ -318,7 +318,7 @@ const destinations = [
         location: "Nagarjun",
         rating: 4,
         description: "Forested hillside with peaceful hiking trails.",
-        image: "images/destinations/",
+        image: "images/destinations/Raniban.webp",
         featured: false,
         map_location: "https://www.google.com/maps/search/raniban+kathmandu/@27.7336225,85.2759777,2821m/data=!3m2!1e3!4b1?entry=ttu&g_ep=EgoyMDI2MDgxMC4wIKXMDSoASAFQAw%3D%3D"
     },
@@ -822,23 +822,34 @@ function createStars(rating) {
     return stars;
 }
 
+function isFavourited(id) {
+    const favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
+    return favorites.some(fav => fav.id === id);
+}
+
 function createDestinationCard(destination) {
     const card = document.createElement("div");
+    const favourited = isFavourited(destination.id);
+
+    const heartSvg = favourited
+        ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="currentColor" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+       </svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+       </svg>`;
     card.classList.add("destination-card");
     card.innerHTML = `
         <div class="destination-img">
             <img src="${destination.image}" alt="${destination.name}">
             <div class="destination-settings">
                 <div class="destination-category category-text">${destination.category}</div>
-                <div class="add-to-favorites">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-heart-plus-icon lucide-heart-plus">
-                        <path
-                        d="m14.479 19.374-.971.939a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5a5.2 5.2 0 0 1-.219 1.49" />
-                        <path d="M15 15h6" />
-                        <path d="M18 12v6" />
-                    </svg>
+                <div class="add-to-favorites ${favourited ? "is-favourited" : ""}">
+                    ${heartSvg}
                 </div>
             </div>
         </div>
@@ -861,18 +872,23 @@ function createDestinationCard(destination) {
 
             if (!requireLogin("add to favorites")) return;
 
-            // Get current favorites or start a new array
             let favorites = JSON.parse(sessionStorage.getItem("favorites") || "[]");
-
-            // Check if already saved
             const alreadySaved = favorites.some(fav => fav.id === destination.id);
 
             if (alreadySaved) {
-                alert(`${destination.name} is already in your favorites.`);
+                // Optional: allow un-favourite from the card
+                favorites = favorites.filter(fav => fav.id !== destination.id);
+                sessionStorage.setItem("favorites", JSON.stringify(favorites));
+                favBtn.classList.remove("is-favourited");
+                favBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>`;
                 return;
             }
 
-            // Save only the useful data
             favorites.push({
                 id: destination.id,
                 name: destination.name,
@@ -881,9 +897,16 @@ function createDestinationCard(destination) {
                 image: destination.image,
                 rating: destination.rating
             });
-
             sessionStorage.setItem("favorites", JSON.stringify(favorites));
-            alert(`${destination.name} added to favorites!`);
+
+            // Fill the heart
+            favBtn.classList.add("is-favourited");
+            favBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="currentColor" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>`;
         });
     }
 
